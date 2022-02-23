@@ -1,0 +1,38 @@
+baseURL = "https://simonevellei.link/"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "Simone Vellei"
+theme = "hallo"
+disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
+
+[Author]
+    name = "Simone Vellei"
+
+[params]
+
+    [[params.links]]
+        iconset = "fas"
+        icon = "envelope"
+        title = "E-mail"
+        url = "mailto:info@simonevellei.com"
+
+    [[params.links]]
+        icon = "github"
+        title = "Github"
+        url = "https://github.com/henomis"
+
+    [[params.links]]
+        icon = "linkedin"
+        title = "Linkedin"
+        url = "https://linkedin.com/in/simonevellei"
+
+    [[params.links]]
+        icon = "twitter"
+        title = "Twitter"
+        url = "https://twitter.com/simonevellei"
+      
+     [params.colors]
+        background = "#1e1e1e"
+        foreground = "#eefbfb"
+        hover = "#007cc7"
+        link = "#4dbbff"

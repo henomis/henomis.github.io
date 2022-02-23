@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get -qq update && apt-get -qq install curl
+      - curl -s -L  https://github.com/gohugoio/hugo/releases/download/v0.92.2/hugo_0.92.2_Linux-64bit.deb -o hugo.deb
+      - dpkg -i hugo.deb
+    finally:
+      - echo Installation done
+  pre_build:
+    commands:
+      - aws s3 rm s3://simonevellei.link --recursive
+  build:
+    commands:
+      - echo Entered the build phase ...
+      - echo Build started on `date`
+      - cd $CODEBUILD_SRC_DIR
+      - rm -f buildspec.yml && rm -f .git && rm -f README.md
+      - cd home
+      - hugo --quiet
+      - aws s3 cp $CODEBUILD_SRC_DIR/home/public/ s3://simonevellei.link --recursive
+    finally:
+      - echo Building the HTML files finished
+
