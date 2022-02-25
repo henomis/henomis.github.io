@@ -22,10 +22,10 @@ jobs:
           extended: true
 
       - name: Build home
-        run: cd home && hugo --minify -d ../output
+        run: hugo --minify -s home -d ../output
 
       - name: Build blog
-        run: cd blog && hugo --minify -d ../output/blog
+        run: hugo --minify -s blog -d ../output/blog
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
