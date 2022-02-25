@@ -25,7 +25,7 @@ jobs:
         run: cd home && hugo --minify -d ../output
 
       - name: Build blog
-        run: cd ../blog && hugo --minify -d ../output/blog
+        run: cd blog && hugo --minify -d ../output/blog
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
