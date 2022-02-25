@@ -21,12 +21,11 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
-        run: |
-	 cd home
-	 hugo --minify -d ../output
-	 cd ../blog
-	 hugo --minify -d ../output/blog
+      - name: Build home
+        run: cd home && hugo --minify -d ../output
+
+      - name: Build blog
+        run: cd ../blog && hugo --minify -d ../output/blog
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
