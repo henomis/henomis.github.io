@@ -2,10 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.simonevellei.link/blog/categories/</loc>
+    <loc>https://www.simonevellei.link/blog/tags/covid/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/tags/e-commerce/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/tags/food/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/posts/maometto-la-montagna-e-il-ristorante/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/posts/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.simonevellei.link/blog/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.simonevellei.link/blog/tags/</loc>
+    <lastmod>2020-06-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/posts/la-societ%C3%A0-reagisce-al-contagio/</loc>
+    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/tags/lavoro/</loc>
+    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/tags/scuola/</loc>
+    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/tags/societ%C3%A0/</loc>
+    <lastmod>2020-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/posts/il-2020-la-decade-del-lavoro-da-remoto/</loc>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/tags/smart-working/</loc>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.simonevellei.link/blog/categories/</loc>
   </url>
 </urlset>
