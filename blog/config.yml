@@ -1,5 +1,5 @@
 baseURL: "https://www.simonevellei.link/blog"
-title: ExampleSite
+title: Simone Vellei Blog
 paginate: 5
 theme: PaperMod
 
@@ -16,12 +16,12 @@ minify:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    title: ExampleSite
-    description: "ExampleSite description"
+    title: Simone Vellei Blog
+    description: "Simone Vellei Blog"
     keywords: [Blog, Portfolio, PaperMod]
-    author: Me
+    author: Simone Vellei
     # author: ["Me", "You"] # multiple authors
-    images: ["<link or path of image for opengraph, twitter-cards>"]
+    # images: ["static/images/"]
     DateFormat: "January 2, 2006"
     defaultTheme: auto # dark, light
     disableThemeToggle: false
@@ -50,13 +50,13 @@ params:
 
     label:
         text: "Home"
-        icon: /apple-touch-icon.png
+        icon: /blog/apple-touch-icon.png
         iconHeight: 35
 
     # profile-mode
     profileMode:
         enabled: false # needs to be explicitly set
-        title: ExampleSite
+        title: Simone Vellei Blog
         subtitle: "This is subtitle"
         imageUrl: "<img location>"
         imageWidth: 120
@@ -69,9 +69,9 @@ params:
               url: tags
 
     # home-info mode
-    homeInfoParams:
-        Title: "Hi there \U0001F44B"
-        Content: Welcome to my blog
+    #homeInfoParams:
+    #    Title: "Hi there \U0001F44B"
+    #    Content: Welcome to my blog
 
     socialIcons:
         - name: twitter
@@ -81,24 +81,24 @@ params:
         - name: github
           url: "https://github.com/"
 
-    analytics:
-        google:
-            SiteVerificationTag: "XYZabc"
-        bing:
-            SiteVerificationTag: "XYZabc"
-        yandex:
-            SiteVerificationTag: "XYZabc"
-
+#    analytics:
+#        google:
+#            SiteVerificationTag: "XYZabc"
+#        bing:
+#            SiteVerificationTag: "XYZabc"
+#        yandex:
+#            SiteVerificationTag: "XYZabc"
+#
     cover:
         hidden: false # hide everywhere but not in structured data
         hiddenInList: false # hide on list pages and home
         hiddenInSingle: false # hide on single page
 
-    editPost:
-        URL: "https://github.com/henomis/henomis.github.io/content"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
-
+#    editPost:
+#        URL: "https://github.com/henomis/henomis.github.io/content"
+#        Text: "Suggest Changes" # edit text
+#        appendFilePath: true # to append file path to Edit link
+#
     # for search
     # https://fusejs.io/api/options.html
     fuseOpts:
@@ -111,17 +111,17 @@ params:
         keys: ["title", "permalink", "summary", "content"]
 menu:
     main:
-        - identifier: categories
-          name: categories
-          url: /categories/
-          weight: 10
+#        - identifier: categories
+#          name: categories
+#          url: /categories/
+#          weight: 10
         - identifier: tags
           name: tags
           url: /tags/
           weight: 20
-        - identifier: example
-          name: example.org
-          url: https://example.org
+        - identifier: Simone Vellei
+          name: Simone Vellei
+          url: https://simonevellei.link
           weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
