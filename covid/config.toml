@@ -1,0 +1,50 @@
+baseURL = "https://www.simonevellei.link/covid"
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme="dashboard"
+[menu]
+  [[menu.main]]
+    name = "Nuovi positivi"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/nuovi_positivi"
+    weight = 1
+  [[menu.main]]
+    name = "Indice RT"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/indice_rt"
+    weight = 2
+  [[menu.main]]
+    name = "Incidenza"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/incidenza"
+    weight = 3
+  [[menu.main]]
+    name = "Positivi/Tamponi"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/positivi_tamponi"
+    weight = 4
+  [[menu.main]]
+    name = "Decessi"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/decessi"
+    weight = 5
+  [[menu.main]]
+    name = "Decessi/TI"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/decessi_ti"
+    weight = 6
+  [[menu.main]]
+    name = "Terapie Intensive"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/terapie_intensive"
+    weight = 7
+  [[menu.main]]
+    name = "TI/Positivi"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/ti_positivi"
+    weight = 8
+  [[menu.main]]
+    name = "Tasso mortalità"
+    pre = "fas fa-fw fa-chart-area"
+    url = "/tasso_decessi"
+    weight = 9

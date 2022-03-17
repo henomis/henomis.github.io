@@ -1,0 +1,54 @@
+{{ define "main" }}
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">{{ .Title }}</h1>
+<p class="mb-4">{{ .Content }}</p>
+
+<!-- Content Row -->
+<div class="row">
+
+    <div class="col-xl-12 col-lg-12">
+
+        <!-- Area Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <div class="col-xl-4 col-lg-4">
+                    <form>
+                        <div class="form-group row">
+                          <label for="staticEmail" class="col-sm-2 col-form-label">Regione:</label>
+                            <div class="col-sm-2">
+                                <select class="form-select" aria-label="Default select example" id="country" onChange="onSelectChange({{ .Params.chart }})" >
+                                {{ range .Params.regions }}
+                                {{ $option := printf "<option value=\"%s\">" . | safeHTML }}
+                                {{ $option2 := printf "%s</option> " . | safeHTML }}
+                                {{ $option }}
+                                {{ $option2 }}
+                                {{ end }}
+                                </select>
+                            </div>
+                            <label for="customRange" class="col-sm-2 col-form-label">Zoom:</label>
+                            <input type="range" class="col-sm-6 form-range" min="0" max="5" step="7" id="customRange" onChange="onRangeChange()">
+                        </div>
+                      </form>    
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="myAreaChart"></canvas>
+                </div>
+                <hr>
+                Styling for the area chart can be found in the
+                <code>/js/demo/chart-area-demo.js</code> file.
+            </div>
+        </div>
+
+</div>
+<!-- Page level custom scripts -->
+<!-- Page level plugins -->
+<script src="/js/Chart.min.js"></script>
+<script src="/js/change.js"></script>
+
+
+<script>onSelectChange({{ .Params.chart }})</script>
+
+
+{{ end }}
