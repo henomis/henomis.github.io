@@ -1,7 +1,7 @@
 ---
 title: "Pranzo in Smartworking"
 date: 2022-02-08
-tags: ["smartwoking","work","agile"]
+tags: ["smartworking","work","agile"]
 showToc: true
 TocOpen: false
 draft: false

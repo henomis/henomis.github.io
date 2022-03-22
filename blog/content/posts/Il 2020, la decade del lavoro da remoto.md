@@ -1,7 +1,7 @@
 ---
 title: "Il 2020, La decade del lavoro da remoto"
 date: 2020-01-04
-tags: ["smart working", "lavoro"]
+tags: ["smartworking", "lavoro"]
 showToc: true
 TocOpen: false
 draft: false
