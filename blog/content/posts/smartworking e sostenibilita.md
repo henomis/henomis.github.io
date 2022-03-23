@@ -22,7 +22,7 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: false # only hide on current single page
 ---
-Alla corte di Federico da Montefeltro, nel pieno del Rinascimento italiano, appariva così la città ideale, specchio della cultura e della società del tempo. Oggi, nell'epoca dello smartwoking, mi sento di riflettere su due punti in merito:
+Alla corte di Federico da Montefeltro, nel pieno del Rinascimento italiano, appariva così la città ideale, specchio della cultura e della società del tempo. Oggi, nell'epoca dello smartwoking, mi sento di riflettere su due punti in merito: 
 
 🏠 Da tempo assistiamo al fenomeno di spopolamento dei piccoli borghi. Veri e propri gioielli italiani abbandonati a favore delle grandi città, dove si concentrano lavoro, servizi e relazioni. Del resto, in questi piccoli paesi spesso abitati esclusivamente da persone anziane legate al territorio, la richiesta di servizi e modernizzazione è quasi nulla. Questo circolo vizioso fra domanda e offerta, però, può essere rotto da un cambio di paradigma. Lo smartwoking permette di bilanciare in modo equilibrato vita e lavoro, astraendosi da spazio e tempo. Il mito del "abitare vicino al lavoro" presto svanirà e molte persone abiteranno dove più amano, favorendo anche la ripopolazione dei piccoli borghi. 
 
