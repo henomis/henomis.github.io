@@ -1,4 +1,4 @@
-baseURL: "https://www.simonevellei.com/blog"
+baseURL: "https://simonevellei.com/blog"
 title: Simone Vellei Blog
 paginate: 5
 theme: PaperMod
