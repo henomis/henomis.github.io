@@ -1,4 +1,4 @@
-baseURL: "https://www.simonevellei.link/blog"
+baseURL: "https://www.simonevellei.com/blog"
 title: Simone Vellei Blog
 paginate: 5
 theme: PaperMod
@@ -121,7 +121,7 @@ menu:
           weight: 20
         - identifier: Simone Vellei
           name: Simone Vellei
-          url: https://simonevellei.link
+          url: https://simonevellei.com
           weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true

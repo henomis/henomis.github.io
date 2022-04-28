@@ -19,7 +19,7 @@ build-certs:
             -v ${PWD}/certs/etc/letsencrypt:/etc/letsencrypt:rw \
             -v ${PWD}/certs/var/lib/letsencrypt:/var/lib/letsencrypt:rw \
 			-v ${PWD}/certs/var/log/letsencrypt:/var/log/letsencrypt:rw \
-            certbot/certbot certonly --manual --agree-tos --preferred-challenges dns  -d *.simonevellei.link -d simonevellei.link
+            certbot/certbot certonly --manual --agree-tos --preferred-challenges dns  -d *.simonevellei.com -d simonevellei.com
 
 clean-certs:
 	rm -fr ${PWD}/certs
