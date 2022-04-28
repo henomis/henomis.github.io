@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://www.simonevellei.com/blog/sitemap.xml
+Sitemap: https://simonevellei.com/blog/sitemap.xml
