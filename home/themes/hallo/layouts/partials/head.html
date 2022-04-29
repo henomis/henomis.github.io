@@ -6,7 +6,11 @@
     {{- else if .Description }}
         <meta name="description" content="{{ .Description }}">
     {{- end }}
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script>
+	    if (location.protocol !== 'https:') {
+		    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+	    }
+    </script>
 
     <title>
         {{- if .IsHome }}
