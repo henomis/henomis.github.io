@@ -6,6 +6,7 @@
     {{- else if .Description }}
         <meta name="description" content="{{ .Description }}">
     {{- end }}
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <title>
         {{- if .IsHome }}
