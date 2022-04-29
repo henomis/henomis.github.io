@@ -32,6 +32,11 @@
 {{- if .Site.Params.analytics.bing.SiteVerificationTag }}
 <meta name="msvalidate.01" content="{{ .Site.Params.analytics.bing.SiteVerificationTag }}" />
 {{- end }}
+    <script>
+	    if (location.protocol !== 'https:') {
+		    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+	    }
+    </script>
 
 {{- /* Styles */}}
 {{- $theme_vars := (resources.Get "css/core/theme-vars.css") }}
