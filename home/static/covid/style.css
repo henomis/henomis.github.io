@@ -1,0 +1,246 @@
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+line-height: 1.42em;
+color:#A7A1AE;
+background-color:#1F2739;
+}
+
+h1 {
+font-size:3em; 
+font-weight: 300;
+line-height:1em;
+text-align: center;
+color: #4DC3FA;
+}
+
+h2 {
+font-size:1em; 
+font-weight: 300;
+text-align: center;
+display: block;
+line-height:1em;
+padding-bottom: 2em;
+color: #FB667A;
+}
+
+h2 a {
+font-weight: 700;
+text-transform: uppercase;
+color: #FB667A;
+text-decoration: none;
+}
+
+.blue { color: #185875; }
+.yellow { color: #FFF842; }
+
+.container th h1 {
+  font-weight: bold;
+  font-size: 1em;
+text-align: left;
+color: #185875;
+}
+
+.container td {
+  font-weight: normal;
+  font-size: 1em;
+-webkit-box-shadow: 0 2px 2px -2px #0E1119;
+   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+		box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container {
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+display: table;
+padding: 0 0 8em 0;
+}
+
+.container td, .container th {
+  padding-bottom: 2%;
+  padding-top: 2%;
+padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+  background-color: #323C50;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+  background-color: #2C3446;
+}
+
+.container th {
+  background-color: #1F2739;
+}
+
+.container td:first-child { color: #FB667A;  font-weight: bold;}
+
+@media (max-width: 800px) {
+.container td:nth-child(4),
+.container th:nth-child(4) { display: none; }
+}
+
+.css-button-rounded {
+	font-weight: bold;
+background: #2fc974;
+color: #fff;
+//display: block;
+padding: 10px 10px;
+text-align: center;
+text-decoration: none;
+//width: 350px;
+border-radius: 8px; // the rounded corners are here	
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+-ms-border-radius: 8px;
+-o-border-radius: 8px;
+
+}
+
+.css-button-rounded2 {
+	background: orange;
+	font-weight: bold;
+	color: #fff;
+	//display: block;
+	padding: 10px 10px;
+	text-align: center;
+	text-decoration: none;
+	//width: 350px;
+	border-radius: 8px; // the rounded corners are here	
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	
+	}
+  
+  .note {
+	color: #f0f0f0;
+	  text-align: left;
+	  overflow: hidden;
+	  width: 80%;
+	  margin: 0 auto;
+	display: table;
+	padding: 0 0 8em 0;
+	}
+	
+	.note a{
+	color: #FB667A;
+	text-decoration: none;
+	}
+
+	.circle {		
+		/*border-radius: 50%;*/
+		/*width: 40px;*/
+		font-size: 14px;
+		font-weight: bold;
+		padding-left: 10px;
+		padding-right: 10px;
+		height: 40px;
+		display: inline-block;
+		color: black;
+	}
+	.encircle {  
+		background-color: #1F2739;
+		width:60px;
+		height:60px;
+		border-radius:60px;
+		border: solid 2px white;
+		position: fixed;
+		top: 30px;
+		left: 30px;
+	  }
+	  
+	  .arrow {
+		margin:0 auto;
+		margin-top: 13px;
+		width: 30px;
+		height: 30px;
+		transform: rotate(90deg);
+		background-image:     url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+		background-size: contain;
+	  }
+	  
+	  .bounce {
+		-webkit-animation:linear infinite alternate;
+		  -webkit-animation-name: run;
+		  -webkit-animation-duration: 1s;
+	  
+	  }
+	  
+	  @-webkit-keyframes run {
+		  0% { left: 30px;}
+		  50%{ left : 10px;}
+		  100%{ left: 30px;}
+	  }
+	  .fa {		
+		font-size: 30px !important;
+		width: 50px;
+		text-align: center;
+		text-decoration: none;
+		margin: 5px 2px;
+		color: white;	  
+	  }	  
+	  .fa:hover {
+		  opacity: 0.7;
+	  }
+	  .socialbar {
+			  margin: 0px;
+			  padding: 0px;
+			  margin-top: -30px;
+	  }
+	  .toggle {
+        visibility: hidden;
+}
+	  #toggle {
+        visibility: hidden;
+        opacity: 0;
+        position: relative;
+        z-index: -1;
+}
+#toggle {
+	visibility: hidden;
+	opacity: 0;
+	position: relative;
+	z-index: -1;
+}
+
+#toggle:checked ~ dialog {
+	display: none;
+}
+
+label {
+	background-color: #FB667A;
+	color: white;
+	padding: .5em 1em;
+	border-radius: 4px;
+}
+
+@keyframes appear {
+	0% {
+			opacity: 0;
+			transform: translateY(-10px);
+	}
+}
+
+dialog {
+	animation: appear 350ms ease-in 1;
+	max-width: 500px;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	border-color: #FB667A;
+	background-color: #185875;
+	color: white;
+	font-size: 1em;
+	top: 50%;
+}
