@@ -1,7 +1,7 @@
 ---
-title: "L'illusione Di Gantt"
+title: "L'illusione di Gantt"
 date: 2022-05-11T08:58:12+02:00
-tags: ["first"]
+tags: ["agile","project"]
 showToc: true
 TocOpen: false
 draft: false
