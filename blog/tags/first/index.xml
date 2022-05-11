@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>first on Simone Vellei Blog</title>
+    <link>https://simonevellei.com/blog/tags/first/</link>
+    <description>Recent content in first on Simone Vellei Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 11 May 2022 08:58:12 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>L&#39;illusione Di Gantt</title>
+      <link>https://simonevellei.com/blog/posts/lillusione-di-gantt/</link>
+      <pubDate>Wed, 11 May 2022 08:58:12 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/posts/lillusione-di-gantt/</guid>
+      <description>Se vi chiedessero “Quanto tempo si impiega per arrivare a Amsterdam partendo da Roma viaggiando 🚶 a piedi?” sapreste fornire una stima accurata? Probabilmente potreste dare una sommaria valutazione, ma nella realtà, anche dopo qualche giorno di cammino, non sareste in grado di fornire dettagli esatti.
+Nella gestione di un progetto spesso, il concetto espresso qui sopra, viene cristallizzato all’interno di una roadmap. Ed ecco che tempo, risorse e quantità di “cose da fare” finiscono inesorabilmente all’interno del famoso diagramma di Gantt.</description>
+    </item>
+    
+  </channel>
+</rss>
