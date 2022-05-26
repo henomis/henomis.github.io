@@ -93,6 +93,10 @@
     margin-bottom: var(--content-gap);
 }
 
+.post-content p {
+    text-align: justify;
+}
+
 .post-content ol,
 .post-content ul {
     padding-inline-start: 20px;
