@@ -2,19 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/tags/ai/</loc>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/devel/</loc>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/go/</loc>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/linear-regression/</loc>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/linear-regression-in-go/</loc>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2022-05-26T16:22:35+02:00</lastmod>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2022-05-26T16:22:35+02:00</lastmod>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/smartworking/</loc>
     <lastmod>2022-05-26T16:22:35+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/smartworking-non-%C3%A8-welfare/</loc>
-    <lastmod>2022-05-26T16:22:35+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2022-05-26T16:22:35+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/welfare/</loc>
@@ -36,9 +51,6 @@
     <lastmod>2022-04-28T17:45:43+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/data/</loc>
-    <lastmod>2022-04-28T17:45:43+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/go/</loc>
     <lastmod>2022-04-28T17:45:43+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/interruzione-analisi-dati-covid/</loc>

@@ -5,7 +5,43 @@
     <link>https://simonevellei.com/blog/tags/</link>
     <description>Recent content in Tags on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 26 May 2022 16:22:35 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jun 2022 00:28:41 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ai</title>
+      <link>https://simonevellei.com/blog/tags/ai/</link>
+      <pubDate>Sun, 05 Jun 2022 00:28:41 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devel</title>
+      <link>https://simonevellei.com/blog/tags/devel/</link>
+      <pubDate>Sun, 05 Jun 2022 00:28:41 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/devel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://simonevellei.com/blog/tags/go/</link>
+      <pubDate>Sun, 05 Jun 2022 00:28:41 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linear regression</title>
+      <link>https://simonevellei.com/blog/tags/linear-regression/</link>
+      <pubDate>Sun, 05 Jun 2022 00:28:41 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>smartworking</title>
       <link>https://simonevellei.com/blog/tags/smartworking/</link>
@@ -66,15 +102,6 @@
       <pubDate>Thu, 28 Apr 2022 17:45:43 +0200</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://simonevellei.com/blog/tags/go/</link>
-      <pubDate>Thu, 28 Apr 2022 17:45:43 +0200</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/go/</guid>
       <description></description>
     </item>
     

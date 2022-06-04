@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>go on Simone Vellei Blog</title>
-    <link>https://simonevellei.com/blog/tags/go/</link>
-    <description>Recent content in go on Simone Vellei Blog</description>
+    <title>linear regression on Simone Vellei Blog</title>
+    <link>https://simonevellei.com/blog/tags/linear-regression/</link>
+    <description>Recent content in linear regression on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 Jun 2022 00:28:41 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jun 2022 00:28:41 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/linear-regression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linear Regression in Go</title>
       <link>https://simonevellei.com/blog/posts/linear-regression-in-go/</link>
@@ -14,16 +14,6 @@
       <guid>https://simonevellei.com/blog/posts/linear-regression-in-go/</guid>
       <description>L&amp;rsquo;analisi dei big data e il parallelo sviluppo dell&amp;rsquo;intelligenza artificiale sono i protagonisti delle innovazioni tecnologiche di quest&amp;rsquo;ultimo decennio. Chi approccia lo studio della materia, tuttavia, avrà prima o poi a che fare con il linguaggio Python che, usato spesso in ambito accademico, rappresenta il punto riferimento grazie alla disponibilità di una serie di librerie, tool e veri e propri framework per la manipolazione dei dati.
 Sebbene, in molti casi, l&amp;rsquo;uso di tali strumenti è inserito all&amp;rsquo;interno di procedure batch o offline , non possiamo escludere che alcuni servizi cloud possano necessitare di processi avanzati per la manipolazione dati on demand.</description>
-    </item>
-    
-    <item>
-      <title>Interruzione Analisi Dati Covid</title>
-      <link>https://simonevellei.com/blog/posts/interruzione-analisi-dati-covid/</link>
-      <pubDate>Thu, 28 Apr 2022 17:45:43 +0200</pubDate>
-      
-      <guid>https://simonevellei.com/blog/posts/interruzione-analisi-dati-covid/</guid>
-      <description>Basta! ✋
-Ho iniziato ad elaborare dati sulla pandemia a partire dagli ultimi mesi del 2020. Da quel momento, e con i pochi dati messi a disposizione dalla Protezione Civile e dalla Struttura Commissariale per l’emergenza, ho prodotto grafici cercando anche di rappresentare analisi con dati incrociati. Inoltre, relativamente alla mia regione Marche, ho anche prodotto contenuti originali sui dati di ogni comune in assenza di una vera e propria fonte.</description>
     </item>
     
   </channel>
