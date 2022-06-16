@@ -48,7 +48,7 @@ Perché, allora, molte aziende seguono la **cultura della connessione** pur sape
 
 ## E’ facile!
 
-> In un contesto aziendale senza un chiaro feedback dell’impatto di certe abitudini sul risultato finale, si tenderà a portare avanti comportamenti che sembrano più facili sul momento.
+> In un contesto aziendale senza un chiaro feedback dell’impatto di certe abitudini sul risultato finale, si tenderà a portare avanti comportamenti che sembrano più facili sul momento. [\[1\]](#biografia)
 > 
 
 Se sei abituato a chiedere informazioni ed ottenere una risposta **immediatamente**, appena sorge il problema, questo farà sembrare la tua vita più **facile**. Almeno sul momento. Del resto se così non fosse dovresti pianificare il lavoro, essere più organizzato e avere il focus su qualcos’altro mentre attendi la risposta.
@@ -61,7 +61,7 @@ Considerate inoltre la comune pratica dell’inoltrare e-mail ad uno o più coll
 
 Dunque si tende ad assumere abitudini che sembrano rendere la vita più facile, ma che portano a gestire male il tempo di un’attività lavorativa di per sé non misurabile. Torniamo ora alla produttività. Se pensate, per un attimo, ad un **lavoro manuale**, risulterà molto semplice capire quanto un operaio di linea sia stato produttivo durante la giornata. Probabilmente basterà contare quanti “pezzi” ha fatto uscire dalla catena di produzione. Un **knowledge worker**, al contrario, non ha punti di riferimento, non ha ingranaggi da contare e si ritrova in un’epoca storica che non ha nulla a che fare con l’**età idustriale**.
 
-> In assenza di chiari indicatori di cosa significhi realmente produttività, molti **knowledge worker** cercano, perciò, quanto più di avvicinarsi agli indicatori dell’industria manifatturiera e fare cose in maniera che siano “visibili”.
+> In assenza di chiari indicatori di cosa significhi realmente produttività, molti **knowledge worker** cercano, perciò, quanto più di avvicinarsi agli indicatori dell’industria manifatturiera e fare cose in maniera che siano “visibili”. [\[1\]](#biografia)
 > 
 
 Ecco perché si tende a rispondere alle e-mail entro un’ora o ad organizzare riunioni ripetutamente, esse sono attività che ti fanno sentire “occupato”. Il **grave errore** è proprio questo: considerare l’essere occupato come **indicatore di produttività** da cui deriva automaticamente il sentirsi appagato di aver fatto bene il proprio lavoro.
@@ -71,3 +71,6 @@ Ecco perché si tende a rispondere alle e-mail entro un’ora o ad organizzare r
 Nel 2013 il CEO di Yahoo decise di mettere al bando i **remote worker** e costringere i dipendenti a tornare in ufficio. Il motivo? Dopo aver controllato i log dei server l’azienda ha verificato che i **remote worker** si connettevano poche volte al servizio di posta elettronica. Il CEO concluse, così, che “se non sei visibilmente occupato, assumo che non sei produttivo”.
 
 Visto ed analizzato in maniera obiettiva questo concetto è anacronistico. I **knowledge worker** non lavorano in una catena di assemblaggio, il cosiddetto “lavoro di concetto” è molto più affine ad un **lavoro ad obiettivi** (o Agile) che ad una linea di produzione. Ecco perché, in maniera più generale, la concentrazione è un bene prezioso e le distrazioni un enorme buco nero che inghiotte inesorabilmente il tempo a disposizione.
+
+## Biografia
+[1] Newport, C. (2016). *Deep Work*. Piatkus.
