@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/posts/concentrazione-e-produttivit%C3%A0-di-un-knowledge-worker/</loc>
+    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/first/</loc>
+    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/tags/ai/</loc>
     <lastmod>2022-06-05T00:28:41+02:00</lastmod>
   </url><url>
@@ -15,15 +30,6 @@
     <lastmod>2022-06-05T00:28:41+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/linear-regression-in-go/</loc>
-    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2022-06-05T00:28:41+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/smartworking/</loc>
