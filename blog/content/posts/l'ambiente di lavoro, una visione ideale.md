@@ -16,7 +16,7 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 cover:
-    image: "/blog/images/focus02.jpg" # image path/url
+    image: "/blog/images/focus03.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
@@ -31,6 +31,8 @@ Il termine *Eudemonìa* deriva dal greco εὐδαιμονία, parola composta 
 Proprio da questo termine, e dal profondo significato che cela, **David Dewane**, professore e architetto visionario, sviluppa la **Eudaimonia machine**. Lo scopo del progetto è realizzare un ambiente di lavoro in cui le persone possano entrare in uno stato di profondo sviluppo umano, massimizzando le proprie abilità personali. 
 
 ## La struttura
+
+![eudaimonia machine](/blog/images/focus02.jpg)
 
 La struttura di tale ambiente è composta da cinque stanze, realizzate con delle regole ben precise:
 
