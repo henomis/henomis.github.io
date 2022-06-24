@@ -40,7 +40,7 @@ La struttura di tale ambiente è composta da cinque stanze, realizzate con delle
 - Ogni stanza permette l’accesso esclusivamente alla successiva e alla precedente.
 - L’unica uscita coincide con l’ingresso.
 
-Per questo motivo spesso la **Eudaimonia Machine** è disegnata come una struttura rettangolare con le stanze in linea, una dopo l’altra. In questo ambiente, immaginato dall’architetto Dewane, ogni stanza ha una collocazione e un ruolo ben preciso.
+Per questo motivo spesso la **Eudaimonia Machine** è disegnata come una struttura rettangolare con le stanze in linea, una dopo l’altra. Gli utenti, per raggiungere una specifica stanza, dovranno necessariamente passare prima per le altre intermedie. In questo ambiente, immaginato dall’architetto Dewane, ogni stanza ha una collocazione e un ruolo ben preciso.
 
 ## Stanza #1: la Galleria
 
@@ -56,7 +56,7 @@ Ci troviamo al centro della macchina, via via che proseguiamo gli ambienti diven
 
 ## Stanza #4: l’Ufficio
 
-Siamo appena entrati nell’ambiente dove gli utenti della macchina passano gran parte del loro tempo. La stanza è un grande **open-space** con scrivanie a postazioni condivise, una grande **sala riunioni** con lavagna e monitor da proiezione. All’interno di questo ambiente vengono effettuati tutti i lavori a **bassa intensità**, lavori di routine o, in generale, che non necessitano di una concentrazione particolare. L’open-space garantisce un **contatto** di base con gli altri utenti che, se da un lato stimola la forza di volontà con la quale si svolge il lavoro quotidiano, dall’altro rappresenta, inevitabilmente, una fonte di **distrazione**. Abbandoniamo, perciò, l’ufficio per recarci nell’ultima stanza della struttura.
+Siamo appena entrati nell’ambiente dove gli utenti della macchina passano gran parte del loro tempo. La stanza è un grande **open-space** con scrivanie a postazioni condivise e una grande **sala riunioni** con lavagna e monitor da proiezione. All’interno di questo ambiente vengono effettuati tutti i lavori a **bassa intensità**, lavori di routine o, in generale, che non necessitano di una concentrazione particolare. L’open-space garantisce un **contatto** di base con gli altri utenti che, se da un lato stimola la forza di volontà con la quale si svolge il lavoro quotidiano, dall’altro rappresenta, inevitabilmente, una fonte di **distrazione**. Abbandoniamo, perciò, l’ufficio per recarci nell’ultima stanza della struttura.
 
 ## Stanza #5: la Camera
 
