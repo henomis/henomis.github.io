@@ -32,7 +32,7 @@ In questo articolo cercherò di **approfondire** il tema.
 
 La ricerca e la necessità di concentrazione non sono identiche per tutti, ci sono **manager** che usano attivamente Twitter più volte al giorno e riescono a far crescere aziende in maniera eccellente e, allo stesso tempo, ci sono **sviluppatori** che hanno bisogno di isolarsi all’interno di una baita nel bosco senza distrazioni per poter trovare il **focus** necessario.
 
-E’ vero, esistono centinaia di studi sull’influenza dei social media e di Internet in generale sull’**attenzione e la capacità di concentrarsi**, ma, preso atto che esistono anche casi che vanno ben oltre le rare eccezioni, vale la pena di approfondire il tema focalizzandosi sul mondo del lavoro.
+È vero, esistono centinaia di studi sull’influenza dei social media e di Internet in generale sull’**attenzione e la capacità di concentrarsi**, ma, preso atto che esistono anche casi che vanno ben oltre le rare eccezioni, vale la pena di approfondire il tema focalizzandosi sul mondo del lavoro.
 
 ## Misurare l’immisurabile
 
@@ -42,11 +42,11 @@ Anche se accettiamo che la distrazione ha un costo e la concentrazione è un val
 
 ## La cultura della connessione
 
-Un professore della Harvard Business School, ricercatore del settore, ha provato a convincere un’azienda di consulenza di Boston a riservare ai propri dipendenti un giorno della settimana **completamente disconnessi**.  E’ inutile dire che ai piani alti dell’azienda questa proposta è stata duramente criticata. Inoltre, l’azienda in questione, aveva una **cultura della connessione** tale da pretendere che ogni impiegato rispondesse immediatamente alle e-mail e alle telefonate. Capirete quanto possa essere **destabilizzante**, per tutto il personale dirigente e non, l’azzerare comunicazioni interne ed esterne un giorno alla settimana. Ad ogni modo, malgrado le resistenze dei manager, l’esperimento è stato avviato ed i **risultati** analizzati dal punto di vista del cliente finale: impiegati più calmi, con una migliore comunicazione e maggiore soddisfazione.
+Un professore della Harvard Business School, ricercatore del settore, ha provato a convincere un’azienda di consulenza di Boston a riservare ai propri dipendenti un giorno della settimana **completamente disconnessi**.  È inutile dire che ai piani alti dell’azienda questa proposta è stata duramente criticata. Inoltre, l’azienda in questione, aveva una **cultura della connessione** tale da pretendere che ogni impiegato rispondesse immediatamente alle e-mail e alle telefonate. Capirete quanto possa essere **destabilizzante**, per tutto il personale dirigente e non, l’azzerare comunicazioni interne ed esterne un giorno alla settimana. Ad ogni modo, malgrado le resistenze dei manager, l’esperimento è stato avviato ed i **risultati** analizzati dal punto di vista del cliente finale: impiegati più calmi, con una migliore comunicazione e maggiore soddisfazione.
 
 Perché, allora, molte aziende seguono la **cultura della connessione** pur sapendo che influenza negativamente la produttività e i risultati finali? 
 
-## E’ facile!
+## È facile!
 
 > In un contesto aziendale senza un chiaro feedback dell’impatto di certe abitudini sul risultato finale, si tenderà a portare avanti comportamenti che sembrano più facili sul momento. [\[1\]](#bibliografia)
 > 

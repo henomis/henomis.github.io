@@ -48,7 +48,7 @@ Immagina di essere in **strada**, davanti alla sede di un’azienda che ha scelt
 
 ## Stanza #2: il Salone
 
-Appena entrati in questa stanza, ci si accorge che è sviluppata per **intrattenere** l’utente per un lasso di tempo più consistente. Il salone, infatti, contiene al suo interno un bar dove poter sorseggiare un **buon caffè**, un locale cucina dove poter preparare da mangiare e degli spazi dove poter investire del tempo per **lunghe conversazioni** con gli altri utenti. E’ questo l’ambiente dedicato a far fluire, senza schemi prefissati, le **idee** che poi si andranno a sviluppare all’interno della macchina. Chi ha avuto a che fare, per motivi di lavoro, con aziende della penisola iberica sa benissimo che le riunioni più produttive avvengono all’interno di un bar con della birra ghiacciata sul tavolo. Lasciamo il divano del salone e passiamo alla prossima stanza.
+Appena entrati in questa stanza, ci si accorge che è sviluppata per **intrattenere** l’utente per un lasso di tempo più consistente. Il salone, infatti, contiene al suo interno un bar dove poter sorseggiare un **buon caffè**, un locale cucina dove poter preparare da mangiare e degli spazi dove poter investire del tempo per **lunghe conversazioni** con gli altri utenti. È questo l’ambiente dedicato a far fluire, senza schemi prefissati, le **idee** che poi si andranno a sviluppare all’interno della macchina. Chi ha avuto a che fare, per motivi di lavoro, con aziende della penisola iberica sa benissimo che le riunioni più produttive avvengono all’interno di un bar con della birra ghiacciata sul tavolo. Lasciamo il divano del salone e passiamo alla prossima stanza.
 
 ## Stanza #3: la Libreria
 
