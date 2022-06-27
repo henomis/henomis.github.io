@@ -22,7 +22,7 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: false # only hide on current single page
 ---
-Lavorare in maniera concentrata è un valore fondamentale per ogni **knowledge worker**. Nel precedente articolo ho presentato come un **ambiente di lavoro** può essere progettato affinché tutti possano entrare in uno stato di profondo sviluppo umano, massimizzando le proprie abilità personali.
+Lavorare in maniera concentrata è un valore fondamentale per ogni **knowledge worker**. Nel [precedente articolo](/blog/posts/lambiente-di-lavoro-una-visione-ideale/) ho presentato come un **ambiente di lavoro** può essere progettato affinché tutti possano entrare in uno stato di profondo sviluppo umano, massimizzando le proprie abilità personali.
 
 L’uomo, tuttavia, per sua natura, è in continua lotta con i suoi **desideri**. Non sorprende che fra i più comuni ci siano: mangiare, dormire, fare sesso. Seguono, subito dopo: prendere una pausa dal lavoro, controllare e-mail e social network, navigare sul web, ascoltare musica, guardare la TV. Del resto, ogni giorno, dobbiamo fare i conti con la nostra **forza di volontà**, quella forza che, in un mondo di distrazioni, ci riporta sulla via della concentrazione. Peccato che essa sia disponibile in **quantità limitata**, finita. Possiamo, infatti, pensare alla forza di volontà come un serbatoio di acqua che, consumata durante la giornata, tende inesorabilmente a svuotarsi.
 
