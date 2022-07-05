@@ -1,7 +1,7 @@
 ---
 title: "L'ambiente di lavoro, una visione ideale"
 date: 2022-06-23T23:55:14+02:00
-tags: ["work", "architettura", "lavoro", "idea"]
+tags: ["deep work", "architettura", "lavoro", "idea"]
 showToc: true
 TocOpen: false
 draft: false
@@ -22,7 +22,7 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: false # only hide on current single page
 ---
-Nel [precedente articolo](/blog/posts/concentrazione-e-produttività-di-un-knowledge-worker/) ho scritto di come concentrazione e focus siano elementi preziosi per il lavoro dei **knowledge worker**. Le distrazioni, tuttavia, tentano continuamente di catturare la nostra attenzione e sottrarre tempo ai nostri task fondamentali. Molte di queste interruzioni nascono proprio all’interno del **luogo** stesso di lavoro. In questo articolo presento una elaborazione alternativa dell’ambiente lavorativo mirata alla ricerca della **massima dedizione**.
+Nel [precedente articolo](/blog/posts/concentrazione-e-produttivit%C3%A0-di-un-knowledge-worker/) ho scritto di come concentrazione e focus siano elementi preziosi per il lavoro dei **knowledge worker**. Le distrazioni, tuttavia, tentano continuamente di catturare la nostra attenzione e sottrarre tempo ai nostri task fondamentali. Molte di queste interruzioni nascono proprio all’interno del **luogo** stesso di lavoro. In questo articolo presento una elaborazione alternativa dell’ambiente lavorativo mirata alla ricerca della **massima dedizione**.
 
 ## La **Eudaimonia machine**
 

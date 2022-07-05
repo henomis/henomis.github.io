@@ -1,7 +1,7 @@
 ---
 title: "Strategie per dosare la concentrazione"
 date: 2022-06-28T00:36:32+02:00
-tags: ["focus", "work", "lavoro"]
+tags: ["focus", "deep work", "lavoro"]
 showToc: true
 TocOpen: false
 draft: false

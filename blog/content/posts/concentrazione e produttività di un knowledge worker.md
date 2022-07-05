@@ -1,7 +1,7 @@
 ---
 title: "Concentrazione e produttività di un knowledge worker"
 date: 2022-06-16T12:44:46+02:00
-tags: ["work", "agile", "lavoro", "project"]
+tags: ["deep work", "agile", "lavoro", "project"]
 showToc: true
 TocOpen: false
 draft: false

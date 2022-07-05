@@ -1,7 +1,7 @@
 ---
 title: "Il rito della concentrazione"
 date: 2022-07-04T15:38:48+02:00
-tags: ["focus", "work", "lavoro"]
+tags: ["focus", "deep work", "lavoro"]
 showToc: true
 TocOpen: false
 draft: false
@@ -22,7 +22,7 @@ cover:
     relative: false # when using page bundles set this to true
     hidden: false # only hide on current single page
 ---
-Trovare la giusta concentrazione e saperla dosare durante la giornata sono attività che hanno bisogno di una **strategia** concreta. Nel [precedente articolo](/blog/posts/strategie-per-dosare-la-concentrazione/) ho presentato quattro differenti filosofie per ottimizzare le risorse e minimizzare le distrazioni.
+Trovare la giusta concentrazione e saperla dosare durante la giornata sono attività che hanno bisogno di una **strategia** concreta. Nel [precedente articolo](/blog/posts/strategie-per-dosare-la-concentrazione/) abbiamo visto come esistano quattro differenti filosofie per ottimizzare le risorse e minimizzare le distrazioni.
 
 Indipendentemente dalla strategia scelta, mantenere una **costanza** del metodo applicato è tutt’altro che semplice. Nella cultura popolare cinese si tramanda che, affinché un comportamento diventi **un’abitudine**, occorrano 21 giorni consecutivi, senza interruzioni. In questo articolo mostro come sussistano ulteriori fattori che intervengono nella buona riuscita della creazione di un’abitudine della **concentrazione**.
 
