@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 04 Jul 2022 15:38:48 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>deep work</title>
+      <link>https://simonevellei.com/blog/tags/deep-work/</link>
+      <pubDate>Mon, 04 Jul 2022 15:38:48 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/deep-work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>focus</title>
       <link>https://simonevellei.com/blog/tags/focus/</link>
       <pubDate>Mon, 04 Jul 2022 15:38:48 +0200</pubDate>
@@ -21,15 +30,6 @@
       <pubDate>Mon, 04 Jul 2022 15:38:48 +0200</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/lavoro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>work</title>
-      <link>https://simonevellei.com/blog/tags/work/</link>
-      <pubDate>Mon, 04 Jul 2022 15:38:48 +0200</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/work/</guid>
       <description></description>
     </item>
     
@@ -120,6 +120,15 @@
       <pubDate>Thu, 26 May 2022 16:22:35 +0200</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/welfare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>https://simonevellei.com/blog/tags/work/</link>
+      <pubDate>Thu, 26 May 2022 16:22:35 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/work/</guid>
       <description></description>
     </item>
     
