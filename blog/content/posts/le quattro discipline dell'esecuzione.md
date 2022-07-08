@@ -38,14 +38,14 @@ Come lo stesso metodo suggerisce: “più cose cercherai di fare, meno ne riusci
 
 Dopo aver identificato i tuoi obiettivi importanti, occorre misurare i risultati. Esistono due tipi di metriche a tal proposito:
 
-- ***Lag measures***. Sono quelle misure che descrivono le cose che stai cercando di migliorare. Prendiamo ad esempio l’obiettivo di migliorare la soddisfazione del cliente di un panificio. La misura *fuori tempo* sarà proprio il punteggio della soddisfazione del cliente. Questa misura giungerà in ritardo, troppo tardi per poter modificare il processo in corso.
-- ***Lead measures***. Queste misure si focalizzano sui comportamenti che condurranno al successo. Per rimanere sull’esempio del panificio, si vanno a misurare il numero di assaggi gratuiti distribuiti. L’aspetto incredibile è che se il numero di assaggi gratuiti distribuiti aumenta questo vorrà dire che anche la soddisfazione del cliente aumenterà verrà misurata.
+- ***Lag measures***. Sono quelle misure che descrivono le cose che stai cercando di migliorare. Prendiamo ad esempio l’obiettivo di migliorare la soddisfazione del cliente di un panificio. La misura *lag* sarà proprio il punteggio della soddisfazione del cliente. Questa misura giungerà in ritardo, troppo tardi per poter modificare il processo in corso.
+- ***Lead measures***. Queste misure si focalizzano sui comportamenti che condurranno al successo. Per rimanere sull’esempio del panificio, si vanno a misurare il numero di assaggi gratuiti distribuiti. L’aspetto incredibile è che se il numero di assaggi gratuiti distribuiti aumenta questo vorrà dire che anche la soddisfazione del cliente aumenterà quando verrà misurata.
 
 Focalizzarsi sulle *lead measures* permette di agire sui comportamenti che controllano il prossimo futuro e avranno un impatto positivo sugli obiettivi di lungo termine. Ecco perché è importante dare peso alla quantità di ore spese in sessioni di **lavoro senza distrazioni**, esse determinano direttamente la misura della quantità e della qualità di ciò che accadrà in futuro.
 
 ### Disciplina #3: mantieni un tabellone segnapunti
 
-Le persone si comportano in maniera differente quando devono mantenere un punteggio: si sentono **impegnati** nei confronti dell’azienda, sviluppano un sano senso di **competizione** e rafforzano la propria **motivazione**. Il tabellone può essere fisico ed far parte dell’arredamento dell’ufficio o virtuale e gestito tramite un software gestionale. Chi ha dimestichezza con la progettazione Agile non avrà difficoltà ad immaginarsi una *Kanboard* riservata, ad esempio, alle ore trascorse lavorando in maniera concentrata.
+Le persone si comportano in maniera differente quando devono mantenere un punteggio: si sentono **impegnati** nei confronti dell’azienda, sviluppano un sano senso di **competizione** e rafforzano la propria **motivazione**. Il tabellone può essere fisico e far parte dell’arredamento dell’ufficio o virtuale e gestito tramite un software gestionale. Chi ha dimestichezza con la progettazione Agile non avrà difficoltà ad immaginarsi una *Kanboard* riservata, ad esempio, alle ore trascorse lavorando in maniera concentrata.
 
 ### Disciplina #4: creare incontri periodici
 
