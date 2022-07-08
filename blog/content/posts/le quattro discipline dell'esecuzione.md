@@ -24,7 +24,7 @@ cover:
 ---
 Forzare la nostra mente ad assumere un’**abitudine** è un’attività molto complessa. Nel mio [precedente articolo](/blog/posts/il-rito-della-concentrazione/) ho presentato delle strategie per **ritualizzare** i comportamenti e renderli una consuetudine in modo da ottimizzare le risorse necessarie per una sessione di lavoro ad alta concentrazione.
 
-Sebbene ora siamo perfettamente coscienti di ***cosa*** dobbiamo mettere in pratica per essere più efficaci sul lavoro, dobbiamo concentrarci sul ***come***. Per fortuna ci viene in aiuto un metodo elaborato da 
+Sebbene ora siamo perfettamente coscienti di ***cosa*** dobbiamo mettere in pratica per essere più efficaci sul lavoro, dobbiamo concentrarci sul ***come***. 
 
 ## Il metodo 4DX
 
