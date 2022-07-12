@@ -50,3 +50,7 @@ Le persone si comportano in maniera differente quando devono mantenere un punteg
 ### Disciplina #4: creare incontri periodici
 
 Lo step finale per mantenere l’attenzione sugli obiettivi importanti è quello di creare di momenti di **incontro**, ad intervalli regolari, per la reciproca analisi dei tabelloni. In questa fase vengono analizzati i processi che hanno permesso di arrivare allo stato attuale nell’ottica di **migliorare** nel prossimo meeting. Gli incontri potranno durare pochi minuti, ma sarà proprio in questi istanti dove tutti prenderanno coscienza che le cose stanno realmente accadendo! Ancora una volta, per chi ha avuto modo di lavorare in maniera Agile, questi istanti possono essere rappresentati dagli *sprint planning* con le relative **retrospettive** e **pianificazioni** per il prossimo *round*.
+
+## Bibliografia
+[1] Newport, C. (2016). *Deep Work*. Piatkus.
+
