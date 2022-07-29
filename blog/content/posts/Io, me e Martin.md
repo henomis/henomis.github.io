@@ -34,7 +34,7 @@ Nel 2021 Martin pubblica un video in cui decide di **interrompere** la progettaz
 
 Ed è proprio in uno dei suoi video che Martin presenta due libri che lo avrebbero aiutato a concentrarsi sui suoi obiettivi, riducendo ciò che lo circonda al minimo indispensabile: **Deep work** di **Cal Newport** e **Essentialism** di **Greg McKeown**. Un anno sabbatico il 2021, per poi annunciare nel 2022 il suo ritorno con un nuovo progetto: la **Marble Machine 3**. La novità? Una inversione di priorità nella progettazione: non costruire una macchina con dentro gli strumenti, ma costruire gli strumenti con attorno una macchina.
 
-Lasciando ora Martin al suo futuro, facendogli i migliori auguri per il nuovo progetto, veniamo un attimo a me.
+> Lasciando ora Martin al suo futuro, facendogli i migliori auguri per il nuovo progetto, **veniamo un attimo a me**.
 
 Rimasi profondamente dal primo video di Martin e iniziai a seguirlo sia per la passione per la musica, sia per l’interesse verso quell’intenso groviglio di ingranaggi che compongono i suoi strumenti. Il video del 2021 arrivò in un momento particolare della mia vita lavorativa, così ho deciso di acquistare subito **Deep work**. Cal Newport nel suo testo affronta uno dei temi critici di ogni *impiegato di concetto* o, come lui stesso li chiama, **knowledge worker**: la ricerca della concentrazione. Un vero e proprio manuale di come affrontare impegni, distrazioni e, in generale, la gestione del tempo a lavoro. 
 
