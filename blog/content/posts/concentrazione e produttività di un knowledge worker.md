@@ -57,9 +57,9 @@ Pensiamo ad esempio alle riunioni. Convocare frequentemente meeting per i proget
 
 Considerate inoltre la comune pratica dell’inoltrare e-mail ad uno o più colleghi con l’aggiunta dell’interrogativo “cosa ne pensi?”. Queste e-mail danno all’autore una piacevole **sensazione di produttività**, poiché, magari, hanno svuotato la propria casella di posta dalle richieste. Tale sensazione è solamente momentanea e del tutto apparente.
 
-## L’età idustriale
+## L’età industriale
 
-Dunque si tende ad assumere abitudini che sembrano rendere la vita più facile, ma che portano a gestire male il tempo di un’attività lavorativa di per sé non misurabile. Torniamo ora alla produttività. Se pensate, per un attimo, ad un **lavoro manuale**, risulterà molto semplice capire quanto un operaio di linea sia stato produttivo durante la giornata. Probabilmente basterà contare quanti “pezzi” ha fatto uscire dalla catena di produzione. Un **knowledge worker**, al contrario, non ha punti di riferimento, non ha ingranaggi da contare e si ritrova in un’epoca storica che non ha nulla a che fare con l’**età idustriale**.
+Dunque si tende ad assumere abitudini che sembrano rendere la vita più facile, ma che portano a gestire male il tempo di un’attività lavorativa di per sé non misurabile. Torniamo ora alla produttività. Se pensate, per un attimo, ad un **lavoro manuale**, risulterà molto semplice capire quanto un operaio di linea sia stato produttivo durante la giornata. Probabilmente basterà contare quanti “pezzi” ha fatto uscire dalla catena di produzione. Un **knowledge worker**, al contrario, non ha punti di riferimento, non ha ingranaggi da contare e si ritrova in un’epoca storica che non ha nulla a che fare con l’**età industriale**.
 
 > In assenza di chiari indicatori di cosa significhi realmente produttività, molti **knowledge worker** cercano, perciò, quanto più di avvicinarsi agli indicatori dell’industria manifatturiera e fare cose in maniera che siano “visibili”. [\[1\]](#bibliografia)
 > 
