@@ -9,7 +9,7 @@ build-blog:
 	docker run --user 1000:1000 --rm -it -v ${PWD}/blog/:/src -v ${PWD}/output:/output peaceiris/hugo -d /output/blog
 
 serve-blog:
-	docker run --user 1000:1000 --rm -it -v ${PWD}/blog/:/src -p 1313:1313 klakegg/hugo:0.92.1 server
+	docker run --user 1000:1000 --rm -it -v ${PWD}/blog/:/src -p 1313:1313 klakegg/hugo:latest server
 
 build-certs:
 	mkdir -p ${PWD}/certs/etc/letsencrypt

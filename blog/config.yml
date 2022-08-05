@@ -7,6 +7,7 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+defaultContentLanguage: it
 
 googleAnalytics: UA-123-45
 
@@ -41,7 +42,7 @@ params:
 
     assets:
         # disableHLJS: true # to disable highlight.js
-        # disableFingerprinting: true
+        disableFingerprinting: true
         favicon: "<link / abs url>"
         favicon16x16: "<link / abs url>"
         favicon32x32: "<link / abs url>"
@@ -116,7 +117,7 @@ menu:
 #          url: /categories/
 #          weight: 10
         - identifier: tags
-          name: tags
+          name: Tags
           url: /tags/
           weight: 20
         - identifier: Simone Vellei
