@@ -1,7 +1,7 @@
 ---
 title: "L'informatico"
 date: 2022-08-09T10:31:29+02:00
-tags: ["first"]
+tags: ["personal", "work"]
 showToc: true
 TocOpen: false
 draft: false
