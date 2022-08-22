@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 09 Aug 2022 10:31:29 +0200</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>first</title>
-      <link>https://simonevellei.com/blog/tags/first/</link>
+      <title>personal</title>
+      <link>https://simonevellei.com/blog/tags/personal/</link>
       <pubDate>Tue, 09 Aug 2022 10:31:29 +0200</pubDate>
       
-      <guid>https://simonevellei.com/blog/tags/first/</guid>
+      <guid>https://simonevellei.com/blog/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>https://simonevellei.com/blog/tags/work/</link>
+      <pubDate>Tue, 09 Aug 2022 10:31:29 +0200</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/work/</guid>
       <description></description>
     </item>
     
@@ -39,15 +48,6 @@
       <pubDate>Fri, 29 Jul 2022 09:28:40 +0200</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/music/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>personal</title>
-      <link>https://simonevellei.com/blog/tags/personal/</link>
-      <pubDate>Fri, 29 Jul 2022 09:28:40 +0200</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/personal/</guid>
       <description></description>
     </item>
     
@@ -156,15 +156,6 @@
       <pubDate>Thu, 26 May 2022 16:22:35 +0200</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/welfare/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>work</title>
-      <link>https://simonevellei.com/blog/tags/work/</link>
-      <pubDate>Thu, 26 May 2022 16:22:35 +0200</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/work/</guid>
       <description></description>
     </item>
     

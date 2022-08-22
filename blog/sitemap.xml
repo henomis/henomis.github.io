@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://simonevellei.com/blog/tags/first/</loc>
+    <loc>https://simonevellei.com/blog/posts/linformatico/</loc>
     <lastmod>2022-08-09T10:31:29+02:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/posts/linformatico/</loc>
+    <loc>https://simonevellei.com/blog/tags/personal/</loc>
     <lastmod>2022-08-09T10:31:29+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/</loc>
@@ -15,6 +15,9 @@
     <lastmod>2022-08-09T10:31:29+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2022-08-09T10:31:29+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/work/</loc>
     <lastmod>2022-08-09T10:31:29+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/deep-work/</loc>
@@ -27,9 +30,6 @@
     <lastmod>2022-07-29T09:28:40+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/music/</loc>
-    <lastmod>2022-07-29T09:28:40+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/personal/</loc>
     <lastmod>2022-07-29T09:28:40+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/lavoro/</loc>
@@ -90,9 +90,6 @@
     <lastmod>2022-05-26T16:22:35+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/welfare/</loc>
-    <lastmod>2022-05-26T16:22:35+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/work/</loc>
     <lastmod>2022-05-26T16:22:35+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/lillusione-di-gantt/</loc>
