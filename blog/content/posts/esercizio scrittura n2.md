@@ -1,7 +1,7 @@
 ---
 title: "Esercizio scrittura n.2"
 date: 2022-08-25T12:57:44+02:00
-tags: ["first"]
+tags: ["scrittura"]
 showToc: true
 TocOpen: false
 draft: false
@@ -43,7 +43,7 @@ Ripensò alla musica degli anni 60/70. Le più belle sonorità e i più entusias
 
 Mancavano pochi passi al bar, sarebbe bastato svoltare l’angolo ed avrebbe visto l’insegna. *Planet bar*. Era un nome da anni 80 ed infatti il locale conservava ancora la vecchia sala giochi, ora riservata ai videopoker. Udì un forte boato. Poi fumo, fumo ovunque. E poi una vampata di calore, molto più intensa di quella percepita qualche istante prima.
 
-La gente urlava e scappava da ogni parte. Fece appena in tempo a vedere la vetrina del bar dalla quale provenivano le fiamme. Venne portato via dalla folla, per pura fortuna rimase in piedi e riuscì a voltarsi per seguire il flusso. Si mise a correre come mai aveva fatto in vita sua. Ripercorse la strada che aveva fatto all’andata. Prese la direzione della sua abitazione che si trovava a non più di tre isolatati. La sensazione del caldo era sparita ed aveva lasciato spazio ad un brivido che lo percorreva da capo a piedi. “*Ci sono quasi!”*  - pensava e si dava coraggio, correva e gettava via la gomma. Il desiderio della birra aveva ormai lasciato il posto alla smania di tornare a casa e porre fine allo spavento.
+La gente urlava e scappava da ogni parte. Fece appena in tempo a vedere la vetrina del bar dalla quale provenivano le fiamme. Venne portato via dalla folla, per pura fortuna rimase in piedi e riuscì a voltarsi per seguire il flusso. Si mise a correre come mai aveva fatto in vita sua. Ripercorse la strada che aveva fatto all’andata. Prese la direzione della sua abitazione che si trovava a non più di tre isolati. La sensazione del caldo era sparita ed aveva lasciato spazio ad un brivido che lo percorreva da capo a piedi. “*Ci sono quasi!”*  - pensava e si dava coraggio, correva e gettava via la gomma. Il desiderio della birra aveva ormai lasciato il posto alla smania di tornare a casa e porre fine allo spavento.
 
 > *Per eccitarti con una meraviglia  
 ti darei diamanti brillanti  
