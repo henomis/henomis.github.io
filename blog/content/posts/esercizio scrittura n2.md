@@ -39,7 +39,7 @@ Nello splendere del tuo amore*
 
 Ricordava a memoria la partitura di chitarra distorta nota per nota. In quel momento Eric Clapton si stava esibendo in un assolo all’interno della sua mente, uno spettacolo esclusivamente per lui. 
 
-Ripensò alla musica degli anni 60/70. Le più belle sonorità e i più entusiasmanti testi frutto della triade *sesso, droga e rock ‘n roll*. Droga. Una vampata di calore accese il suo volto. Come se non fosse abbastanza caldo, il suo cuore pompò più forte e si rese conto di essere un bagno di sudore ambulante. “*Che schifo!”* - pensò ad alta voce. In quel momento Clapton terminò il suo assolo e lui fu stato catapultato nell’istante in cui sua madre lo avvertiva del pericolo dell’alcol.
+Ripensò alla musica degli anni 60/70. Le più belle sonorità e i più entusiasmanti testi frutto della triade *sesso, droga e rock ‘n roll*. Droga. Una vampata di calore accese il suo volto. Come se non fosse abbastanza caldo, il suo cuore pompò più forte e si rese conto di essere un bagno di sudore ambulante. “*Che schifo!”* - pensò ad alta voce. In quel momento Clapton terminò il suo assolo e lui fu catapultato nell’istante in cui sua madre lo avvertiva del pericolo dell’alcol.
 
 Mancavano pochi passi al bar, sarebbe bastato svoltare l’angolo ed avrebbe visto l’insegna. *Planet bar*. Era un nome da anni 80 ed infatti il locale conservava ancora la vecchia sala giochi, ora riservata ai videopoker. Udì un forte boato. Poi fumo, fumo ovunque. E poi una vampata di calore, molto più intensa di quella percepita qualche istante prima.
 
