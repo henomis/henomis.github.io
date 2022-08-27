@@ -2,19 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/posts/12-sintomi-che-dello-smartworking-non-hai-capito-nulla/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/agile/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/lavoro/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/project/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/smartworking/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/work/</loc>
+    <lastmod>2022-08-27T18:16:56+02:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/posts/esercizio-scrittura-n2/</loc>
     <lastmod>2022-08-25T12:57:44+02:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2022-08-25T12:57:44+02:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/tags/scrittura/</loc>
-    <lastmod>2022-08-25T12:57:44+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2022-08-25T12:57:44+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2022-08-25T12:57:44+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/esercizio-scrittura-n1/</loc>
@@ -24,9 +42,6 @@
     <lastmod>2022-08-09T10:31:29+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/personal/</loc>
-    <lastmod>2022-08-09T10:31:29+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/work/</loc>
     <lastmod>2022-08-09T10:31:29+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/deep-work/</loc>
@@ -40,9 +55,6 @@
   </url><url>
     <loc>https://simonevellei.com/blog/tags/music/</loc>
     <lastmod>2022-07-29T09:28:40+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/lavoro/</loc>
-    <lastmod>2022-07-12T21:27:39+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/ozio/</loc>
     <lastmod>2022-07-12T21:27:39+02:00</lastmod>
@@ -68,13 +80,7 @@
     <loc>https://simonevellei.com/blog/posts/lambiente-di-lavoro-una-visione-ideale/</loc>
     <lastmod>2022-06-23T23:55:14+02:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/tags/agile/</loc>
-    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/posts/concentrazione-e-produttivit%C3%A0-di-un-knowledge-worker/</loc>
-    <lastmod>2022-06-16T12:44:46+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/project/</loc>
     <lastmod>2022-06-16T12:44:46+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/ai/</loc>
@@ -91,9 +97,6 @@
   </url><url>
     <loc>https://simonevellei.com/blog/posts/linear-regression-in-go/</loc>
     <lastmod>2022-06-05T00:28:41+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/smartworking/</loc>
-    <lastmod>2022-05-26T16:22:35+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/smartworking-non-%C3%A8-welfare/</loc>
     <lastmod>2022-05-26T16:22:35+02:00</lastmod>
