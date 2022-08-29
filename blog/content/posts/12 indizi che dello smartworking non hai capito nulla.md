@@ -46,13 +46,13 @@ Ritieni che alternare giorni in presenza e giorni fuori ufficio sia comunque acc
 |0|5|✅ SI|
 
 
-La modalità ibrida è un’invenzione, è fuffa. Non è *lavoro agile*, ma un “contentino” per il dipendente. La modalità *agile* è un’impostazione professionale del lavoro e il cambiamento di contesto dentro/fuori ufficio causerebbe distrazioni e inefficienza del processo. Non è possibile quindi per natura intrinseca della modalità. 
+La modalità ibrida è una posizione "cerchiobottista", non è *lavoro agile*, ma un “contentino” per il dipendente. La modalità *agile* è un’impostazione professionale del lavoro e il cambiamento di contesto dentro/fuori ufficio causerebbe distrazioni e inefficienza del processo. Non è possibile quindi per natura intrinseca della modalità. 
 
-> 👉 *Dimentica la modalità ibrida.*
+> 👉 *Dimentica la modalità ibrida, il lavoro agile è un processo di cambiamento profondo.*
 
 ## 3. Il lavoro agile è una forma di welfare.
 
-Ritieni che in fondo concedere di lavorare fuori ufficio sia una forma di welfare? Ti sei ritrovato a pensare che in fondo è simile al congedo parentale? Sei fuori strada. Riuscire ad accompagnare i figli a scuola grazie alla flessibilità di orario è solamente una conseguenza e non lo scopo. La modalità *agile* non è un “bonus” concesso dall'azienda al dipendente, ma una strategia  *win-win* per il miglioramento di entrambe le parti. 
+Ritieni che in fondo concedere di lavorare fuori ufficio sia una forma di welfare? Ti sei ritrovato a pensare che tutto sommato è simile al congedo parentale? Sei fuori strada. Riuscire ad accompagnare i figli a scuola grazie alla flessibilità di orario è solamente una conseguenza e non lo scopo. La modalità *agile* non è un “bonus” concesso dall'azienda al dipendente, ma una **strategia**  *win-win* per il miglioramento di entrambe le parti. 
 
 > 👉 *Apri la tua mente e supera il concetto bonus/welfare.*
 
@@ -72,7 +72,7 @@ Credi che chi lavora in modalità *agile* perda la capacità di socializzare? Cr
 
 Pensi che un lavoratore fuori ufficio è anche fuori dalla tua zona di controllo? Inizia col chiederti perché hai **necessità** di controllare. Si può aver necessità di controllare perché un certo dipendente tende a distrarsi e non rispetta le consegne. Credi veramente che questo dipenda dalla presenza o dall'assenza in ufficio? Potresti preoccuparti di non aver controllo su di un team interamente fuori ufficio, ma questo dipende da quale modalità di progettazione hai deciso di implementare. Una **metodologia** di lavoro (e progettazione) *agile* ha già tutte le caratteristiche intrinseche necessarie per garantire un autocontrollo e una responsabilizzazione del dipendente. Implementare una modalità di progettazione *agile* che preveda un team remoto ha solamente l'ulteriore necessità degli strumenti tecnologici adeguati (videocall, gestione documentale, repository, ecc.). 
 
-> 👉 *Concentrati maggiormente sulla responsabilità che sul controllo e contornati di persone valide.*
+> 👉 *Concentrati maggiormente sulla responsabilità piuttosto che sul controllo e contornati di persone valide.*
 
 ## 7. Con un team remoto è più difficile organizzare riunioni.
 
@@ -90,13 +90,13 @@ Se immagini di poter trattenere in ufficio un dipendente che richiede la modalit
 
 Ti chiedi come si possa arrivare in tempo a terminare progetto con un team in remoto se già ora hai difficoltà a mantenere le *deadline*? Ancora una volta l’errore va cercato altrove. Non giustificare la mancanza o l’inefficienza della **metodologia progettuale** con la modalità di lavoro. Richiedere di timbrare il cartellino o sovraccaricare di straordinari sono sintomi di una progettazione guidata dagli orari e non dagli obiettivi. Questa modalità viene chiamata *fordista* perché legata alle attività produttive del secolo scorso. 
 
-> 👉 *Ribalta la tua visione e concentrati sugli obiettivi, capirai subito che l’orario di lavoro perderà di senso e ne guadagnerà lo scopo finale e la sua *deadline*.*
+> 👉 *Ribalta la tua visione e concentrati sugli obiettivi, capirai subito che l’orario di lavoro perderà di senso e ne guadagnerà lo scopo finale e la relativa *deadline*.*
 
 ## 10. La modalità *agile* riguarda un futuro ancora lontano.
 
-Pensi che il **Cambiamento** interessi un futuro ancora lontano e credi che non parlandone si possa risolvere la questione automaticamente? Stai nascondendo la polvere sotto al tappeto. Pensa in **grande**. Ci sono moltissimi lavori ripetitivi e ognuno di questo potrebbe essere sostituito da un robot, da un software o, perché no, da un’intelligenza artificiale. Addetto alla reception, controllo qualità, montaggio in catena, sono tutte mansioni che subiranno un profondo **Cambiamento** nel futuro prossimo. La stessa *Sylicon Valley* sta attualmente subendo un [cambiamento epocale](https://www.wsj.com/articles/tech-workers-silicon-valley-move-out-11657918928). 
+Pensi che il **Cambiamento** interessi un futuro ancora lontano e credi che non parlandone si possa risolvere la questione automaticamente? Stai nascondendo la polvere sotto al tappeto. Pensa in **grande**. Ci sono moltissimi lavori ripetitivi e ognuno di questo potrebbe essere sostituito da un robot, da un software o, perché no, da un’intelligenza artificiale. Allo stesso tempo ci sono moltissime mansioni ed interi reparti aziendali che possono essere remotizzabili. L'Olanda ha appena approvato, in una delle due camere, una [legge](https://www.bloomberg.com/news/articles/2022-07-05/dutch-parliament-approves-to-make-work-from-home-a-legal-right) per il *diritto* al lavoro remoto, mentre la stessa *Sylicon Valley*, da sempre culla dell'informatica, sta attualmente subendo un [cambiamento epocale](https://www.wsj.com/articles/tech-workers-silicon-valley-move-out-11657918928). 
 
-> 👉 *Affronta seriamente il problema e trasformalo in opportunità.*
+> 👉 *Affronta seriamente il problema ora e trasformalo in opportunità.*
 
 ## 11. La sostenibilità come valore aziendale.
 
@@ -104,8 +104,8 @@ Hai a cuore l’ambiente e sei sensibile al tema della sostenibilità? Pensi ver
 
 > 👉 *Focalizzati sul risparmio e sul benessere collettivo.*
 
-## 12. Ricerca di collaboratori disposti a trasferirsi in zona.
+## 12. Ricerca di collaboratori che non richiedano lavoro remoto.
 
-Hai oggettive difficoltà a reperire collaboratori specializzati? Se la tua proposta implica una *relocation* presso l’ufficio della tua sede ho brutte notizie per te. Andrà sempre peggio. Come già detto il **Cambiamento** è inarrestabile ed il mercato, in questo caso, si adegua all'offerta. Avrai sempre più richiesta di modalità *agile* da parte dei candidati e, se decidi si fare **ostruzionismo**, rischierai di “raschiare dal fondo del barile”. 
+Hai oggettive difficoltà a reperire collaboratori specializzati? Se la tua proposta implica una *relocation* presso l’ufficio della tua sede ho brutte notizie per te. Andrà sempre peggio. Come già detto il **Cambiamento** è inarrestabile ed il mercato, in questo caso, si adegua all'offerta. Avrai sempre più richiesta di modalità *agile* da parte dei candidati e, se decidi di fare **ostruzionismo**, rischierai di “raschiare dal fondo del barile”. 
 
 > 👉 *Apprezza il fattore globalizzante della modalità *agile*, avrai accesso ad un mercato non più provinciale ma nazionale o addirittura europeo, o mondiale.*
