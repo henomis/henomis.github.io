@@ -1,8 +1,5 @@
 # simonevellei.com
-Personal website under development
-## CloudFront
+Personal website 
 
-## Route53
-- use multiline value for letencrypt _acme-challenge dns TXT record
-
-## S3
+* 🏠 [simonevellei.com](https://www.simonevellei.com)
+* 📰 [simonevellei.com/blog](https://www.simonevellei.com/blog)
