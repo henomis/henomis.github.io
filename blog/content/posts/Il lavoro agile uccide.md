@@ -56,7 +56,7 @@ In realtà, pensandoci bene, il *lavoro agile* potrebbe potenzialmente essere un
 
 É il legislatore stesso che conferma ben **5 “omicidi”** da parte del *lavoro agile*:
 
-☠️ **Mancanza di competitività.** La formulazione di questo articolo é cristallina. Il lavoro agile uccide tutte le pratiche non competitive, perché migliora la gestione dei processi aziendali. Una migliore gestione rende maggiormente competitiva l’azienda. 
+☠️ **Scarsa competitività.** La formulazione di questo articolo é cristallina. Il lavoro agile uccide tutte le pratiche non competitive, perché migliora la gestione dei processi aziendali. Una migliore gestione rende maggiormente competitiva l’azienda. 
 
 ☠️ **Stress degli orari di lavoro**. Un lavoratore che riesce a gestire il proprio tempo riesce a bilanciare le attività lavorative con i propri impegni familiari. Un lavoratore felice é un lavoratore più produttivo.
 
