@@ -36,7 +36,7 @@ Ma, partiamo dall’inizio, cosa si intende per cultura aziendale? Sintetizzando
 2. **Fiducia reciproca.** Spesso è ottenuta attraverso il supporto vicendevole e una comunicazione aperta e informale, con lo scopo di una proficua collaborazione.
 3. **Stile di lavoro.** Sono le regole che permettono che tutto funzioni nel migliore dei modi, inclusa la gestione dei conflitti, l’atteggiamento o i flussi di rilascio di un prodotto.
 
-Definita la cultura aziendale, la prossime domande che mi vengono in mente sono:
+Definita la cultura aziendale, le prossime domande che mi vengono in mente sono:
 
 - Attraverso quale modalità un’azienda definisce valori, fiducia e stili di lavoro sintetizzati all’interno della propria cultura aziendale?
 - In che modo i dipendenti scelgono volontariamente di aderire alla cultura aziendale?
@@ -51,7 +51,7 @@ Come possa il luogo di lavoro entrare a far parte di tali **processi costitutivi
 
 In realtà, pensandoci bene, il *lavoro agile* potrebbe potenzialmente essere un serial killer, ma non di culture aziendali. Seguitemi, prendiamo la **legge 2017/81**, che definisce il *lavoro agile,* all’articolo 18:
 
-> *Le disposizioni del presente capo [lavoro agile ndr], allo scopo di **incrementare la competitività** e a**gevolare la conciliazione dei tempi di vita e di lavoro**, promuovono il lavoro agile quale modalità di esecuzione  del rapporto di lavoro subordinato  stabilita  mediante  accordo  tra  le parti, anche con forme di **organizzazione per fasi, cicli e  obiettivi** e **senza precisi vincoli di orario o di  luogo  di  lavoro**,  con  il possibile  utilizzo  di  **strumenti  tecnologici**  per  lo  svolgimento dell'attività lavorativa. […]*
+> *Le disposizioni del presente capo [lavoro agile ndr], allo scopo di **incrementare la competitività** e **agevolare la conciliazione dei tempi di vita e di lavoro**, promuovono il lavoro agile quale modalità di esecuzione  del rapporto di lavoro subordinato  stabilita  mediante  accordo  tra  le parti, anche con forme di **organizzazione per fasi, cicli e  obiettivi** e **senza precisi vincoli di orario o di  luogo  di  lavoro**,  con  il possibile  utilizzo  di  **strumenti  tecnologici**  per  lo  svolgimento dell'attività lavorativa. […]*
 > 
 
 É il legislatore stesso che conferma ben **5 “omicidi”** da parte del *lavoro agile*:
