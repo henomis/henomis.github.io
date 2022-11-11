@@ -101,6 +101,27 @@
         </div>
         {{- $currentPage := . }}
         <ul id="menu">
+	    <li>
+		<a href="https://linkedin.com/in/simonevellei">
+			<img src="/blog/icons/linkedin.png" width="32" height="32" style="margin-top:15px;">
+		</a>
+	    </li>
+	    <li>
+		<a href="https://www.instagram.com/simone.vellei.agile">
+			<img src="/blog/icons/instagram.png" width="32" height="32" style="margin-top:15px;">
+		</a>
+	    </li>
+	    <li>
+		<a href="https://www.facebook.com/profile.php?id=100086812039299">
+			<img src="/blog/icons/facebook.png" width="32" height="32" style="margin-top:15px;">
+		</a>
+	    </li>
+	    <li>
+		<a href="https://www.youtube.com/channel/UCbpAhDsXEEnQlRj6skJR5Nw">
+			<img src="/blog/icons/youtube.png" width="32" height="32" style="margin-top:15px;">
+		</a>
+	    </li>
+		
             {{- range .Site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
