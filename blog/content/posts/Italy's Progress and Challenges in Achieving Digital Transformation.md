@@ -1,7 +1,7 @@
 ---
 title: "Italy's Progress and Challenges in Achieving Digital Transformation"
 date: 2023-10-05T09:36:45+02:00
-tags: ["first"]
+tags: ["italy", "digital", "europe", "digitalization"]
 showToc: true
 TocOpen: false
 draft: false
@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 cover:
     image: "/blog/images/europe001.jpeg" # image path/url
-    alt: "<alt text>" # alt text
+    alt: "Europe Digital Decade" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
     hidden: false # only hide on current single page
