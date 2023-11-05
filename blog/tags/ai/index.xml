@@ -6,7 +6,16 @@
     <description>Recent content in ai on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>it</language>
-    <lastBuildDate>Fri, 03 Nov 2023 23:47:12 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Nov 2023 17:06:47 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leveraging Go and Redis for Efficient Retrieval Augmented Generation</title>
+      <link>https://simonevellei.com/blog/posts/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/</link>
+      <pubDate>Sun, 05 Nov 2023 17:06:47 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/posts/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/</guid>
+      <description>Introduction Artificial Intelligence has transformed the way we handle data, and one crucial aspect of AI is similarity search. Whether it&amp;rsquo;s for image recognition, recommendation systems, or natural language processing, finding similar data points quickly and accurately is a common challenge. In this blog post, we will explore a Go code snippet that showcases how to perform efficient vector similarity search using Redis and the Lingoose Go framework, catering to tech-savvy readers interested in both Go programming and AI.</description>
+    </item>
+    
     <item>
       <title>La Dichiarazione Di Bletchley</title>
       <link>https://simonevellei.com/blog/posts/la-dichiarazione-di-bletchley/</link>
