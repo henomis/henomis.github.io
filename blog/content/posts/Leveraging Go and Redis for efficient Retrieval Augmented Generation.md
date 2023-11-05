@@ -129,7 +129,7 @@ The code begins by loading PDF documents from a directory and splitting their te
 ### Creating a Redis Vector Index
 ```go
 // Create a new Redis vector index
-index := index.New(
+redisIndex := index.New(
     redis.New(
         redis.Options{
             RedisearchClient: redisearch.NewClient("localhost:6379", "test"),
@@ -147,7 +147,7 @@ Next, we create a Redis vector index. We've specified parameters such as the dim
 
 ### Loading Documents into the Index
 ```go
-index.LoadFromDocuments(context.Background(), docs)
+redisIndex.LoadFromDocuments(context.Background(), docs)
 ```
 
 Here, we load the documents we previously prepared into the Redis index. This step is where the AI embedding of document content happens, allowing us to perform vector-based searches later.
@@ -155,7 +155,7 @@ Here, we load the documents we previously prepared into the Redis index. This st
 ### Querying the Index with Q&A
 ```go
 qapipeline.New(openai.NewChat().WithVerbose(true)).
-    WithIndex(index).
+    WithIndex(redisIndex).
     Query(context.Background(), "What is the NATO purpose?", option.WithTopK(1))
 ```
 
