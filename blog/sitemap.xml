@@ -2,37 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/tags/ai/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/lingoose/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/llm/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/openai/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/qdrant/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/rag/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/tags/first/</loc>
     <lastmod>2023-11-05T22:10:34+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/rivelazione-di-grok-la-guida-del-viaggiatore-intergalattico-dellintelligenza-artificiale/</loc>
     <lastmod>2023-11-05T22:10:34+01:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2023-11-05T22:10:34+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2023-11-05T22:10:34+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
-    <lastmod>2023-11-05T22:10:34+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/ai/</loc>
-    <lastmod>2023-11-05T17:06:47+01:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/posts/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/</loc>
-    <lastmod>2023-11-05T17:06:47+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/lingoose/</loc>
-    <lastmod>2023-11-05T17:06:47+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/llm/</loc>
-    <lastmod>2023-11-05T17:06:47+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/openai/</loc>
-    <lastmod>2023-11-05T17:06:47+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/rag/</loc>
     <lastmod>2023-11-05T17:06:47+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/la-dichiarazione-di-bletchley/</loc>

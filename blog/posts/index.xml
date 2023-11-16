@@ -5,8 +5,18 @@
     <link>https://simonevellei.com/blog/posts/</link>
     <description>Recent content in Posts on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <lastBuildDate>Sun, 05 Nov 2023 22:10:34 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Nov 2023 08:24:42 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Empowering Go: unveiling the synergy of AI and Q&amp;A pipelines</title>
+      <link>https://simonevellei.com/blog/posts/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/</link>
+      <pubDate>Thu, 16 Nov 2023 08:24:42 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/posts/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/</guid>
+      <description>In the realm of artificial intelligence and machine learning, efficient similarity search is a critical component for tasks ranging from recommendation systems to image recognition. In this blog post, we&amp;rsquo;ll explore the implementation of vector similarity search in Go, utilizing LinGoose framework for indexing and querying vectors in a Qdrant database.
+Understanding Vector Similarity Search Vector similarity search involves finding vectors in a dataset that are most similar to a query vector.</description>
+    </item>
+    
     <item>
       <title>Grok: la guida del viaggiatore intergalattico dell&#39;intelligenza artificiale</title>
       <link>https://simonevellei.com/blog/posts/rivelazione-di-grok-la-guida-del-viaggiatore-intergalattico-dellintelligenza-artificiale/</link>
