@@ -7,7 +7,7 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-defaultContentLanguage: it
+defaultContentLanguage: en
 
 googleAnalytics: UA-123-45
 
