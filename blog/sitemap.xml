@@ -3,33 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://simonevellei.com/blog/tags/ai/</loc>
-    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/anthropic/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/anthropic-claude-integration-with-go-and-lingoose/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/claude/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/go/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/lingoose/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/llm/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/</loc>
     <lastmod>2023-11-16T08:24:42+01:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/tags/lingoose/</loc>
-    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/llm/</loc>
-    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/tags/openai/</loc>
-    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
     <lastmod>2023-11-16T08:24:42+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/qdrant/</loc>
     <lastmod>2023-11-16T08:24:42+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/rag/</loc>
-    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2023-11-16T08:24:42+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2023-11-16T08:24:42+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/first/</loc>
@@ -162,9 +174,6 @@
     <lastmod>2022-06-16T12:44:46+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/devel/</loc>
-    <lastmod>2022-06-05T00:28:41+02:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/go/</loc>
     <lastmod>2022-06-05T00:28:41+02:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/linear-regression/</loc>

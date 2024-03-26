@@ -6,20 +6,47 @@
     <description>Recent content in Tags on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 16 Nov 2023 08:24:42 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Mar 2024 15:51:58 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ai</title>
       <link>https://simonevellei.com/blog/tags/ai/</link>
-      <pubDate>Thu, 16 Nov 2023 08:24:42 +0100</pubDate>
+      <pubDate>Tue, 26 Mar 2024 15:51:58 +0100</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/ai/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>anthropic</title>
+      <link>https://simonevellei.com/blog/tags/anthropic/</link>
+      <pubDate>Tue, 26 Mar 2024 15:51:58 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/anthropic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>claude</title>
+      <link>https://simonevellei.com/blog/tags/claude/</link>
+      <pubDate>Tue, 26 Mar 2024 15:51:58 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/claude/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://simonevellei.com/blog/tags/go/</link>
+      <pubDate>Tue, 26 Mar 2024 15:51:58 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>lingoose</title>
       <link>https://simonevellei.com/blog/tags/lingoose/</link>
-      <pubDate>Thu, 16 Nov 2023 08:24:42 +0100</pubDate>
+      <pubDate>Tue, 26 Mar 2024 15:51:58 +0100</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/lingoose/</guid>
       <description></description>
@@ -28,7 +55,7 @@
     <item>
       <title>llm</title>
       <link>https://simonevellei.com/blog/tags/llm/</link>
-      <pubDate>Thu, 16 Nov 2023 08:24:42 +0100</pubDate>
+      <pubDate>Tue, 26 Mar 2024 15:51:58 +0100</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/llm/</guid>
       <description></description>
@@ -283,15 +310,6 @@
       <pubDate>Sun, 05 Jun 2022 00:28:41 +0200</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/devel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://simonevellei.com/blog/tags/go/</link>
-      <pubDate>Sun, 05 Jun 2022 00:28:41 +0200</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/go/</guid>
       <description></description>
     </item>
     
