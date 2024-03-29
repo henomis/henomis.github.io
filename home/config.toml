@@ -8,6 +8,11 @@ disableKinds = ["page", "section", "taxonomy", "taxonomyTerm"]
 [Author]
     name = "Simone Vellei"
 
+[sitemap]
+    changeFreq = ""  # Default change frequency (empty string)
+    filename = "sitemap.xml"  # Sitemap file name
+    priority = -1  # Default priority (-1 means omitted from rendered sitemap)
+
 [params]
 
     [[params.links]]
