@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/tags/embedded/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/experiment/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/freebsd/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/iot/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/linux/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2024-11-01T16:37:37+01:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/tags/ai/</loc>
     <lastmod>2024-03-26T15:51:58+01:00</lastmod>
   </url><url>
@@ -21,15 +48,6 @@
     <lastmod>2024-03-26T15:51:58+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/llm/</loc>
-    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2024-03-26T15:51:58+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/</loc>

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Mar 2024 15:51:58 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Nov 2024 16:37:37 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeBSD on a ROCK64 Board</title>
+      <link>https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/</link>
+      <pubDate>Fri, 01 Nov 2024 16:37:37 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/</guid>
+      <description>This is a story about an embedded board and a BSD system. The title could have been &amp;ldquo;How to resurrect a forgotten board and fall in love with BSD operating systems, again&amp;rdquo;. It all started 6 years ago when I bought 4 Pine Rock64 boards, with a well planned project in my mind. Each board was equipped with a Rockchip RK3328 quad-core ARM Cortex A53 64-Bit processor, 4GB of RAM, 32GB of eMMC storage, and a Gigabit Ethernet port.</description>
+    </item>
+    
     <item>
       <title>Anthropic&#39;s Claude Integration with Go and Lingoose</title>
       <link>https://simonevellei.com/blog/posts/anthropic-claude-integration-with-go-and-lingoose/</link>
