@@ -102,7 +102,7 @@ Let's resize the disk image and boot the virtual machine.
 ```bash
 $ qemu-img resize ~/FreeBSD-14.1-RELEASE-amd64-zfs.qcow2 +10G
 
-$ qemu-system-x86_64 -hda ~/FreeBSD-14.1-RELEASE-amd64-zfs.qcow2 -m 2048 -enable-kvm  -netdev user,id=mynet0,hostfwd=tcp:127.0.0.1:7722-:22 -device e1000,netdev=0
+$ qemu-system-x86_64 -hda ~/FreeBSD-14.1-RELEASE-amd64-zfs.qcow2 -m 2048 -enable-kvm  -netdev user,id=mynet0,hostfwd=tcp:127.0.0.1:7722-:22 -device e1000,netdev=mynet0
 ```
 
 I connected to the virtual machine and then expanded the last partition on the virtual disk to make use of this new space.
