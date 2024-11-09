@@ -8,11 +8,56 @@
     <language>en</language>
     <lastBuildDate>Sat, 09 Nov 2024 22:00:32 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>first</title>
-      <link>https://simonevellei.com/blog/tags/first/</link>
+      <title>experiment</title>
+      <link>https://simonevellei.com/blog/tags/experiment/</link>
       <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
       
-      <guid>https://simonevellei.com/blog/tags/first/</guid>
+      <guid>https://simonevellei.com/blog/tags/experiment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>freebsd</title>
+      <link>https://simonevellei.com/blog/tags/freebsd/</link>
+      <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/freebsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gateway</title>
+      <link>https://simonevellei.com/blog/tags/gateway/</link>
+      <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/gateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>https://simonevellei.com/blog/tags/iot/</link>
+      <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netbsd</title>
+      <link>https://simonevellei.com/blog/tags/netbsd/</link>
+      <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/netbsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rock64</title>
+      <link>https://simonevellei.com/blog/tags/rock64/</link>
+      <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/rock64/</guid>
       <description></description>
     </item>
     
@@ -22,33 +67,6 @@
       <pubDate>Fri, 01 Nov 2024 16:37:37 +0100</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/embedded/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>experiment</title>
-      <link>https://simonevellei.com/blog/tags/experiment/</link>
-      <pubDate>Fri, 01 Nov 2024 16:37:37 +0100</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/experiment/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>freebsd</title>
-      <link>https://simonevellei.com/blog/tags/freebsd/</link>
-      <pubDate>Fri, 01 Nov 2024 16:37:37 +0100</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/freebsd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iot</title>
-      <link>https://simonevellei.com/blog/tags/iot/</link>
-      <pubDate>Fri, 01 Nov 2024 16:37:37 +0100</pubDate>
-      
-      <guid>https://simonevellei.com/blog/tags/iot/</guid>
       <description></description>
     </item>
     
@@ -139,6 +157,15 @@
       <pubDate>Thu, 16 Nov 2023 08:24:42 +0100</pubDate>
       
       <guid>https://simonevellei.com/blog/tags/rag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>first</title>
+      <link>https://simonevellei.com/blog/tags/first/</link>
+      <pubDate>Sun, 05 Nov 2023 22:10:34 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/tags/first/</guid>
       <description></description>
     </item>
     

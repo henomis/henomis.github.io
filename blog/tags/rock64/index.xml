@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>rock64 on Simone Vellei Blog</title>
+    <link>https://simonevellei.com/blog/tags/rock64/</link>
+    <description>Recent content in rock64 on Simone Vellei Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Nov 2024 22:00:32 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/rock64/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NetBSD on a ROCK64 Board</title>
+      <link>https://simonevellei.com/blog/posts/netbsd-on-a-rock64-board/</link>
+      <pubDate>Sat, 09 Nov 2024 22:00:32 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/posts/netbsd-on-a-rock64-board/</guid>
+      <description>This is the sequel to the previous post FreeBSD on a ROCK64 Board. Long story short, I had the chance to resurrect 4 single-board computers that were collecting dust in my office. I decided to install FreeBSD on one of them and it was a success. This time I will show you how and why I installed NetBSD on a second ROCK64 board.
+Let&amp;rsquo;s add connectivity to the FreeBSD board The process I described in the previous post was fun and I learned a lot.</description>
+    </item>
+    
+  </channel>
+</rss>
