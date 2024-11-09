@@ -1,7 +1,7 @@
 ---
 title: "NetBSD on a ROCK64 Board"
 date: 2024-11-09T22:00:32+01:00
-tags: ["first"]
+tags: ["freebsd", "netbsd", "iot", "rock64", "gateway", "experiment"]
 showToc: true
 TocOpen: false
 draft: false
@@ -130,7 +130,6 @@ $localnet = { 10.0.0.0/24 }
 
 alg "icmp"
 
-# These NAT rules will dynamically select the interface address(es).
 map $ext_if dynamic 10.0.0.0/24 -> ifaddrs($ext_if)
 map $ext_if dynamic proto tcp 10.0.0.2 port 22 <- ifaddrs($ext_if) port 2222
 
@@ -185,6 +184,6 @@ defaultrouter="10.0.0.1"
 
 ![rock64](/blog/images/rock64-007.jpg)
 
-And... it worked! I was able to connect to the FreeBSD board via ssh on port `2222` via wifi using the NetBSD gateway!
+And... it worked! I was able to connect to the FreeBSD board via ssh on port `2222` using the NetBSD gateway!
 
 I had a lot of fun configuring the NetBSD system as a gateway and connecting it to the FreeBSD board. I learned a lot about the NetBSD system and I was impressed by the simplicity and the clarity of the documentation. I will definitely use NetBSD in the future for other projects!
