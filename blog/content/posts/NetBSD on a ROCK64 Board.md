@@ -30,7 +30,7 @@ The process I described in the previous post was fun and I learned a lot. Howeve
 
 > Did I tell you I have a lot of dust-collecting devices in my office?
 
-I remembered I had a USB wifi dongle that I bought a few years ago. This adapter is based on the Atheros AR9271 chipset, I knew it was supported by Linux at the time, but I wasn't sure about FreeBSD. After a quick search, I found the FreeBSD wiki page dedicated to [Atheros wireless driver support](https://wiki.freebsd.org/dev/ath(4)). And you know what? The AR9271 chipset is not yet supported as well as the related USB HAL.
+I remembered I had a USB wifi dongle that I bought a few years ago. This adapter is based on the Atheros AR9271 chipset, I knew it was supported by Linux at the time, but I wasn't sure about FreeBSD. After a quick search, I found the FreeBSD wiki page dedicated to [Atheros wireless driver support](https://wiki.freebsd.org/dev/ath(4)). And you know what? The AR9271 chipset  is not yet well supported along with the related USB HAL.
 
 > Mmm, ok let's buy a cheap USB wifi dongle that is supported by FreeBSD.
 
@@ -40,7 +40,7 @@ That was my first thought, and I started looking at the list of devices and then
 
 ## NetBSD to the rescue
 
-As I did with FreeBSD, I went to the Rock64 software release page to the [NetBSD section](https://wiki.pine64.org/wiki/ROCK64_Software_Releases#NetBSD). It was very interesting to dicover that the NetBSD image for my board was ready to [download](https://nycdn.netbsd.org/pub/arm/) and use. A few minutes later I had the image on my computer and I was ready to flash it on the SD card.
+As I did with FreeBSD, I went to the Rock64 software release page to the [NetBSD section](https://wiki.pine64.org/wiki/ROCK64_Software_Releases#NetBSD). It was very interesting dicover that the NetBSD image for my board was ready to [download](https://nycdn.netbsd.org/pub/arm/) and use. A few minutes later I had the image on my computer and I was ready to flash it on the SD card.
 
 ```bash
 $ sudo dd if=NetBSD-10-aarch64--rock64.img of=/dev/sda bs=1M status=progress
@@ -110,7 +110,7 @@ $ cat /etc/ifconfig.awge0
 inet 10.0.0.1 netmask 255.255.255.0
 ```
 
-After configuring the ethernet interface I had to instruct the system to forward ip packets enabling the `ipforwarding` in the `/etc/sysctl.conf` file.
+After configuring the ethernet interface I had to instruct the system to forward ip packets enabling the ip forwarding in the `/etc/sysctl.conf` file.
 
 ```bash
 $ cat /etc/sysctl.conf
@@ -157,7 +157,7 @@ group default {
 }
 ```
 
-The firewall rules allow to connect to the FreeBSD board via ssh on port `2222`.
+The firewall rules allow connections to the FreeBSD board via ssh on port `2222`.
 The `man npf.conf` page was very helpful to understand the syntax and the rules and it contains a good example to start with. After creating the `npf.conf` file I had to enable the `npf` service in the `/etc/rc.conf` file.
 
 ```bash
