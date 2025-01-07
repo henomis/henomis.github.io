@@ -2,34 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/tags/bastille/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/freebsd/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/go/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/jail/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/nats/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/running-nats-on-a-freebsd-jail/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/posts/3-anni-da-remoto-12-lezioni-imparate/</loc>
     <lastmod>2024-11-15T10:26:41+00:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/lavoro/</loc>
     <lastmod>2024-11-15T10:26:41+00:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2024-11-15T10:26:41+00:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/tags/remote/</loc>
     <lastmod>2024-11-15T10:26:41+00:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2024-11-15T10:26:41+00:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/tags/smartworking/</loc>
-    <lastmod>2024-11-15T10:26:41+00:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2024-11-15T10:26:41+00:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/work/</loc>
     <lastmod>2024-11-15T10:26:41+00:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/experiment/</loc>
-    <lastmod>2024-11-09T22:00:32+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/freebsd/</loc>
     <lastmod>2024-11-09T22:00:32+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/gateway/</loc>
@@ -66,9 +81,6 @@
     <lastmod>2024-03-26T15:51:58+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/claude/</loc>
-    <lastmod>2024-03-26T15:51:58+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/go/</loc>
     <lastmod>2024-03-26T15:51:58+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/lingoose/</loc>

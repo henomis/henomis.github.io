@@ -6,7 +6,16 @@
     <description>Recent content in go on Simone Vellei Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Mar 2024 15:51:58 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jan 2025 15:26:03 +0100</lastBuildDate><atom:link href="https://simonevellei.com/blog/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running NATS on a FreeBSD Jail</title>
+      <link>https://simonevellei.com/blog/posts/running-nats-on-a-freebsd-jail/</link>
+      <pubDate>Wed, 01 Jan 2025 15:26:03 +0100</pubDate>
+      
+      <guid>https://simonevellei.com/blog/posts/running-nats-on-a-freebsd-jail/</guid>
+      <description>Last few months I played with FreeBSD and my Rock64 embedded boards [1] [2]. I really enjoyed the experience and I wanted to go to the next level and experiment with FreeBSD jails. I was surprised how easy (and logical) it was to create and manage an isolated environment. I also noticed that the low level commands have been wrapped into a more user friendly interfaces (like bastille) making the whole experience more enjoyable.</description>
+    </item>
+    
     <item>
       <title>Anthropic&#39;s Claude Integration with Go and Lingoose</title>
       <link>https://simonevellei.com/blog/posts/anthropic-claude-integration-with-go-and-lingoose/</link>
