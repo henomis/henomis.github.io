@@ -1,4 +1,48 @@
-{{- /* Head custom content area start */ -}}
-{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
-{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
-{{- /* Head custom content area end */ -}}
+<style>
+@media screen and (min-width: 769px) {
+    .post-content img.zoomCheck {
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+        z-index: 1;
+        position: relative;
+    }
+
+    .post-content img.zoomed {
+        cursor: zoom-out;
+        position: relative;
+        z-index: 999;
+        transition: transform 0.3s ease;
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".post-content img.zoomCheck");
+
+    images.forEach(img => {
+        img.addEventListener("click", function () {
+            if (img.classList.contains("zoomed")) {
+                img.classList.remove("zoomed");
+                img.style.transform = "scale(1)";
+                document.body.classList.remove("no-scroll");
+            } else {
+                // Get rendered size and natural size
+                const scale = Math.min(
+                    img.naturalWidth / img.clientWidth,
+                    window.innerWidth / img.clientWidth,
+                    window.innerHeight / img.clientHeight
+                );
+
+                img.classList.add("zoomed");
+                img.style.transform = `scale(${scale})`;
+                document.body.classList.add("no-scroll");
+            }
+        });
+    });
+});
+</script>

@@ -1,1 +1,20 @@
-<img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}" {{ end }} />
+{{- $alt := .Text -}}
+{{- $isZoom := strings.HasPrefix $alt "zoom:" -}}
+{{- if $isZoom }}
+  {{- $alt = trim (strings.TrimPrefix $alt "zoom:") " " }}
+{{- end }}
+
+{{- if and (ne .Page.Kind "section") (.Page.Section) }}
+  {{- $random := (substr (md5 .Destination) 0 5) }}
+  <img loading="lazy" decoding="async"
+       src="{{ .Destination | safeURL }}"
+       alt="{{ $alt }}"
+       {{ with .Title }} title="{{ . }}" {{ end }}
+       class="{{ if $isZoom }}zoomCheck{{ end }}" />
+{{- else }}
+  <img loading="lazy" decoding="async"
+       src="{{ .Destination | safeURL }}"
+       alt="{{ $alt }}"
+       {{ with .Title }} title="{{ . }}" {{ end }}
+       class="{{ if $isZoom }}zoomCheck{{ end }}" />
+{{- end }}
