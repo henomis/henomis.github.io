@@ -48,7 +48,7 @@ Chi mi conosce, poi, sa come la penso: se vuoi portare avanti un'idea, ed essere
 
 Quanto segue è il frutto di un lavoro di ricerca e analisi che ho fatto per prepararmi al voto. Non è un lavoro perfetto, ma spero possa essere utile a chi, come me, ha voglia di capire e di approfondire. Non e' mia intenzione dare indicazioni di voto, quanto offrire delle basi di dati su argomenti usati da entrambe le parti in causa. Sarò felice di ricevere suggerimenti e/o correzioni. Se non vi piace, o non amate i dati, non leggete. Per una visione più completa ho deciso di includere nelle analisi altri paesi europei: Germania, Francia e Spagna.
 
-# L'abuso del tempo indeterminato
+# L'abuso del tempo determinato
 C'e' uno spettro che si aggira per l'Italia, ed è il tempo determinato. Causa di ogni male, e figlio del Jobs Act il tempo determinato sarebbe il nemico numero uno del lavoro. Verrebbe da chiedersi se con tali affermazioni non si stia effettivamente credendo che l'unica forma di lavoro dignitosa sia il tempo indeterminato. O, ancora, che si possa parlare di diritto al lavoro solo in presenza di sua maestà il tempo indeterminato. Ragionando sul paradossale e, seguendo una folle idea della destra sovranista, verrebbe voglia di stampare il lavoro affinché tutti possano averne uno.
 
 Eppure potremmo essere obiettivi e cercare la verità nei dati. Come e' cambiata l'incidenza del tempo determinato in Italia? Come ha influito il Jobs Act? Quale è la situazione a livello europeo?
