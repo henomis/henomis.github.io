@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://simonevellei.com/blog/tags/development/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/golang/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/home-server/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/nats/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/nats-as-broker-for-my-home-server/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/posts/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
+    <loc>https://simonevellei.com/blog/tags/</loc>
+    <lastmod>2025-09-07T17:00:32+02:00</lastmod>
+  </url><url>
     <loc>https://simonevellei.com/blog/tags/dati/</loc>
     <lastmod>2025-05-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -11,19 +35,10 @@
     <loc>https://simonevellei.com/blog/tags/politica/</loc>
     <lastmod>2025-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://simonevellei.com/blog/posts/</loc>
-    <lastmod>2025-05-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://simonevellei.com/blog/tags/referendum/</loc>
     <lastmod>2025-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/referendum-2025/</loc>
-    <lastmod>2025-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/</loc>
-    <lastmod>2025-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/</loc>
     <lastmod>2025-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/bastille/</loc>
@@ -36,9 +51,6 @@
     <lastmod>2025-01-01T15:26:03+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/tags/jail/</loc>
-    <lastmod>2025-01-01T15:26:03+01:00</lastmod>
-  </url><url>
-    <loc>https://simonevellei.com/blog/tags/nats/</loc>
     <lastmod>2025-01-01T15:26:03+01:00</lastmod>
   </url><url>
     <loc>https://simonevellei.com/blog/posts/running-nats-on-a-freebsd-jail/</loc>
