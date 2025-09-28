@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/lingoose002.png"
 aliases:
-    - "/blog/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/"
+    - "/blog/posts/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/"
 cover:
     image: "/images/lingoose002.png" # image path/url
     alt: "<alt text>" # alt text

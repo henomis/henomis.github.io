@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/focus10.jpg"
 aliases:
-    - "/blog/le-quattro-discipline-dellesecuzione/"
+    - "/blog/posts/le-quattro-discipline-dellesecuzione/"
 cover:
     image: "/images/focus10.jpg" # image path/url
     alt: "<alt text>" # alt text

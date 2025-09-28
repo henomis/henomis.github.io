@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/focus03.jpg"
 aliases:
-    - "/blog/lambiente-di-lavoro-una-visione-ideale/"
+    - "/blog/posts/lambiente-di-lavoro-una-visione-ideale/"
 cover:
     image: "/images/focus03.jpg" # image path/url
     alt: "<alt text>" # alt text

@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/famiglia001.png"
 aliases: 
-    - "/blog/siamo-una-grande-famiglia/"
+    - "/blog/posts/siamo-una-grande-famiglia/"
 cover:
     image: "/images/famiglia001.png" # image path/url
     alt: "<alt text>" # alt text

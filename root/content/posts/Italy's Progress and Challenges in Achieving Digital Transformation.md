@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/europe001.jpeg"
 aliases: 
-    - "/blog/italys-progress-and-challenges-in-achieving-digital-transformation/"
+    - "/blog/posts/italys-progress-and-challenges-in-achieving-digital-transformation/"
 cover:
     image: "/images/europe001.jpeg" # image path/url
     alt: "Europe Digital Decade" # alt text

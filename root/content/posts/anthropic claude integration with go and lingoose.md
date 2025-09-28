@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/lingoose003.png"
 aliases: 
-    - "/blog/anthropic-claude-integration-with-go-and-lingoose/"
+    - "/blog/posts/anthropic-claude-integration-with-go-and-lingoose/"
 cover:
     image: "/images/lingoose003.png" # image path/url
     alt: "<alt text>" # alt text

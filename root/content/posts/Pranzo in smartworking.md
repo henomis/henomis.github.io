@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/smartworking01.jpeg"
 aliases:
-    - "/blog/pranzo-in-smartworking/"
+    - "/blog/posts/pranzo-in-smartworking/"
 cover:
     image: "/images/smartworking01.jpeg" # image path/url
     alt: "<alt text>" # alt text

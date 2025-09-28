@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/smartworking04.jpg"
 aliases:
-    - "/blog/12-indizi-che-dello-smartworking-non-hai-capito-nulla/"
+    - "/blog/posts/12-indizi-che-dello-smartworking-non-hai-capito-nulla/"
 cover:
     image: "/images/smartworking04.jpg" # image path/url
     alt: "<alt text>" # alt text

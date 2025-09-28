@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/rock64-004.png"
 aliases: 
-    - "/blog/freebsd-on-a-rock64-board/"
+    - "/blog/posts/freebsd-on-a-rock64-board/"
 cover:
     image: "/images/rock64-004.png" # image path/url
     alt: "<alt text>" # alt text

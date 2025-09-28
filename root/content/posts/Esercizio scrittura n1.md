@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/esercizio_scrittura01.png"
 aliases:
-    - "/blog/esercizio-scrittura-n1/"
+    - "/blog/posts/esercizio-scrittura-n1/"
 cover:
     image: "/images/esercizio_scrittura01.png" # image path/url
     alt: "<alt text>" # alt text

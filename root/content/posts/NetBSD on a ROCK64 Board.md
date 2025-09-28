@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/rock64-008.jpg"
 aliases: 
-    - "/blog/netbsd-on-a-rock64-board/"
+    - "/blog/posts/netbsd-on-a-rock64-board/"
 cover:
     image: "/images/rock64-008.jpg" # image path/url
     alt: "<alt text>" # alt text

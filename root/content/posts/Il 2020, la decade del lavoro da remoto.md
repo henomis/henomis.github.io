@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/computer04.jpg"
 aliases:
-    - "/blog/il-2020-la-decade-del-lavoro-da-remoto/"
+    - "/blog/posts/il-2020-la-decade-del-lavoro-da-remoto/"
 cover:
     image: "/images/computer04.jpg" # image path/url
     alt: "<alt text>" # alt text

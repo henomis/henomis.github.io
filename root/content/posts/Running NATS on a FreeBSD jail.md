@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/nats001.png"
 aliases: 
-    - "/blog/running-nats-on-a-freebsd-jail/"
+    - "/blog/posts/running-nats-on-a-freebsd-jail/"
 cover:
     image: "/images/nats001.png" # image path/url
     alt: "<alt text>" # alt text

@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/smartworking06.jpg"
 aliases:
-    - "/blog/il-lavoro-agile-come-abitudine/"
+    - "/blog/posts/il-lavoro-agile-come-abitudine/"
 cover:
     image: "/images/smartworking06.jpg" # image path/url
     alt: "<alt text>" # alt text

@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/agile01.jpg"
 aliases:
-    - "/blog/lillusione-di-gantt/"
+    - "/blog/posts/lillusione-di-gantt/"
 cover:
     image: "/images/agile01.jpg" # image path/url
     alt: "<alt text>" # alt text

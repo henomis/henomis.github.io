@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/computer02.jpg"
 aliases:
-    - "/blog/la-società-reagisce-al-contagio/"
+    - "/blog/posts/la-società-reagisce-al-contagio/"
 cover:
     image: "/images/computer02.jpg" # image path/url
     alt: "<alt text>" # alt text
