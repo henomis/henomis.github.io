@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/pollenium04.png"
+aliases: 
+    - "/blog/nats-as-broker-for-my-home-server/"
 cover:
     image: "/images/pollenium04.png" # image path/url
     alt: "<alt text>" # alt text

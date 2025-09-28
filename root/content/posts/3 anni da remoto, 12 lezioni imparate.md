@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/smartworking07.jpg"
+aliases: 
+    - "/blog/3-anni-da-remoto-12-lezioni-imparate/"
 cover:
     image: "/images/smartworking07.jpg" # image path/url
     alt: "<alt text>" # alt text

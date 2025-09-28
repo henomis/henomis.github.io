@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/esercizio_scrittura02.png"
+aliases:
+    - "/blog/esercizio-scrittura-n2/"
 cover:
     image: "/images/esercizio_scrittura02.png" # image path/url
     alt: "<alt text>" # alt text

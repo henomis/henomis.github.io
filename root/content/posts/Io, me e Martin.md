@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/martin01.jpg"
+aliases:
+    - "/blog/io-me-e-martin/"
 cover:
     image: "/images/martin01.jpg" # image path/url
     alt: "<alt text>" # alt text

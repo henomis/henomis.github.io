@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/focus09.jpg"
+aliases:
+    - "/blog/il-rito-della-concentrazione/"
 cover:
     image: "/images/focus09.jpg" # image path/url
     alt: "<alt text>" # alt text

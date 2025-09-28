@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/focus08.jpg"
+aliases:
+    - "/blog/strategie-per-dosare-la-concentrazione/"
 cover:
     image: "/images/focus08.jpg" # image path/url
     alt: "<alt text>" # alt text

@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/smartworking03.jpg"
+aliases:
+    - "/blog/smartworking-non-è-welfare/"
 cover:
     image: "/images/smartworking03.jpg" # image path/url
     alt: "<alt text>" # alt text

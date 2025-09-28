@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/lingoose001.png"
+aliases: 
+    - "/blog/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/"
 cover:
     image: "/images/lingoose001.png" # image path/url
     alt: "<alt text>" # alt text

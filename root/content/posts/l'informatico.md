@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/informatics01.jpg"
+aliases:
+    - "/blog/linformatico/"
 cover:
     image: "/images/informatica01.jpg" # image path/url
     alt: "<alt text>" # alt text

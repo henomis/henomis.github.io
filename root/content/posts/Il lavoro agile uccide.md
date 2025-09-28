@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/smartworking05.jpg"
+aliases:
+    - "/blog/il-lavoro-agile-uccide/"
 cover:
     image: "/images/smartworking05.jpg" # image path/url
     alt: "<alt text>" # alt text

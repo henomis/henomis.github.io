@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/referendum000.png"
+aliases: 
+    - "/blog/referendum-2025/"
 cover:
     image: "/images/referendum000.png" # image path/url
     alt: "<alt text>" # alt text

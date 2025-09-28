@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/focus01.jpg"
+aliases:
+    - "/blog/concentrazione-e-produttività-di-un-knowledge-worker/"
 cover:
     image: "/images/focus01.jpg" # image path/url
     alt: "<alt text>" # alt text

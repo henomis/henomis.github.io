@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/essentialism01.jpg"
+aliases: 
+    - "/blog/il-costo-del-tutto/"
 cover:
     image: "/images/essentialism01.jpg" # image path/url
     alt: "<alt text>" # alt text

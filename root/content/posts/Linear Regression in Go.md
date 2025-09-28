@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/linear-regression01.png"
+aliases:
+    - "/blog/linear-regression-in-go/"
 cover:
     image: "/images/linear-regression01.png" # image path/url
     alt: "<alt text>" # alt text

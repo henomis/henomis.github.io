@@ -17,6 +17,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/chef01.jpg"
+aliases:
+    - "/blog/maometto-la-montagna-e-il-ristorante/"
 cover:
     image: "/images/chef01.jpg" # image path/url
     alt: "<alt text>" # alt text

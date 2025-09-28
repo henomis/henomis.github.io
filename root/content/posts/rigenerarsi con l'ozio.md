@@ -15,7 +15,9 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/foucus11.jpg"
+featuredImage: "/images/focus11.jpg"
+aliases:
+    - "/blog/rigenerarsi-con-lozio/"
 cover:
     image: "/images/focus11.jpg" # image path/url
     alt: "<alt text>" # alt text

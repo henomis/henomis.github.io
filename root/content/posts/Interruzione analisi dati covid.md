@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/covid01.png"
+aliases:
+    - "/blog/interruzione-analisi-dati-covid/"
 cover:
     image: "/images/covid01.png" # image path/url
     alt: "<alt text>" # alt text

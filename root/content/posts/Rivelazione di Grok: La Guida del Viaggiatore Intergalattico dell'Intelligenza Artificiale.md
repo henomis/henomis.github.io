@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/grok001.png"
+aliases: 
+    - "/blog/rivelazione-di-grok-la-guida-del-viaggiatore-intergalattico-dellintelligenza-artificiale/"
 cover:
     image: "/images/grok001.png" # image path/url
     alt: "<alt text>" # alt text

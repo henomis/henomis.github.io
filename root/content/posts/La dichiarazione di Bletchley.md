@@ -16,6 +16,8 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/bletchley.jpg"
+aliases: 
+    - "/blog/la-dichiarazione-di-bletchley/"
 cover:
     image: "/images/bletchley.jpg" # image path/url
     alt: "La Dichiarazione Di Bletchley" # alt text
