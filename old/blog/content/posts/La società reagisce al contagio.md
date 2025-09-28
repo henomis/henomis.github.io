@@ -28,7 +28,7 @@ Non ci sono dubbi, il virus COVID-19 sta mettendo alla prova la nostra vita quot
 
 Uno dei provvedimenti applicati per limitare il contagio è stata la chiusura delle scuole. Mentre i ragazzi “esultano”, dirigenti scolastici ed insegnanti sono preoccupati per il raggiungimento degli obiettivi del **programma ministeriale**.
 
-![](/blog/images/computer02.jpg)
+![](/images/computer02.jpg)
 
 C’è chi decide di fare lezione al **parco**, mantenendo la distanza di sicurezza, chi usa il **registro elettronico** per diffondere i compiti e le lezioni. Qualcuno azzarda a tenere **lezioni online**, con tutte le difficoltà sia lato studenti che lato insegnanti. E, allora, ci si chiede se veramente la scuola italiana è pronta in un’emergenza simile ad una prassi che nel 2020 dovrebbe essere considerata non “futuristica” ma “**contemporanea**”. Mi riferisco, ovviamente, alla capacità di insegnanti e studenti di partecipare ad una lezione da remoto.
 
@@ -40,7 +40,7 @@ Per questo **Google** si è offerta di offrire allo Stato italiano la piattaform
 
 Le restrizioni previste dal governo non possono non influenzare anche il mondo del lavoro. Prendere un mezzo pubblico, condividere una scrivania, partecipare ad una riunione, sono alcuni esempi di comportamenti potenzialmente a **rischio** se paragonati alle precauzioni messe in atto per la scuola e per le attività di aggregazione in generale.
 
-![](/blog/images/computer03.jpg)
+![](/images/computer03.jpg)
 
 E l’Italia, nel 2020, scopre che esiste lo **smart working**, ma solamente come termine, come speranza remota di una panacea di ogni male. La realtà dei fatti è che non basta un decreto ministeriale per **sburocratizzare** la procedura e nemmeno le buone intenzioni di un’azienda nel venire incontro ai dipendenti. Se ancora oggi molti fanno confusione fra *telelavoro* e *smart working,* pensando siano **sinonimi**, come possiamo pretendere di poter far fronte ad un’emergenza applicando un metodo che è molto più profondo di permettere al lavoratore di lavorare da remoto? Si tratta di una **riorganizzazione** aziendale a tutti gli effetti, specialmente nel tessuto industriale italiano dove le PMI hanno una visione del lavoro* *“ad ore” e non “ad obiettivi”. Se gli effetti economici, imputabili alla diffusione del COVID-19 sono paragonabili a quelli della **crisi** del 2009, dall'altra dobbiamo stare attenti a non innescarne degli altri di contorno.
 
@@ -48,7 +48,7 @@ E l’Italia, nel 2020, scopre che esiste lo **smart working**, ma solamente com
 
 Compriamo mascherine anche se non siamo infetti, svuotiamo supermercati e, una volta dichiarata zona rossa un’intera regione, prendiamo il primo treno per **tornare** *giù*, rischiando di contagiare una zona sicuramente meno preparata all'emergenza per quanto riguarda personale e strutture sanitarie.
 
-![](/blog/images/cina01.jpg)
+![](/images/cina01.jpg)
 
 Prima di affermare che la società non è pronta, mi sento di dire che la società non è **formata**, non è presente la giusta informazione. I media sono solamente *correi* di questa situazione, in una nazione con il 47% di analfabeti funzionali, il diffondersi di un’epidemia può generare effetti **devastanti** sul tessuto sociale. Fortunatamente ci sono esempi di intelligenza e bontà di cuore come, ad esempio, studenti che si offrono volontari per la spesa a persone anziane dello stesso condominio. Studenti che, pur studiando in una zona rossa, decidono di rimanerci per **tutelare** il proprio territorio e i propri cari. Ci sono esempi concreti anche da parte di **aziende**, come Esselunga che offre la consegna a casa agli over 65 o ristoranti che intelligentemente si sono temporaneamente convertiti in *take-away.* Donazioni, come quella di Xiaomi, azienda cinese, lasciano a bocca aperta per il messaggio che le accompagna.
 

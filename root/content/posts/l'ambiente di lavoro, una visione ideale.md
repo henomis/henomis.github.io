@@ -33,7 +33,7 @@ Proprio da questo termine, e dal profondo significato che cela, **David Dewane**
 
 ## La struttura
 
-![eudaimonia machine](/blog/images/focus02.jpg)
+![eudaimonia machine](/images/focus02.jpg)
 
 La struttura di tale ambiente è composta da cinque stanze, realizzate con delle regole ben precise:
 

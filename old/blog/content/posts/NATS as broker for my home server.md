@@ -35,7 +35,7 @@ Did you know that I have allergies? Yes, I do. And I hate them. Every spring, wh
 ## Pollenium
 The official website’s user interface is clunky and slow, but fortunately, it exposes a public API. I leveraged this API by writing a lightweight Go program that fetches daily pollen data for my area. The program handles its own scheduling internally, ensuring the data is updated automatically each day and stored in a local SQLite database. On top of this, I developed a simple web interface that presents the latest readings and visualizes historical trends with interactive graphs, making it easy to track pollen levels over time.
 
-![zoom:Pollen monitoring](/blog/images/pollenium01.png)
+![zoom:Pollen monitoring](/images/pollenium01.png)
 
 That's what I called **Pollenium**.
 
@@ -52,7 +52,7 @@ NATS is a high-performance messaging system that is lightweight and easy to depl
 
 The easiest way to receive a notification is through a Telegram bot. The new service I implemented listens for messages on specific subjects and sends a message to my Telegram bot chat. The service is highly configurable and you can specify different subjects to listen to, as well as the message format and chat IDs to send the notifications to. I called this service **Telenats**. Notifications are NATS JetStream messages, so they are persistent and can be replayed if needed.
 
-![zoom:Pollen monitoring](/blog/images/pollenium02.png)
+![zoom:Pollen monitoring](/images/pollenium02.png)
 
 # User interfaces
 
@@ -82,7 +82,7 @@ Now that I had all the components, I needed to connect them. Here’s how curren
 6. Pollenium listens for that subject/keystroke and when it receives the message, it gets from the database the current pollens with high levels and publishes a formatted message to the tts NATS subject.
 7. Voicecast listens for tts messages, sends the text to the Piper server, gets the audio file, and plays it.
 
-![zoom:Pollen monitoring](/blog/images/pollenium03.png)
+![zoom:Pollen monitoring](/images/pollenium03.png)
 
 # Conclusion
 Using NATS as a message broker for my home server has been a great choice. It has allowed me to build a modular architecture that is easy to maintain and extend. I can easily add new services or modify existing ones without affecting the entire system. Plus, it has been a fun and **relaxing** experience to develop my home server using Go and asynchronous messaging.

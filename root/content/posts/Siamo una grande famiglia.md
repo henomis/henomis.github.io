@@ -30,7 +30,7 @@ E spesso, dietro chi la usa, si nasconde il peggior tipo di capo: il **micromana
 
 
 # La retorica della grande famiglia
-![Micromanager e retorica della grande famiglia](/blog/images/famiglia002.png)
+![Micromanager e retorica della grande famiglia](/images/famiglia002.png)
 Mettiamo in chiaro che un’azienda è un’organizzazione professionale, che ha come unico scopo la **produzione di beni o servizi per il profitto**. Certamente non è un luogo di affetto incondizionato, ma un ambiente dove le relazioni sono basate su contratti, diritti e doveri reciproci. Perché allora questa retorica della "grande famiglia" è così diffusa?
 
 ## Mancanza di professionalità
@@ -44,7 +44,7 @@ Quando la “gestione familiare” prende il sopravvento, l’ambiente di lavoro
 
 
 # Il legame col micromanagement
-![Micromanager e retorica della grande famiglia](/blog/images/famiglia003.png)
+![Micromanager e retorica della grande famiglia](/images/famiglia003.png)
 La narrazione della “grande famiglia” e il micromanagement sono spesso due facce della stessa medaglia. Quando un’azienda si presenta come una famiglia, il manager tende a giustificare il controllo eccessivo come “cura” o “attenzione” verso i collaboratori, mascherando la mancanza di **fiducia e autonomia**. In nome della “protezione familiare”, ogni scelta viene supervisionata, ogni errore viene corretto personalmente, e ogni iniziativa viene filtrata dal capo. Questo clima paternalistico impedisce la crescita professionale, soffoca la responsabilità individuale e trasforma il lavoro in una relazione di dipendenza emotiva, dove il manager si pone come figura genitoriale e i dipendenti come figli da guidare e correggere. In realtà, questa dinamica genera solo insicurezza, demotivazione e una cultura aziendale stagnante.
 
 ## Controllo eccessivo
@@ -58,7 +58,7 @@ Nella “grande famiglia” aziendale, il capo tende a trattenere il **controllo
 
 
 # Le reali conseguenze
-![Le conseguenze reali](/blog/images/famiglia004.png)
+![Le conseguenze reali](/images/famiglia004.png)
 Quando la narrazione aziendale si basa su **legami emotivi forzati** e su una gestione iper-controllante, le ripercussioni sono concrete e incidono direttamente sulla qualità della vita lavorativa e sui risultati dell’organizzazione. Questi approcci generano effetti misurabili sia sulle persone che sull’efficacia operativa:
 
 ## Alto turnover
@@ -71,7 +71,7 @@ Quando la pressione psicologica e la mancanza di confini tra vita privata e lavo
 In un ambiente dove il dissenso è mal visto e l’autonomia è limitata, le persone non si sentono libere di proporre idee nuove o di sperimentare soluzioni alternative. La paura di sbagliare, di essere giudicati o di andare contro le aspettative emotive del gruppo porta a una **stagnazione creativa**. Le aziende che non favoriscono il confronto aperto e la valorizzazione delle competenze individuali rischiano di perdere il contributo originale dei propri collaboratori, limitando la capacità di adattarsi ai cambiamenti e di crescere in modo competitivo. L’innovazione nasce dalla libertà di pensiero e dalla fiducia reciproca, non dal controllo e dalla pressione emotiva.
 
 # Smontiamo il mito
-![Smontiamo il mito](/blog/images/famiglia005.png)
+![Smontiamo il mito](/images/famiglia005.png)
 La retorica della “grande famiglia” va smontata con chiarezza: un’azienda non è una famiglia, ma una comunità professionale. Le relazioni lavorative devono essere basate su rispetto, trasparenza e riconoscimento dei meriti, non su dinamiche affettive o manipolatorie. È fondamentale rivendicare il diritto a confini chiari tra lavoro e vita privata, a una leadership che valorizzi autonomia e crescita, e a un ambiente dove il dissenso sia visto come opportunità di miglioramento, non come minaccia. Solo così si può costruire una **cultura aziendale sana**, capace di attrarre e trattenere talenti, favorire l’innovazione e garantire benessere reale alle persone.
 
 ## Team non famiglia
@@ -87,7 +87,7 @@ Per costruire un ambiente di lavoro sano e produttivo, è fondamentale promuover
 Un elemento fondamentale per il benessere in azienda è la netta separazione tra vita privata e lavoro. Quando i confini vengono rispettati, le persone possono dedicarsi alle proprie passioni, relazioni e interessi al di fuori dell’ufficio, ricaricando le energie e mantenendo un equilibrio sano. Un’organizzazione matura riconosce che il tempo libero è indispensabile per la creatività, la motivazione e la produttività. Incentivare la disconnessione, evitare richieste fuori orario e rispettare le **esigenze personali dei collaboratori** sono pratiche che favoriscono un ambiente più sereno e sostenibile, dove il lavoro non invade la sfera personale e ciascuno può dare il meglio di sé senza sacrificare il proprio benessere.
 
 # Un danno difficile da riparare
-![Le conseguenze reali](/blog/images/famiglia006.png)
+![Le conseguenze reali](/images/famiglia006.png)
 Quando la cultura della “grande famiglia” e il micromanagement si radicano in un’azienda, i danni non sono facilmente reversibili. Le persone che hanno vissuto in ambienti manipolatori e poco professionali sviluppano diffidenza, insicurezza e una scarsa fiducia nei confronti della leadership. Anche dopo un cambio di management o l’introduzione di nuove politiche, il clima aziendale potrebbe restare segnato da **vecchie abitudini e resistenze al cambiamento**. Ricostruire un ambiente sano richiede tempo, ascolto e interventi concreti: serve una leadership consapevole, capace di riconoscere gli errori del passato e di promuovere una cultura basata su rispetto, trasparenza e valorizzazione delle persone. Solo così è possibile superare le ferite lasciate da anni di retorica tossica e controllo eccessivo, restituendo dignità e motivazione ai collaboratori.
 
 ## Riconoscere gli errori

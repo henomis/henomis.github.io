@@ -53,7 +53,7 @@ C'e' uno spettro che si aggira per l'Italia, ed è il tempo determinato. Causa d
 
 Eppure potremmo essere obiettivi e cercare la verità nei dati. Come e' cambiata l'incidenza del tempo determinato in Italia? Come ha influito il Jobs Act? Quale è la situazione a livello europeo?
 
-![zoom:grafico1](/blog/images/referendum001.png)
+![zoom:grafico1](/images/referendum001.png)
 _Grafico 1: Percentuale di contratti a tempo determinato sul totale dei contratti di lavoro_
 
 Le risposte a queste domande sono contenute nel grafico 1. I dati sono stati estratti da [Eurostat](https://ec.europa.eu/eurostat/databrowser/view/lfsi_pt_a__custom_16839022) e partono volutamente dal 2009, prima che entrasse in vigore il Jobs Act. E' possibile notare, guardando all'ultimo dato disponibile del 2024, che il tempo determinato ha un'incidenza media del 12% circa sul totale dei contratti di lavoro nei paesi europei presi a confronto. Si, il Jobs Act ha modificato la curva, ma non ha cambiato drasticamente il trend che si conferma stabile nel lungo periodo ed in linea con gli altri paesi europei.
@@ -64,12 +64,12 @@ Se davvero ci fosse un abuso del tempo determinato, ci si aspetterebbe che l'Ita
 # L'emergenza licenziamenti e disoccupazione
 E' un tema che viene tirato in ballo ogni volta che si parla di lavoro: _i licenziamenti sono un'emergenza, e il Jobs Act ha reso tutto più semplice_. Non sono riuscito a trovare dati ufficiali sui licenziamenti senza giusta causa (non esistono o se esistono sono nascosti molto bene!), ma possiamo analizzare i dati sui licenziamenti in generale.
 
-![zoom:grafico2](/blog/images/referendum002.png)
+![zoom:grafico2](/images/referendum002.png)
 _Grafico 2: Licenziamenti in percentuale sul totale dei contratti di lavoro_
 
 In questo grafico [Eurostat](https://ec.europa.eu/eurostat/databrowser/view/lfsi_long_a__custom_16839271), che manca degli anni interessati dalla pandemia Covid, vengono mostrate le transizioni da occupato a disoccupato. Ancora una volta, nulla di anomalo, il trend è stabile ed in linea con gli altri paesi europei. Anzi, a dire la verità, l'Italia ha un'andamento apparentemente migliore rispetto agli altri paesi. Per questo motivo sono andato a cercare i dati sulla disoccupazione.
 
-![zoom:grafico3](/blog/images/referendum003.png)
+![zoom:grafico3](/images/referendum003.png)
 _Grafico 3: Disoccupati in percentuale sul totale forza lavoro (15-74 anni)_
 
 Ora il panorama e' più chiaro. La disoccupazione in Italia, non solo non ha subito particolari scossoni dall'introduzione del Jobs Act, ma ha un andamento in linea con gli altri paesi europei e conferma il trend in calo. 
@@ -80,14 +80,14 @@ Il numero di incidenti gravi e mortali resta un tema di grande attualità e preo
 
 Ma come si è evoluta la situazione in Italia? E' migliorata o peggiorata? E, soprattutto, come si colloca l'Italia rispetto agli altri paesi europei?
 
-![zoom:grafico4](/blog/images/referendum004.png)
+![zoom:grafico4](/images/referendum004.png)
 _Grafico 4: Morti sul lavoro - incidenza_
 
 I dati sono stati estratti da [Eurostat](https://ec.europa.eu/eurostat/databrowser/view/hsw_mi01__custom_16839434) mostrano un andamento tutto sommato stabile. La curva italiana è in linea con quella degli altri paesi europei, e non mostra particolari anomalie pur nella gravità del tema.
 
 Andiamo quindi a vedere se analizzando i dati sugli incidenti non mortali la situazione cambia. 
 
-![zoom:grafico5](/blog/images/referendum005.png)
+![zoom:grafico5](/images/referendum005.png)
 _Grafico 4: Incidenti non mortali sul lavoro - numeri assoluti_
 
 Anche in questo caso i dati sono stati estratti da [Eurostat](https://ec.europa.eu/eurostat/databrowser/view/hsw_mi04__custom_16839480). Purtroppo non ci sono dati normalizzati ma solo numeri assoluti, tuttavia gli andamenti dei vari paesi mostrano uno scenario stabile. Nel quadro generale si fa fatica a voler trovare un colpevole.

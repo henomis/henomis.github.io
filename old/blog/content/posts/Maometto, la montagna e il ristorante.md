@@ -34,7 +34,7 @@ Prendiamo il caso **ristoratori** che è uno dei settori che più ho a cuore. Ri
 
 * **NON** fare affidamento sugli aiuti di Stato. Lo Stato può sopperire in maniera limitata e con i tempi tipici della pubblica amministrazione, nel frattempo però ci sono utenze da pagare, mutui, affitti, stipendi, ecc.
 
-![aaaa](/blog/images/chef01.jpg)
+![aaaa](/images/chef01.jpg)
 
 Il passaggio successivo è pensare a quali sono le **risorse** che danno valore alla propria attività e le motivazioni per le quali un cliente decide di mangiare nel proprio ristorante. Compresi questi punti di partenza occorre trasformare la propria **attività** da “apro la serranda e attendo il cliente che passa” a “vado a cercare il cliente a casa sua”. Del resto il cliente da casa non si poteva proprio spostare!
 
@@ -48,7 +48,7 @@ E come fare per attirare il cliente? Di sicuro non improvvisandosi cercatore d�
 
 Nella mia città, effettivamente, qualche attività commerciale durante il *lockdown* ha iniziato ad usare il **delivery** tralasciando la fruibilità del servizio. Se il cliente deve usare il **telefono** per ordinare, deve essere chiaro che si è già persa una grossa fetta di mercato, oltre ad avere problemi di gestione con un mezzo di comunicazione non adeguato.
 
-![](/blog/images/computer01.jpg)
+![](/images/computer01.jpg)
 
 Anche in questo caso era sufficiente avere un **sito web** e chiedere ad un professionista di aggiungere un modulo **ecommerce** per i propri prodotti. I clienti non avrebbero trovato occupato il telefono, gli ordini sarebbero stati pagati in anticipo con carta di credito, non ci sarebbero stati problemi con la manipolazione di contanti e col resto.
 

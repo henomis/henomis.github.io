@@ -236,7 +236,7 @@ oppure compilato col comando
 
 ## Grafico finale
 
-![output graphic data](/blog/images/linear-regression01.png)
+![output graphic data](/images/linear-regression01.png)
 
 ## Conclusioni
 Abbiamo dimostrato che, almeno per questo primo esempio di regressione lineare, anche in **Go** esistono gli strumenti adatti per la manipolazione dei dati, per l'elaborazione di funzioni di interpolazione e per la generazione di grafici. Tali strumenti ci permettono di implementare all'interno di servizi Cloud backend realizzati in linguaggio Go un vero e proprio sistema completo per la gestione dei dati **on demand**.
