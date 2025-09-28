@@ -7,19 +7,19 @@ L’uomo, tuttavia, per sua natura, è in continua lotta con i suoi **desideri**
 Ecco perché è importante definire una **strategia** per dosare **concentrazione** e **forza di volontà** all’interno della nostra giornata lavorativa. In questo articolo presenterò 4 diversi approcci filosofici.
 
 ## La filosofia monastica
-![filosofia monastica](/blog/images/focus04.png)
+![filosofia monastica](/images/focus04.png)
 Alcuni knowledge worker, per potersi concentrare sul proprio lavoro, hanno bisogno di **eliminare** del tutto attività collaterali come controllare e-mail o rispondere alle telefonate. In questo caso la concentrazione deve necessariamente essere continuativa e senza interruzioni. Tale scelta comporta, a priori, un’attività ben pianificata con obiettivi chiari, spesso guidati dalla filosofia: *fai una sola cosa, ma nel migliore dei modi*. 
 
 ## La filosofia bimodale
-![filosofia bimodale](/blog/images/focus05.png)
+![filosofia bimodale](/images/focus05.png)
 Mentre nella filosofia monastica le attività collaterali vengo eliminate completamente, nella filosofia bimodale esse sono bandite esclusivamente in alcuni **momenti**. Come dice il termine stesso di questa particolare strategia, il knowledge worker opera in maniera monastica nei momenti di lavoro intenso e si dedica alle attività che non richiedono particolare concentrazione nel resto del tempo. La **divisione** delle due modalità di lavoro non segue uno schema ben preciso e può presentarsi su differenti scale. Ad esempio su scala **settimanale** si possono dedicare al lavoro intenso tre giorni completi e il resto per altre attività, oppure su base **annuale** si può riservare una intera stagione alle attività più impegnative. L’unità minima di divisione tende ad essere sempre almeno un giorno intero.
 
 ## La filosofia ritmica
-![filosofia ritmica](/blog/images/focus06.png)
+![filosofia ritmica](/images/focus06.png)
 I seguaci di questa filosofia ritengono che la via più semplice per iniziare ad avere sessioni di lavoro intenso sia quella di trasformarle in **abitudini**. L’obiettivo è, quindi, quello di generare un **ritmo**, eliminando il bisogno di spendere energie nel decidere se e quando dedicarsi ad attività che necessitano di concentrazione. In contrasto con la filosofia bimodale, i blocchi di lavoro intenso sono spesso da **novanta minuti**. Probabilmente il livello di concentrazione non sarà così alto, ma è un ottimo compromesso, in quanto si avvicina di più alla realtà della natura umana. Scegliere l’una rispetto all’altra dipende dalla propria forza di volontà nel mantenere l’**abitudine** prefissata.
 
 ## La filosofia giornalistica
-![filosofia giornalistica](/blog/images/focus07.png)
+![filosofia giornalistica](/images/focus07.png)
 Questa strategia non prevede nessuno schema fisso, ma solo l’intento di dedicare del tempo per il lavoro intenso ogni qual volta ci sia uno *slot* **libero**. Questo approccio viene chiamato giornalistico per attinenza con la relativa attività professionale. Un giornalista, infatti, nell’istante stesso in cui viene a conoscenza di una notizia, dovrà iniziare una sessione di focus sulla scrittura dell’articolo da pubblicare. Questo può accadere in maniera totalmente **casuale** all’interno della giornata. Tale approccio deve necessariamente considerare che, il rapido e frequente cambio di **contesto** fra le attività a vari livelli di concentrazione, può esaurire rapidamente la riserva limitata della propria forza di volontà.
 
 ## L’importanza della scelta

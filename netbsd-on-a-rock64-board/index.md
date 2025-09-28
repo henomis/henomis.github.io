@@ -14,7 +14,7 @@ I remembered I had a USB wifi dongle that I bought a few years ago. This adapter
 
 That was my first thought, and I started looking at the list of devices and then searching for the FreeBSD driver support. It was at that moment that a weird idea came to my mind: if this device is not supported by FreeBSD, why not try it with NetBSD?
 
-![rock64](/blog/images/rock64-006.jpg)
+![rock64](/images/rock64-006.jpg)
 
 ## NetBSD to the rescue
 
@@ -160,7 +160,7 @@ ifconfig_dwc0="inet 10.0.0.2 netmask 255.255.255.0"
 defaultrouter="10.0.0.1"
 ```
 
-![rock64](/blog/images/rock64-007.jpg)
+![rock64](/images/rock64-007.jpg)
 
 And... it worked! I was able to connect to the FreeBSD board via ssh on port `2222` using the NetBSD gateway!
 
