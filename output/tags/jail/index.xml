@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Jail - Tag - Simone Vellei - Blog</title>
+        <link>https://simonevellei.com/tags/jail/</link>
+        <description>Jail - Tag - Simone Vellei - Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>it</language><managingEditor>henomis@gmail.com (Simone Vellei)</managingEditor>
+            <webMaster>henomis@gmail.com (Simone Vellei)</webMaster><copyright>© 2025 Simone Vellei. All rights reserved.</copyright><lastBuildDate>Wed, 01 Jan 2025 15:26:03 &#43;0100</lastBuildDate><atom:link href="https://simonevellei.com/tags/jail/" rel="self" type="application/rss+xml" /><item>
+    <title>Running NATS on a FreeBSD Jail</title>
+    <link>https://simonevellei.com/running-nats-on-a-freebsd-jail/</link>
+    <pubDate>Wed, 01 Jan 2025 15:26:03 &#43;0100</pubDate>
+    <author>Simone Vellei</author>
+    <guid>https://simonevellei.com/running-nats-on-a-freebsd-jail/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/nats001.png" referrerpolicy="no-referrer">
+            </div><p>Last few months I played with FreeBSD and my Rock64 embedded boards [<a href="https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/" target="_blank" rel="noopener noreffer ">1</a>] [<a href="https://simonevellei.com/blog/posts/netbsd-on-a-rock64-board/" target="_blank" rel="noopener noreffer ">2</a>]. I really enjoyed the experience and I wanted to go to the next level and experiment with FreeBSD jails. I was surprised how easy (and logical) it was to create and manage an isolated environment. I also noticed that the low level commands have been wrapped into a more user friendly interfaces (like <code>bastille</code>) making the whole experience more enjoyable. To have a real example of a microservice running on a jail, I decided to try with <a href="https://nats.io" target="_blank" rel="noopener noreffer ">NATS</a>.</p>]]></description>
+</item>
+</channel>
+</rss>

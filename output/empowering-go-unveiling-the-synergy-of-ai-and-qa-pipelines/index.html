@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Empowering Go: unveiling the synergy of AI and Q&amp;A pipelines - Simone Vellei - Blog</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/">
+  <meta property="og:site_name" content="Simone Vellei - Blog">
+  <meta property="og:title" content="Empowering Go: unveiling the synergy of AI and Q&A pipelines">
+  <meta property="og:description" content="In the realm of artificial intelligence and machine learning, efficient similarity search is a critical component for tasks ranging from recommendation systems to image recognition. In this blog post, we’ll explore the implementation of vector similarity search in Go, utilizing LinGoose framework for indexing and querying vectors in a Qdrant database.
+Understanding Vector Similarity Search Vector similarity search involves finding vectors in a dataset that are most similar to a query vector. This is fundamental in various AI applications where matching or ranking similar items is required. Qdrant, a vector database, provides a robust solution for such searches.">
+  <meta property="og:locale" content="it">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-16T08:24:42+01:00">
+    <meta property="article:modified_time" content="2023-11-16T08:24:42+01:00">
+    <meta property="article:tag" content="Lingoose">
+    <meta property="article:tag" content="Ai">
+    <meta property="article:tag" content="Openai">
+    <meta property="article:tag" content="Rag">
+    <meta property="article:tag" content="Llm">
+    <meta property="article:tag" content="Qdrant">
+    <meta property="og:image" content="https://simonevellei.com/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://simonevellei.com/logo.png">
+  <meta name="twitter:title" content="Empowering Go: unveiling the synergy of AI and Q&A pipelines">
+  <meta name="twitter:description" content="In the realm of artificial intelligence and machine learning, efficient similarity search is a critical component for tasks ranging from recommendation systems to image recognition. In this blog post, we’ll explore the implementation of vector similarity search in Go, utilizing LinGoose framework for indexing and querying vectors in a Qdrant database.
+Understanding Vector Similarity Search Vector similarity search involves finding vectors in a dataset that are most similar to a query vector. This is fundamental in various AI applications where matching or ranking similar items is required. Qdrant, a vector database, provides a robust solution for such searches.">
+<meta name="application-name" content="Simone Vellei">
+<meta name="apple-mobile-web-app-title" content="Simone Vellei"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/" /><link rel="prev" href="https://simonevellei.com/rivelazione-di-grok-la-guida-del-viaggiatore-intergalattico-dellintelligenza-artificiale/" /><link rel="next" href="https://simonevellei.com/anthropic-claude-integration-with-go-and-lingoose/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Empowering Go: unveiling the synergy of AI and Q\u0026A pipelines",
+        "inLanguage": "it",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/simonevellei.com\/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines\/"
+        },"genre": "posts","keywords": "lingoose, ai, openai, rag, llm, qdrant","wordcount":  1017 ,
+        "url": "https:\/\/simonevellei.com\/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines\/","datePublished": "2023-11-16T08:24:42+01:00","dateModified": "2023-11-16T08:24:42+01:00","license": "© 2025 Simone Vellei. All rights reserved.","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Simone Vellei"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Simone Vellei - Blog"><span class="header-title-pre">👋</span>Simone Vellei</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Simone Vellei - Blog"><span class="header-title-pre">👋</span>Simone Vellei</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Empowering Go: unveiling the synergy of AI and Q&A pipelines</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Simone Vellei</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-16">2023-11-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1017 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/lingoose002.png"
+        data-srcset="/images/lingoose002.png, /images/lingoose002.png 1.5x, /images/lingoose002.png 2x"
+        data-sizes="auto"
+        alt="/images/lingoose002.png"
+        title="/images/lingoose002.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#understanding-vector-similarity-search">Understanding Vector Similarity Search</a></li>
+    <li><a href="#advantages-of-qdrant-and-practical-insights">Advantages of Qdrant and Practical Insights</a></li>
+    <li><a href="#getting-started-with-qdrant">Getting Started with Qdrant</a>
+      <ul>
+        <li><a href="#breaking-down-the-code">Breaking Down the Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#question-and-answer-pipeline">Question and Answer pipeline</a>
+      <ul>
+        <li><a href="#understanding-the-code">Understanding the Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#ai-in-action-advantages-and-best-practices">AI in Action: Advantages and Best Practices</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>In the realm of artificial intelligence and machine learning, efficient similarity search is a critical component for tasks ranging from recommendation systems to image recognition. In this blog post, we&rsquo;ll explore the implementation of vector similarity search in Go, utilizing <a href="https://github.com/henomis/lingoose" target="_blank" rel="noopener noreffer ">LinGoose</a> framework for indexing and querying vectors in a <a href="https://qdrant.tech/" target="_blank" rel="noopener noreffer ">Qdrant</a> database.</p>
+<h2 id="understanding-vector-similarity-search">Understanding Vector Similarity Search</h2>
+<p>Vector similarity search involves finding vectors in a dataset that are most similar to a query vector. This is fundamental in various AI applications where matching or ranking similar items is required. Qdrant, a vector database, provides a robust solution for such searches.</p>
+<h2 id="advantages-of-qdrant-and-practical-insights">Advantages of Qdrant and Practical Insights</h2>
+<ul>
+<li>
+<p><strong>Scalability</strong>: Qdrant is designed for scalability, making it suitable for handling large datasets and real-time applications.</p>
+</li>
+<li>
+<p><strong>Configurability</strong>: The code allows customization of parameters such as vector dimension and distance metric, providing flexibility for different use cases.</p>
+</li>
+<li>
+<p><strong>Real-world Applicability</strong>: Vector similarity search is essential in applications like content recommendation, image similarity, and natural language processing.</p>
+</li>
+</ul>
+<h2 id="getting-started-with-qdrant">Getting Started with Qdrant</h2>
+<p>The code snippet provided demonstrates a basic setup of Qdrant for vector indexing and querying. Let&rsquo;s break down the key components of the code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Import necessary packages</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;context&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/henomis/lingoose/index&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/henomis/lingoose/index/option&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/henomis/lingoose/index/vectordb/qdrant&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Create a new qdrant vector index</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">qdrantIndex</span> <span class="o">:=</span> <span class="nx">qdrant</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">qdrant</span><span class="p">.</span><span class="nx">Options</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">CollectionName</span><span class="p">:</span> <span class="s">&#34;test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">CreateCollection</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">qdrant</span><span class="p">.</span><span class="nx">CreateCollectionOptions</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">Dimension</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">Distance</span><span class="p">:</span>  <span class="nx">qdrant</span><span class="p">.</span><span class="nx">DistanceCosine</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">).</span><span class="nf">WithAPIKeyAndEdpoint</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;http://localhost:6333&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Insert a vector</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">qdrantIndex</span><span class="p">.</span><span class="nf">Insert</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">		<span class="p">[]</span><span class="nx">index</span><span class="p">.</span><span class="nx">Data</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">ID</span><span class="p">:</span>     <span class="s">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">Values</span><span class="p">:</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">ID</span><span class="p">:</span>     <span class="s">&#34;2&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">Values</span><span class="p">:</span> <span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">})</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Query the index</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">similarities</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">qdrantIndex</span><span class="p">.</span><span class="nf">Search</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">		<span class="p">[]</span><span class="kt">float64</span><span class="p">{</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="o">&amp;</span><span class="nx">option</span><span class="p">.</span><span class="nx">Options</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">TopK</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Print the results</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">similarity</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">similarities</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;ID: %s, Score: %f\n&#34;</span><span class="p">,</span> <span class="nx">similarity</span><span class="p">.</span><span class="nx">ID</span><span class="p">,</span> <span class="nx">similarity</span><span class="p">.</span><span class="nx">Score</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="breaking-down-the-code">Breaking Down the Code</h3>
+<ul>
+<li>
+<p><strong>Qdrant Initialization</strong>: The code initializes a Qdrant vector index with specified options, such as the collection name, vector dimension, and distance metric (in this case, cosine distance).</p>
+</li>
+<li>
+<p><strong>Vector Insertion</strong>: Vectors with associated IDs are inserted into the Qdrant index. This is a crucial step in building the dataset for similarity searches.</p>
+</li>
+<li>
+<p><strong>Querying the Index</strong>: A query vector is provided to the index, and Qdrant returns the most similar vectors based on the specified distance metric. The TopK option determines the number of nearest neighbors to retrieve.</p>
+</li>
+<li>
+<p><strong>Results Display</strong>: The results, including IDs and similarity scores, are printed for further analysis.</p>
+</li>
+</ul>
+<h2 id="question-and-answer-pipeline">Question and Answer pipeline</h2>
+<p>In this section, we&rsquo;ll explore a practical implementation of AI in Go, focusing on Question-Answer (Q&amp;A) pipelines and vector indexing. This implementation leverages the power of the Go programming language to seamlessly integrate AI capabilities into your applications. We&rsquo;ll use <a href="https://github.com/henomis/lingoose" target="_blank" rel="noopener noreffer ">LinGoose</a> framework to build a Q&amp;A pipeline that utilizes Qdrant for vector indexing and querying.</p>
+<h3 id="understanding-the-code">Understanding the Code</h3>
+<p>Let&rsquo;s dissect the provided Go code snippet step by step to understand its functionality and how it harnesses AI for efficient information retrieval.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Load PDF documents from a directory and split them into chunks of 2000 characters</span>
+</span></span><span class="line"><span class="cl"><span class="nx">docs</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">loader</span><span class="p">.</span><span class="nf">NewPDFToTextLoader</span><span class="p">(</span><span class="s">&#34;./kb&#34;</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">WithTextSplitter</span><span class="p">(</span><span class="nx">textsplitter</span><span class="p">.</span><span class="nf">NewRecursiveCharacterTextSplitter</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">200</span><span class="p">)).</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Load</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here, the code loads PDF documents from a specified directory (&quot;./kb&quot;) and splits them into chunks of 2000 characters. Document preprocessing is a crucial step in preparing data for AI applications, ensuring that the input is appropriately structured and manageable.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Create a new qdrant vector index</span>
+</span></span><span class="line"><span class="cl"><span class="nx">qdrantIndex</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">qdrant</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">qdrant</span><span class="p">.</span><span class="nx">Options</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">CollectionName</span><span class="p">:</span> <span class="s">&#34;test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">CreateCollection</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">qdrant</span><span class="p">.</span><span class="nx">CreateCollectionOptions</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">Dimension</span><span class="p">:</span> <span class="mi">1536</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">Distance</span><span class="p">:</span>  <span class="nx">qdrant</span><span class="p">.</span><span class="nx">DistanceCosine</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">).</span><span class="nf">WithAPIKeyAndEdpoint</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;http://localhost:6333&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">openaiembedder</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">openaiembedder</span><span class="p">.</span><span class="nx">AdaEmbeddingV2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">).</span><span class="nf">WithIncludeContents</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In this code, a new vector index is created using the <a href="https://github.com/henomis/lingoose" target="_blank" rel="noopener noreffer ">LinGoose</a> library. The index employs the Qdrant vector database with specified options, such as collection name, dimensionality, and distance metric (cosine distance in this case). Additionally, it incorporates the OpenAI Ada Embedding model for text representation.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Load the documents into the index</span>
+</span></span><span class="line"><span class="cl"><span class="nx">qdrantIndex</span><span class="p">.</span><span class="nf">LoadFromDocuments</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="nx">docs</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The loaded documents are then indexed, populating the vector index with relevant information. This step is crucial for enabling efficient and fast retrieval of information during queries.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Create a Q&amp;A pipeline and query the index</span>
+</span></span><span class="line"><span class="cl"><span class="nx">qapipeline</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">openai</span><span class="p">.</span><span class="nf">NewChat</span><span class="p">().</span><span class="nf">WithVerbose</span><span class="p">(</span><span class="kc">true</span><span class="p">)).</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">WithIndex</span><span class="p">(</span><span class="nx">qdrantIndex</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">Query</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nf">Background</span><span class="p">(),</span> <span class="s">&#34;What is the NATO purpose?&#34;</span><span class="p">,</span> <span class="nx">option</span><span class="p">.</span><span class="nf">WithTopK</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Finally, a Q&amp;A pipeline is established using the OpenAI Chat model. The pipeline is configured with the created index, and a sample query is issued to retrieve relevant information about the NATO purpose. The WithTopK(1) option limits the result to the topmost relevant answer.</p>
+<h2 id="ai-in-action-advantages-and-best-practices">AI in Action: Advantages and Best Practices</h2>
+<p>This code showcases the seamless integration of AI capabilities into Go applications, providing several advantages:</p>
+<ul>
+<li>
+<p><strong>Efficient Information Retrieval</strong>: The vector index allows for fast and efficient retrieval of relevant information, making it suitable for large datasets.</p>
+</li>
+<li>
+<p><strong>Flexible Text Embedding</strong>: The use of OpenAI&rsquo;s Ada Embedding model enables flexible and context-aware text representation, improving the accuracy of Q&amp;A results.</p>
+</li>
+<li>
+<p><strong>Scalability with Qdrant</strong>: Leveraging Qdrant as the vector database ensures scalability and robustness, making it suitable for applications with varying workloads.</p>
+</li>
+<li>
+<p><strong>Customization and Experimentation</strong>: Developers can experiment with different embedding models, distance metrics, and indexing options to tailor the solution to their specific use cases.</p>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Integrating AI into Go applications opens up a realm of possibilities for developers seeking to enhance their software with advanced natural language processing capabilities. The provided code snippet serves as a starting point, and developers are encouraged to experiment, customize, and explore further to unlock the full potential of AI in their projects. Whether you&rsquo;re building a knowledge base, chatbot, or information retrieval system, combining the strengths of Go and AI can lead to powerful and efficient solutions. We used the <a href="https://github.com/henomis/lingoose" target="_blank" rel="noopener noreffer ">LinGoose</a> Go framework that I personally developed to provide a simple and efficient way to integrate AI into your Go projects.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-11-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/" data-hashtag="lingoose"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/" data-title="Empowering Go: unveiling the synergy of AI and Q&amp;A pipelines" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/lingoose/">Lingoose</a>,&nbsp;<a href="/tags/ai/">Ai</a>,&nbsp;<a href="/tags/openai/">Openai</a>,&nbsp;<a href="/tags/rag/">Rag</a>,&nbsp;<a href="/tags/llm/">Llm</a>,&nbsp;<a href="/tags/qdrant/">Qdrant</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/rivelazione-di-grok-la-guida-del-viaggiatore-intergalattico-dellintelligenza-artificiale/" class="prev" rel="prev" title="Grok: la guida del viaggiatore intergalattico dell&#39;intelligenza artificiale"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Grok: la guida del viaggiatore intergalattico dell'intelligenza artificiale</a>
+            <a href="/anthropic-claude-integration-with-go-and-lingoose/" class="next" rel="next" title="Anthropic&#39;s Claude Integration with Go and Lingoose">Anthropic's Claude Integration with Go and Lingoose<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Simone Vellei</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
