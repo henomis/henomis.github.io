@@ -1,0 +1,307 @@
+<!doctype html><html lang=it><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Linear Regression in Go - Simone Vellei - Blog</title><meta name=Description content="This is my cool site"><meta property="og:url" content="https://simonevellei.com/linear-regression-in-go/">
+<meta property="og:site_name" content="Simone Vellei - Blog"><meta property="og:title" content="Linear Regression in Go"><meta property="og:description" content="L’analisi dei big data e il parallelo sviluppo dell’intelligenza artificiale sono i protagonisti delle innovazioni tecnologiche di quest’ultimo decennio. Chi approccia lo studio della materia, tuttavia, avrà prima o poi a che fare con il linguaggio Python che, usato spesso in ambito accademico, rappresenta il punto riferimento grazie alla disponibilità di una serie di librerie, tool e veri e propri framework per la manipolazione dei dati.
+Sebbene, in molti casi, l’uso di tali strumenti è inserito all’interno di procedure batch o offline , non possiamo escludere che alcuni servizi cloud possano necessitare di processi avanzati per la manipolazione dati on demand. In questo caso uno dei linguaggi più usati in ambito backend Cloud è Go."><meta property="og:locale" content="it"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-06-05T00:28:41+02:00"><meta property="article:modified_time" content="2022-06-05T00:28:41+02:00"><meta property="article:tag" content="Go"><meta property="article:tag" content="Linear Regression"><meta property="article:tag" content="Ai"><meta property="article:tag" content="Devel"><meta property="og:image" content="https://simonevellei.com/logo.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://simonevellei.com/logo.png"><meta name=twitter:title content="Linear Regression in Go"><meta name=twitter:description content="L’analisi dei big data e il parallelo sviluppo dell’intelligenza artificiale sono i protagonisti delle innovazioni tecnologiche di quest’ultimo decennio. Chi approccia lo studio della materia, tuttavia, avrà prima o poi a che fare con il linguaggio Python che, usato spesso in ambito accademico, rappresenta il punto riferimento grazie alla disponibilità di una serie di librerie, tool e veri e propri framework per la manipolazione dei dati.
+Sebbene, in molti casi, l’uso di tali strumenti è inserito all’interno di procedure batch o offline , non possiamo escludere che alcuni servizi cloud possano necessitare di processi avanzati per la manipolazione dati on demand. In questo caso uno dei linguaggi più usati in ambito backend Cloud è Go."><meta name=application-name content="Simone Vellei"><meta name=apple-mobile-web-app-title content="Simone Vellei"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simonevellei.com/linear-regression-in-go/><link rel=prev href=https://simonevellei.com/smartworking-non-%C3%A8-welfare/><link rel=next href=https://simonevellei.com/concentrazione-e-produttivit%C3%A0-di-un-knowledge-worker/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Linear Regression in Go","inLanguage":"it","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simonevellei.com\/linear-regression-in-go\/"},"genre":"posts","keywords":"go, linear regression, ai, devel","wordcount":1205,"url":"https:\/\/simonevellei.com\/linear-regression-in-go\/","datePublished":"2022-06-05T00:28:41+02:00","dateModified":"2022-06-05T00:28:41+02:00","license":"© 2025 Simone Vellei. All rights reserved.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Simone Vellei"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Posts </a><a class=menu-item href=/tags/>Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/posts/ title>Posts</a><a class=menu-item href=/tags/ title>Tags</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linear Regression in Go</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Simone Vellei</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2022-06-05>2022-06-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;1205 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;6 minutes&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/images/linear-regression01.png data-srcset="/images/linear-regression01.png, /images/linear-regression01.png 1.5x, /images/linear-regression01.png 2x" data-sizes=auto alt=/images/linear-regression01.png title=/images/linear-regression01.png></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#data-gathering>Data gathering</a><ul><li><a href=#pkgdataminer>pkg/dataminer</a></li></ul></li><li><a href=#data-cleaning>Data cleaning</a><ul><li><a href=#pkgdatacleaner>pkg/datacleaner</a></li></ul></li><li><a href=#data-training>Data training</a><ul><li><a href=#pkgdatatrainer>pkg/datatrainer</a></li></ul></li><li><a href=#data-plotting>Data plotting</a><ul><li><a href=#pkgdataplotter>pkg/dataplotter</a></li></ul></li><li><a href=#mettiamo-tutto-insieme>Mettiamo tutto insieme</a></li><li><a href=#grafico-finale>Grafico finale</a></li><li><a href=#conclusioni>Conclusioni</a></li></ul></nav></div></div><div class=content id=content><p>L&rsquo;analisi dei <strong>big data</strong> e il parallelo sviluppo dell&rsquo;<strong>intelligenza artificiale</strong> sono i protagonisti delle innovazioni tecnologiche di quest&rsquo;ultimo decennio. Chi approccia lo studio della materia, tuttavia, avrà prima o poi a che fare con il linguaggio <strong>Python</strong> che, usato spesso in ambito accademico, rappresenta il punto riferimento grazie alla disponibilità di una serie di librerie, tool e veri e propri framework per la manipolazione dei dati.</p><p>Sebbene, in molti casi, l&rsquo;uso di tali strumenti è inserito all&rsquo;interno di procedure <strong>batch</strong> o <strong>offline</strong> , non possiamo escludere che alcuni servizi cloud possano necessitare di processi avanzati per la manipolazione dati <strong>on demand</strong>. In questo caso uno dei linguaggi più usati in ambito <strong>backend</strong> Cloud è <strong>Go</strong>.</p><p>Compito di questo articolo è la verifica e la validazione di strumenti e librerie <strong>Go</strong> in grado di essere al passo con i più famosi disponibili per <strong>Python</strong>. Come dataset di riferimento ho scelto la lista dei film americani con il relativo budget per la produzione e incasso totale ai botteghini.</p><h2 id=data-gathering>Data gathering</h2><p>Il primo passo che andremo a considerare è la raccolta di dati. Recuperare un <strong>dataset</strong> in rete è abbastanza semplice, può essere scaricato attraverso una semplice GET http, o ad esempio recuperato grazie ad apposite API di fornitori terzi. I nostri dati, una volta in nostro possesso, dovranno essere inseriti all&rsquo;interno di un contenitore chiamato <strong>dataframe</strong>. Nel mondo <strong>Python</strong> la libreria di riferimento è <a href=https://pandas.pydata.org target=_blank rel="noopener noreffer">Pandas</a>, nel nostro caso useremo invece <strong><a href=https://github.com/go-gota/gota target=_blank rel="noopener noreffer">Gota</a></strong>.</p><h3 id=pkgdataminer>pkg/dataminer</h3><p>Ho sviluppato un package apposito per lo step di <strong>data gathering</strong> usando le funzionalità di <code>gota/dataframe</code>. Il metodo che verrà esposto è <code>GatherFromFile()</code>che si occuperà di creare un dataframe a partire da un file CSV usando esclusivamente le colonne di interesse per la manipolazione dati.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>dm</span> <span class=o>*</span><span class=nx>DataMiner</span><span class=p>)</span> <span class=nf>GatherFromFile</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=nx>filename</span> <span class=kt>string</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span> <span class=p>(</span><span class=o>*</span><span class=nx>plottabledataframe</span><span class=p>.</span><span class=nx>PlottableDataFrame</span><span class=p>,</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>csvFile</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Open</span><span class=p>(</span><span class=nx>filename</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=kc>nil</span><span class=p>,</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>dataFrame</span> <span class=o>:=</span> <span class=nx>dataframe</span><span class=p>.</span><span class=nf>ReadCSV</span><span class=p>(</span><span class=nx>csvFile</span><span class=p>).</span><span class=nf>Select</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=p>[]</span><span class=kt>string</span><span class=p>{</span><span class=nx>dm</span><span class=p>.</span><span class=nx>xDataName</span><span class=p>,</span> <span class=nx>dm</span><span class=p>.</span><span class=nx>yDataName</span><span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>plottabledataframe</span><span class=p>.</span><span class=nf>NewDataFramePlottable</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dataFrame</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dm</span><span class=p>.</span><span class=nx>xDataName</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dm</span><span class=p>.</span><span class=nx>yDataName</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>),</span> <span class=kc>nil</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Il dato restituito sarà un wrapper al dataframe che ne estenderà le funzionalità per poter essere poi passato al plotter.</p><h2 id=data-cleaning>Data cleaning</h2><p>Il dato grezzo importato non sempre è pronto per l&rsquo;analisi dei dati. Potrebbe,infatti, presentare <strong>valori non ammessi</strong>, includere <strong>transienti da filtrare</strong> o avere, semplicemente, un <strong>formato non corretto</strong>. Per questa fase sarà ancora utile il dataframe di <code>gota</code>.</p><h3 id=pkgdatacleaner>pkg/datacleaner</h3><p>In questo package è presente l&rsquo;implementazione del metodo <code>Clean()</code> che provvederà ad applicare 3 filtri:</p><ul><li>Un filtro che <strong>rimuove caratteri di valuta e formattazione</strong>. Questo step agisce attraverso il metodo <code>Capply()</code>che prende in input una funzione filtro da applicare iterativamente a tutte le colonne del dataframe. Internamente alla serie viene, poi, usato il metodo <code>Map()</code> che accetta un&rsquo;ulteriore funzione che elabora iterativamente tutti gli elementi.</li><li>Un filtro che <strong>converte il tipo di dato</strong>. Il metodo <code>Mutate()</code> provvede a sostituire entrambe le serie del dataframe applicando la conversione di tipo da <code>string</code> a <code>float64</code>.</li><li>Un filtro per <strong>rimuovere valori indesiderati</strong>. In questo caso la funzione filtro rimuove i film che hanno avuto un incasso nullo perché, ad esempio, non sono mai usciti nelle sale cinematografiche.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>dc</span> <span class=o>*</span><span class=nx>DataCleaner</span><span class=p>)</span> <span class=nf>Clean</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// remove $ symbol and useless &#39;,&#39;</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span> <span class=p>=</span> <span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span><span class=p>.</span><span class=nf>Capply</span><span class=p>(</span><span class=kd>func</span><span class=p>(</span><span class=nx>s</span> <span class=nx>series</span><span class=p>.</span><span class=nx>Series</span><span class=p>)</span> <span class=nx>series</span><span class=p>.</span><span class=nx>Series</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>s</span><span class=p>.</span><span class=nf>Map</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>			<span class=kd>func</span><span class=p>(</span><span class=nx>e</span> <span class=nx>series</span><span class=p>.</span><span class=nx>Element</span><span class=p>)</span> <span class=nx>series</span><span class=p>.</span><span class=nx>Element</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>elementAsString</span> <span class=o>:=</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>ReplaceAll</span><span class=p>(</span><span class=nx>e</span><span class=p>.</span><span class=nf>String</span><span class=p>(),</span> <span class=s>&#34;$&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>				<span class=nx>elementAsString</span> <span class=p>=</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>ReplaceAll</span><span class=p>(</span><span class=nx>elementAsString</span><span class=p>,</span> <span class=s>&#34;,&#34;</span><span class=p>,</span> <span class=s>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>				<span class=nx>e</span><span class=p>.</span><span class=nf>Set</span><span class=p>(</span><span class=nx>elementAsString</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>				<span class=k>return</span> <span class=nx>e</span>
+</span></span><span class=line><span class=cl>			<span class=p>},</span>
+</span></span><span class=line><span class=cl>		<span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// mutate series to float64 type</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span> <span class=p>=</span> <span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span><span class=p>.</span><span class=nf>Mutate</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>series</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>			<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span><span class=p>.</span><span class=nf>Col</span><span class=p>(</span><span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>XColumnName</span><span class=p>).</span><span class=nf>Float</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>			<span class=nx>series</span><span class=p>.</span><span class=nx>Float</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>XColumnName</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>),</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span> <span class=p>=</span> <span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span><span class=p>.</span><span class=nf>Mutate</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>series</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>			<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span><span class=p>.</span><span class=nf>Col</span><span class=p>(</span><span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>YColumnName</span><span class=p>).</span><span class=nf>Float</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>			<span class=nx>series</span><span class=p>.</span><span class=nx>Float</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>YColumnName</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>),</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// remove movies without worldwide gross (value = $0)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span> <span class=p>=</span> <span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>DataFrame</span><span class=p>.</span><span class=nf>Filter</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dataframe</span><span class=p>.</span><span class=nx>F</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Colname</span><span class=p>:</span>    <span class=nx>dc</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>.</span><span class=nx>YColumnName</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Comparator</span><span class=p>:</span> <span class=nx>series</span><span class=p>.</span><span class=nx>Greater</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Comparando</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=data-training>Data training</h2><p>I dati sono ora pronti per il <strong>training</strong>. In questo caso sceglieremo una <strong>regressione lineare</strong> per poter graficare una funzione di interpolazione. Ancora una volta sostituiremo il tool <a href=https://numpy.org/ target=_blank rel="noopener noreffer">NumPy</a> di Python con <strong><a href=https://www.gonum.org/ target=_blank rel="noopener noreffer">Gonum</a></strong> libreria del linguaggio Go.</p><h3 id=pkgdatatrainer>pkg/datatrainer</h3><p>Questo package espone un metodo <code>LinearRegression</code> che lavorando sulle serie di dati dei passaggi precedenti restituisce due variabili <code>alpha</code> e <code>beta</code> coefficienti della funzione lineare di interpolazione.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>dt</span> <span class=o>*</span><span class=nx>DataTrainer</span><span class=p>)</span> <span class=nf>LinearRegression</span><span class=p>()</span> <span class=p>(</span><span class=nx>alpha</span><span class=p>,</span> <span class=nx>beta</span> <span class=kt>float64</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>alpha</span><span class=p>,</span> <span class=nx>beta</span> <span class=p>=</span> <span class=nx>stat</span><span class=p>.</span><span class=nf>LinearRegression</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dt</span><span class=p>.</span><span class=nx>xData</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dt</span><span class=p>.</span><span class=nx>yData</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=kc>nil</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=data-plotting>Data plotting</h2><p>I dati elaborati possono essere infine graficati per esaminarne il risultato. In Python uno dei principali tool per graficare i dati è <a href=https://matplotlib.org target=_blank rel="noopener noreffer">Matplotlib</a>, per il nostro esempio in Go, invece, useremo sempre <strong><a href=https://www.gonum.org/ target=_blank rel="noopener noreffer">Gonum</a></strong> che include delle funzionalità per la generazione di grafici.</p><h3 id=pkgdataplotter>pkg/dataplotter</h3><p>Il nostro intento è quello di salvare il grafico all&rsquo;interno di una immagine PNG. Grazie al metodo esposto <code>PlotToFile()</code> viene impostato un grafico con uno <strong>scatter</strong> in rosso dei dati grezzi e la funzione di <strong>regressione lineare</strong> in blu.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>dp</span> <span class=o>*</span><span class=nx>DataPlotter</span><span class=p>)</span> <span class=nf>PlotToFile</span><span class=p>(</span><span class=nx>filename</span> <span class=kt>string</span><span class=p>)</span> <span class=kt>error</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>line</span> <span class=o>:=</span> <span class=nx>plotter</span><span class=p>.</span><span class=nf>NewFunction</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=kd>func</span><span class=p>(</span><span class=nx>x</span> <span class=kt>float64</span><span class=p>)</span> <span class=kt>float64</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=nx>dp</span><span class=p>.</span><span class=nx>beta</span><span class=o>*</span><span class=nx>x</span> <span class=o>+</span> <span class=nx>dp</span><span class=p>.</span><span class=nx>alpha</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>line</span><span class=p>.</span><span class=nx>Color</span> <span class=p>=</span> <span class=nx>color</span><span class=p>.</span><span class=nx>RGBA</span><span class=p>{</span><span class=nx>R</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>G</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>B</span><span class=p>:</span> <span class=mi>255</span><span class=p>,</span> <span class=nx>A</span><span class=p>:</span> <span class=mi>255</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>scatter</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>plotter</span><span class=p>.</span><span class=nf>NewScatter</span><span class=p>(</span><span class=nx>dp</span><span class=p>.</span><span class=nx>dataFrame</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=nx>scatter</span><span class=p>.</span><span class=nx>Color</span> <span class=p>=</span> <span class=nx>color</span><span class=p>.</span><span class=nx>RGBA</span><span class=p>{</span><span class=nx>R</span><span class=p>:</span> <span class=mi>255</span><span class=p>,</span> <span class=nx>G</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>B</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>A</span><span class=p>:</span> <span class=mi>255</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>dp</span><span class=p>.</span><span class=nx>plot</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=nx>scatter</span><span class=p>,</span> <span class=nx>line</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>dp</span><span class=p>.</span><span class=nx>plot</span><span class=p>.</span><span class=nf>Save</span><span class=p>(</span><span class=mi>8</span><span class=o>*</span><span class=nx>vg</span><span class=p>.</span><span class=nx>Inch</span><span class=p>,</span> <span class=mi>4</span><span class=o>*</span><span class=nx>vg</span><span class=p>.</span><span class=nx>Inch</span><span class=p>,</span> <span class=nx>filename</span><span class=p>);</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=kc>nil</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=mettiamo-tutto-insieme>Mettiamo tutto insieme</h2><p>Nella visualizzazione complessiva del file <code>main.go</code> è possibile vedere come il processo attraversi in maniera chiara ed ordinata le fasi di</p><ul><li><strong>Gathering</strong></li><li><strong>Cleaning</strong></li><li><strong>Training</strong></li><li><strong>Plotting</strong></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// GATHER DATA</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dataminer</span> <span class=o>:=</span> <span class=nx>dataminer</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=s>&#34;production_budget_usd&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s>&#34;worldwide_gross_usd&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>dataFrame</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>dataminer</span><span class=p>.</span><span class=nf>GatherFromFile</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=s>&#34;cost_revenue_dirty.csv&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;unable to gather data: &#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// CLEAN DATA</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dataCleaner</span> <span class=o>:=</span> <span class=nx>datacleaner</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>dataFrame</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dataCleaner</span><span class=p>.</span><span class=nf>Clean</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>dataFrame</span><span class=p>.</span><span class=nf>Dump</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// TRAIN DATA</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dataTrainer</span> <span class=o>:=</span> <span class=nx>datatrainer</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dataFrame</span><span class=p>.</span><span class=nf>X</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dataFrame</span><span class=p>.</span><span class=nf>Y</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>alpha</span><span class=p>,</span> <span class=nx>beta</span> <span class=o>:=</span> <span class=nx>dataTrainer</span><span class=p>.</span><span class=nf>LinearRegression</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;alpha =&#34;</span><span class=p>,</span> <span class=nx>alpha</span><span class=p>,</span> <span class=s>&#34; beta =&#34;</span><span class=p>,</span> <span class=nx>beta</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>// PLOT DATA</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dataPlotter</span> <span class=o>:=</span> <span class=nx>dataplotter</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=nx>dataFrame</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=nx>alpha</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=nx>beta</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>dataPlotter</span><span class=p>.</span><span class=nf>SetTitles</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=s>&#34;Movies production budget and gross&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s>&#34;Production budget&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s>&#34;Worldwide gross&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>err</span> <span class=p>=</span> <span class=nx>dataPlotter</span><span class=p>.</span><span class=nf>PlotToFile</span><span class=p>(</span><span class=s>&#34;output.png&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=s>&#34;unable to plot data: &#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;plot saved successfully&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>L&rsquo;esempio può essere eseguito in maniera interpretata &ldquo;alla python&rdquo; col comando</p><p><code>go run ./cmd/</code></p><p>oppure compilato col comando</p><p><code>go build -o linear_regression ./cmd/</code></p><h2 id=grafico-finale>Grafico finale</h2><p><img class=lazyload src=/svg/loading.min.svg data-src=/blog/images/linear-regression01.png data-srcset="/blog/images/linear-regression01.png, /blog/images/linear-regression01.png 1.5x, /blog/images/linear-regression01.png 2x" data-sizes=auto alt=/blog/images/linear-regression01.png title="output graphic data"></p><h2 id=conclusioni>Conclusioni</h2><p>Abbiamo dimostrato che, almeno per questo primo esempio di regressione lineare, anche in <strong>Go</strong> esistono gli strumenti adatti per la manipolazione dei dati, per l&rsquo;elaborazione di funzioni di interpolazione e per la generazione di grafici. Tali strumenti ci permettono di implementare all&rsquo;interno di servizi Cloud backend realizzati in linguaggio Go un vero e proprio sistema completo per la gestione dei dati <strong>on demand</strong>.</p><p>Il codice completo dell&rsquo;esempio mostrato è disponibile all&rsquo;interno del repository Github <a href=https://github.com/henomis/linear-regression-go target=_blank rel="noopener noreffer">github.com/henomis/linear-regression.go</a></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2022-06-05</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/linear-regression-in-go/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://simonevellei.com/linear-regression-in-go/ data-hashtag=go><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://simonevellei.com/linear-regression-in-go/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://simonevellei.com/linear-regression-in-go/ data-title="Linear Regression in Go" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/go/>Go</a>,&nbsp;<a href=/tags/linear-regression/>Linear Regression</a>,&nbsp;<a href=/tags/ai/>Ai</a>,&nbsp;<a href=/tags/devel/>Devel</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/smartworking-non-%C3%A8-welfare/ class=prev rel=prev title="Smartworking non è welfare"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Smartworking non è welfare</a>
+<a href=/concentrazione-e-produttivit%C3%A0-di-un-knowledge-worker/ class=next rel=next title="Concentrazione e produttività di un knowledge worker">Concentrazione e produttività di un knowledge worker<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2019 - 2025</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>Simone Vellei</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},cookieconsent:{content:{dismiss:"Got it!",link:"Learn more",message:"This website uses Cookies to improve your experience."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
