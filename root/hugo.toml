@@ -10,6 +10,8 @@ title = "Simone Vellei - Blog"
 languageCode = "it"
 # language name ["English", "简体中文", "Français", "Polski", ...]
 languageName = "Italiano"
+defaultContentLanguage = "it"
+
 # whether to include Chinese/Japanese/Korean
 hasCJKLanguage = false
 
@@ -120,8 +122,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # ICP info only in China (HTML format is supported)
     icp = ""
     # license info (HTML format is supported)
-    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
-
+    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
   # LoveIt NEW | 0.2.0 Section (all posts) page config
   [params.section]
     # special amount of posts in each section page
@@ -301,7 +302,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # LoveIt NEW | 0.2.0 whether to enable twemoji
     twemoji = false
     # whether to enable lightgallery
-    lightgallery = false
+    lightgallery = true
     # LoveIt NEW | 0.2.0 whether to enable the ruby extended syntax
     ruby = true
     # LoveIt NEW | 0.2.0 whether to enable the fraction extended syntax
@@ -544,11 +545,18 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # LoveIt NEW | 0.2.7 Cookie consent config
   [params.cookieconsent]
     enable = true
+    type = "opt-out"
     # text strings used for Cookie consent banner
     [params.cookieconsent.content]
-      message = ""
-      dismiss = ""
-      link = ""
+      message = "This website uses cookies to improve your experience."
+      dismiss = "Got it!"
+      allow = "Allow cookies"
+      deny = "Decline"
+      link = "Learn more"
+      href = "https://www.cookiesandyou.com"
+      close = "&#x274c;"
+      policy = "Cookie Policy"
+      target = "_blank"
 
   # LoveIt CHANGED | 0.2.7 CDN config for third-party library files
   [params.cdn]
@@ -634,3 +642,69 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   page = ["HTML", "MarkDown"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
+
+
+
+
+[languages]
+  [languages.it]
+    weight = 1
+    title = "Simone Vellei - Blog"
+    languageCode = "it"
+    languageName = "Italiano"
+    [[languages.it.menu.main]]
+      weight = 1
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Articoli"
+      url = "/posts/"
+      title = ""
+    [[languages.it.menu.main]]
+      weight = 2
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tag"
+      url = "/tags/"
+      title = ""
+    # [[languages.it.menu.main]]
+    #   weight = 3
+    #   identifier = "categories"
+    #   name = "Categorie"
+    #   pre = ""
+    #   post = ""
+    #   url = "/categories/"
+    #   title = ""
+
+  [languages.en]
+    weight = 2
+    title = "Simone Vellei - Blog"
+    languageCode = "en"
+    languageName = "English"
+    [[languages.en.menu.main]]
+      weight = 1
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      title = ""
+    [[languages.en.menu.main]]
+      weight = 2
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = ""
+    # [[languages.en.menu.main]]
+    #   weight = 3
+    #   identifier = "categories"
+    #   pre = ""
+    #   post = ""
+    #   name = "Categories"
+    #   url = "/categories/"
+    #   title = ""
+
+  

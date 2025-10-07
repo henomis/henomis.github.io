@@ -15,7 +15,7 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/informatics01.jpg"
+featuredImage: "/images/informatica01.jpg"
 aliases:
     - "/blog/posts/linformatico/"
 cover:
