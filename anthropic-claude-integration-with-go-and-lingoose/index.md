@@ -1,16 +1,22 @@
 # Anthropic's Claude Integration with Go and Lingoose
 
+{{< admonition type=info open=true >}}
+Questo post è stato originariamente scritto in inglese e tradotto in italiano tramite AI. Se noti errori di traduzione o passaggi poco chiari, segnalamelo pure.
 
-In the ever-changing world of artificial intelligence, a new AI assistant called [Claude](https://claude.ai/) has arrived on the scene, and it's turning heads. Created by a company called [Anthropic](https://anthropic.com/), Claude is incredibly smart and can understand and communicate with humans in very natural, human-like ways.
+[🇬🇧 Leggi l'articolo originale in inglese](/en/anthropic-claude-integration-with-go-and-lingoose/)
+{{< /admonition >}}
 
-What makes Claude so special is the way it has been trained. The folks at Anthropic fed Claude a massive amount of data, which allows it to truly grasp how we humans speak and write. So whether you're chatting with Claude casually or asking it to tackle some complex task, it can handle it all with impressive skill.
+Nel mondo in continua evoluzione dell’intelligenza artificiale, è arrivato un nuovo assistente AI chiamato [Claude](https://claude.ai/), che sta attirando molta attenzione. Creato da un’azienda chiamata [Anthropic](https://anthropic.com/), Claude è incredibilmente intelligente e riesce a comprendere e comunicare con gli esseri umani in modi molto naturali e simili a quelli umani.
 
-But Claude isn't just smart, it also has a strong moral code baked into it. Anthropic made sure Claude's responses are good and ethical, and that it is transparent about being an AI. This helps ensure Claude won't be misused in harmful ways.
+Ciò che rende Claude così speciale è il modo in cui è stato addestrato. Il team di Anthropic ha fornito a Claude una quantità enorme di dati, che gli permette di comprendere veramente come noi esseri umani parliamo e scriviamo. Quindi, sia che tu stia chiacchierando con Claude in modo informale, sia che gli chieda di affrontare un compito complesso, lui può gestirlo con una notevole abilità.
 
-## Using Claude with Go and Lingoose
-Starting from the v0.1.2 version of my project [Lingoose](https://lingoose.io), a Go programming framework for building AI apps, it includes support for Claude. This means developers can tap into Claude's incredible language abilities to create intelligent systems that can understand natural language, analyze data, and much more. With Claude's help, the creative minds building on Lingoose can now push their AI projects even further!
+Ma Claude non è solo intelligente: ha anche un forte codice morale integrato. Anthropic si è assicurata che le risposte di Claude siano buone ed etiche, e che sia trasparente riguardo al fatto di essere un’AI. Questo aiuta a garantire che Claude non venga utilizzato in modi dannosi.
 
-Lingoose provides a simple and easy-to-use API for developers to interact with LLMS (Language Learning Models) like Claude. This makes it easy to integrate Claude into your projects and start building amazing AI applications. Let's take a look at how you can get started with Claude and Lingoose:
+## Usare Claude con Go e Lingoose
+
+A partire dalla versione v0.1.2 del mio progetto [Lingoose](https://lingoose.io), un framework Go per costruire applicazioni AI, è stato aggiunto il supporto a Claude. Questo significa che gli sviluppatori possono sfruttare le incredibili capacità linguistiche di Claude per creare sistemi intelligenti che comprendono il linguaggio naturale, analizzano dati e molto altro. Con l’aiuto di Claude, le menti creative che costruiscono su Lingoose possono ora spingere i loro progetti AI ancora oltre!
+
+Lingoose fornisce un’API semplice e facile da usare per permettere agli sviluppatori di interagire con gli LLMS (Language Learning Models) come Claude. Questo rende semplice integrare Claude nei tuoi progetti e iniziare a costruire applicazioni AI straordinarie. Ecco un esempio di come puoi iniziare a usare Claude con Lingoose:
 
 ```go
 package main
@@ -41,14 +47,13 @@ func main() {
 }
 ```
 
-This example shows how simple it is to use Claude with Lingoose. By creating a new Claude instance and passing in the model you want to use, you can start generating responses to user messages in no time. In this case we are generating an assistant answer using chat completion. 
+Questo esempio mostra quanto sia semplice usare Claude con Lingoose. Creando una nuova istanza di Claude e passando il modello che vuoi usare, puoi iniziare a generare risposte ai messaggi degli utenti in pochissimo tempo. In questo caso stiamo generando una risposta dell’assistente usando la chat completion.
 
-> In order to run this code, the `ANTHROPIC_API_KEY` environment variable must be set with your API key.
+> Per eseguire questo codice, la variabile d’ambiente `ANTHROPIC_API_KEY` deve essere impostata con la tua API key.
 
+### Risposte in streaming
 
-### Streaming answers
-
-Lingoose also supports streaming answers from Claude. This is useful when you want to handle partial responses. Here's an example of how you can stream answers from Claude using Lingoose:
+Lingoose supporta anche le risposte in streaming da Claude. Questo è utile quando vuoi gestire risposte parziali. Ecco un esempio di come puoi ricevere risposte in streaming da Claude usando Lingoose:
 
 ```go
 ...
@@ -64,11 +69,10 @@ Lingoose also supports streaming answers from Claude. This is useful when you wa
 ...
 ```
 
-In this example, we're using the `WithStream` method to pass a callback function that will be called each time Claude generates a response. This allows you to handle the responses as they come in, which can be useful for real-time applications or when you want to display partial responses to the user.
+In questo esempio, stiamo usando il metodo `WithStream` per passare una funzione di callback che verrà chiamata ogni volta che Claude genera una risposta. Questo ti permette di gestire le risposte man mano che arrivano, il che può essere utile per applicazioni in tempo reale o quando vuoi mostrare risposte parziali all’utente.
 
-## Let's give it a try!
+## Facciamo una prova!
 
-With Claude and Lingoose, the possibilities are endless. Whether you're building a chatbot, a language model, or something entirely new, Claude's language abilities can help you create intelligent systems that can understand and communicate with humans in natural ways. Moreover Lingoose provides many other features that can help you build your AI applications faster and more efficiently such as embeddings, assistants, RAG, and more.
-So why not give it a try and see what you can create with [Claude](https://claude.ai/) and [Lingoose](https://lingoose.io)?
-
+Con Claude e Lingoose, le possibilità sono infinite. Che tu stia costruendo un chatbot, un modello linguistico o qualcosa di completamente nuovo, le capacità linguistiche di Claude possono aiutarti a creare sistemi intelligenti che comprendono e comunicano con gli esseri umani in modi naturali. Inoltre, Lingoose offre molte altre funzionalità che ti aiutano a costruire applicazioni AI più velocemente ed efficientemente, come embeddings, assistenti, RAG e molto altro.
+Quindi perché non fare una prova e vedere cosa puoi creare con [Claude](https://claude.ai/) e [Lingoose](https://lingoose.io)?
 

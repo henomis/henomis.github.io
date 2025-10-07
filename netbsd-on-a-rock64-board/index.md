@@ -1,30 +1,36 @@
 # NetBSD on a ROCK64 Board
 
+{{< admonition type=info open=true >}}
+Questo post è stato originariamente scritto in inglese e tradotto in italiano tramite AI. Se noti errori di traduzione o passaggi poco chiari, segnalamelo pure.
 
-This is the sequel to the previous post [FreeBSD on a ROCK64 Board](https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/). Long story short, I had the chance to resurrect 4 single-board computers that were collecting dust in my office. I decided to install FreeBSD on one of them and it was a success. This time I will show you how and why I installed NetBSD on a second ROCK64 board.
+🇬🇧 [Leggi il post originale in inglese](/en/netbsd-on-a-rock64-board/)
+{{< /admonition >}}
 
-## Let's add connectivity to the FreeBSD board
-The process I described in the previous post was fun and I learned a lot. However, I used a USB-to-serial adapter to connect to the board, and even though it was fine to complete the installation, I wanted to have a more comfortable way to connect to the board. 
+Questo è il seguito del post precedente [FreeBSD su una scheda ROCK64](https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/). Per farla breve, ho avuto la possibilità di resuscitare 4 single-board computer che stavano raccogliendo polvere nel mio ufficio. Ho deciso di installare FreeBSD su uno di essi ed è stato un successo. Questa volta ti mostrerò come e perché ho installato NetBSD su una seconda scheda ROCK64.
 
-> Did I tell you I have a lot of dust-collecting devices in my office?
+## Aggiungiamo la connettività alla scheda FreeBSD
 
-I remembered I had a USB wifi dongle that I bought a few years ago. This adapter is based on the Atheros AR9271 chipset, I knew it was supported by Linux at the time, but I wasn't sure about FreeBSD. After a quick search, I found the FreeBSD wiki page dedicated to [Atheros wireless driver support](https://wiki.freebsd.org/dev/ath(4)). And you know what? The AR9271 chipset  is not yet well supported along with the related USB HAL.
+Il processo che ho descritto nel post precedente è stato divertente e istruttivo. Tuttavia, ho usato un adattatore USB-seriale per collegarmi alla scheda e, anche se andava bene per completare l’installazione, volevo un modo più comodo per connettermi alla scheda.
 
-> Mmm, ok let's buy a cheap USB wifi dongle that is supported by FreeBSD.
+> Ti ho detto che ho un sacco di dispositivi che raccolgono polvere nel mio ufficio?
 
-That was my first thought, and I started looking at the list of devices and then searching for the FreeBSD driver support. It was at that moment that a weird idea came to my mind: if this device is not supported by FreeBSD, why not try it with NetBSD?
+Mi sono ricordato di avere una chiavetta wifi USB che avevo comprato qualche anno fa. Questo adattatore si basa sul chipset Atheros AR9271, sapevo che era supportato da Linux all’epoca, ma non ero sicuro riguardo FreeBSD. Dopo una rapida ricerca, ho trovato la pagina wiki di FreeBSD dedicata al [supporto dei driver wireless Atheros](https://wiki.freebsd.org/dev/ath%284%29). E sai una cosa? Il chipset AR9271 non è ancora ben supportato insieme all’HAL USB correlato.
+
+> Mmm, ok, compriamo una chiavetta wifi USB economica che sia supportata da FreeBSD.
+
+Questa è stata la mia prima idea, e ho iniziato a guardare la lista dei dispositivi e poi a cercare il supporto driver su FreeBSD. È stato in quel momento che mi è venuta in mente un’idea strana: se questo dispositivo non è supportato da FreeBSD, perché non provarlo con NetBSD?
 
 ![rock64](/images/rock64-006.jpg)
 
-## NetBSD to the rescue
+## NetBSD in soccorso
 
-As I did with FreeBSD, I went to the Rock64 software release page to the [NetBSD section](https://wiki.pine64.org/wiki/ROCK64_Software_Releases#NetBSD). It was very interesting dicover that the NetBSD image for my board was ready to [download](https://nycdn.netbsd.org/pub/arm/) and use. A few minutes later I had the image on my computer and I was ready to flash it on the SD card.
+Come avevo fatto con FreeBSD, sono andato alla pagina delle release software di Rock64 nella sezione [NetBSD](https://wiki.pine64.org/wiki/ROCK64_Software_Releases#NetBSD). È stato molto interessante scoprire che l’immagine NetBSD per la mia scheda era pronta per essere [scaricata](https://nycdn.netbsd.org/pub/arm/) e usata. Pochi minuti dopo avevo l’immagine sul mio computer e ero pronto a scriverla sulla scheda SD.
 
 ```bash
 $ sudo dd if=NetBSD-10-aarch64--rock64.img of=/dev/sda bs=1M status=progress
 ```
 
-It worked like a charm, unlike FreeBSD, NetBSD has the support for the eMMC boot, so it was very straightforward. Cool, next step was to connect the wifi dongle and see if it was recognized by the system.
+Ha funzionato alla perfezione, a differenza di FreeBSD, NetBSD supporta l’avvio da eMMC, quindi è stato tutto molto semplice. Ottimo, il passo successivo era collegare la chiavetta wifi e vedere se veniva riconosciuta dal sistema.
 
 ```bash
 $ dmesg
@@ -33,10 +39,11 @@ $ dmesg
 [     2.755663] athn0: rev 1 (1T1R), ROM rev 15, address 00:c0:ca:--:--:--
 ```
 
-The device was recognized and the driver was loaded. The `ifconfig` command showed the new interface `athn0`. The plan was clear, I had to configure the NetBSD system as gateway and connect it to the FreeBSD board via ethernet cable.
+Il dispositivo è stato riconosciuto e il driver è stato caricato. Il comando `ifconfig` mostrava la nuova interfaccia `athn0`. Il piano era chiaro: dovevo configurare il sistema NetBSD come gateway e collegarlo alla scheda FreeBSD tramite cavo ethernet.
 
-### Configuring the wifi interface
-NetBSD has a dedicated web page to explain how to [configure the wifi interface](https://www.netbsd.org/docs/guide/en/chap-net-practice.html#chap-net-practice-lan-setup-wlan), so I followed the instructions and configured the `athn0` interface.  
+### Configurare l’interfaccia wifi
+
+NetBSD ha una pagina web dedicata che spiega come [configurare l’interfaccia wifi](https://www.netbsd.org/docs/guide/en/chap-net-practice.html#chap-net-practice-lan-setup-wlan), quindi ho seguito le istruzioni e configurato l’interfaccia `athn0`.
 
 ```bash
 $ cat /etc/ifconfig.athn0
@@ -44,7 +51,7 @@ $ cat /etc/ifconfig.athn0
 inet 192.168.1.2 netmask 255.255.255.0
 ```
 
-NetBSD uses WPA supplicant to manage the wifi connection, so I had to create a configuration file for the wifi network.
+NetBSD usa WPA supplicant per gestire la connessione wifi, quindi ho dovuto creare un file di configurazione per la rete wifi.
 
 ```bash
 $ cat /etc/wpa_supplicant.conf
@@ -58,7 +65,7 @@ network={
 }
 ```
 
-After configuring the wifi interface I had to modify the `/etc/rc.conf` file to enable the `wpa_supplicant` service and set the `defaultroute` to the gateway IP address.
+Dopo aver configurato l’interfaccia wifi, ho dovuto modificare il file `/etc/rc.conf` per abilitare il servizio `wpa_supplicant` e impostare il `defaultroute` con l’indirizzo IP del gateway.
 
 ```bash
 $ cat /etc/rc.conf
@@ -69,7 +76,7 @@ wpa_supplicant_flags="-B -D bsd -i athn0 -c /etc/wpa_supplicant.conf"
 defaultroute="192.168.1.1"
 ```
 
-Lastly, I had to set the `nameserver` in the `/etc/resolv.conf` file.
+Infine, ho dovuto impostare il `nameserver` nel file `/etc/resolv.conf`.
 
 ```bash
 $ cat /etc/resolv.conf
@@ -77,10 +84,11 @@ $ cat /etc/resolv.conf
 nameserver 192.168.1.1
 ```
 
-The system was ready to connect to the wifi network and was able to reach the internet. The next step was to configure the ethernet interface to connect to the FreeBSD board.
+Il sistema era pronto a connettersi alla rete wifi ed era in grado di raggiungere Internet. Il passo successivo era configurare l’interfaccia ethernet per collegarsi alla scheda FreeBSD.
 
-### Configuring the ethernet interface
-Following the same steps as before, I configured the `awge0` interface with the IP address
+### Configurare l’interfaccia ethernet
+
+Seguendo gli stessi passaggi di prima, ho configurato l’interfaccia `awge0` con l’indirizzo IP
 
 ```bash
 $ cat /etc/ifconfig.awge0
@@ -88,7 +96,7 @@ $ cat /etc/ifconfig.awge0
 inet 10.0.0.1 netmask 255.255.255.0
 ```
 
-After configuring the ethernet interface I had to instruct the system to forward ip packets enabling the ip forwarding in the `/etc/sysctl.conf` file.
+Dopo aver configurato l’interfaccia ethernet, ho dovuto istruire il sistema a inoltrare i pacchetti IP abilitando l’IP forwarding nel file `/etc/sysctl.conf`.
 
 ```bash
 $ cat /etc/sysctl.conf
@@ -97,7 +105,7 @@ $ cat /etc/sysctl.conf
 net.inet.ip.forwarding=1
 ```
 
-The last step was to configure the `npf` firewall to enable NAT and forward the packets from the `awge0` interface to the `athn0` interface. I created the `/etc/npf.conf` file with the following rules.
+L’ultimo passo era configurare il firewall `npf` per abilitare il NAT e inoltrare i pacchetti dall’interfaccia `awge0` all’interfaccia `athn0`. Ho creato il file `/etc/npf.conf` con le seguenti regole.
 
 ```bash
 $ext_if = { inet4(athn0) }
@@ -135,8 +143,8 @@ group default {
 }
 ```
 
-The firewall rules allow connections to the FreeBSD board via ssh on port `2222`.
-The `man npf.conf` page was very helpful to understand the syntax and the rules and it contains a good example to start with. After creating the `npf.conf` file I had to enable the `npf` service in the `/etc/rc.conf` file.
+Le regole del firewall permettono connessioni alla scheda FreeBSD via ssh sulla porta `2222`.
+La pagina `man npf.conf` è stata molto utile per capire la sintassi e le regole, e contiene un buon esempio da cui partire. Dopo aver creato il file `npf.conf`, ho dovuto abilitare il servizio `npf` nel file `/etc/rc.conf`.
 
 ```bash
 $ cat /etc/rc.conf
@@ -145,11 +153,11 @@ $ cat /etc/rc.conf
 npf=YES
 ```
 
-That was it, the NetBSD system was ready to act as a gateway and connect to the FreeBSD board.
+E questo era tutto, il sistema NetBSD era pronto ad agire come gateway e connettersi alla scheda FreeBSD.
 
-## Configuring the FreeBSD board
+## Configurare la scheda FreeBSD
 
-The last step was to configure the FreeBSD board to connect to the NetBSD gateway. I configured the `dwc0` interface with a static IP address and set the `defaultrouter` to the NetBSD gateway IP address.
+L’ultimo passo era configurare la scheda FreeBSD per connettersi al gateway NetBSD. Ho configurato l’interfaccia `dwc0` con un indirizzo IP statico e impostato il `defaultrouter` con l’indirizzo IP del gateway NetBSD.
 
 ```bash
 
@@ -162,6 +170,7 @@ defaultrouter="10.0.0.1"
 
 ![rock64](/images/rock64-007.jpg)
 
-And... it worked! I was able to connect to the FreeBSD board via ssh on port `2222` using the NetBSD gateway!
+E… ha funzionato! Sono riuscito a connettermi alla scheda FreeBSD via ssh sulla porta `2222` utilizzando il gateway NetBSD!
 
-I had a lot of fun configuring the NetBSD system as a gateway and connecting it to the FreeBSD board. I learned a lot about the NetBSD system and I was impressed by the simplicity and the clarity of the documentation. I will definitely use NetBSD in the future for other projects!
+Mi sono divertito molto a configurare il sistema NetBSD come gateway e a collegarlo alla scheda FreeBSD. Ho imparato molto su NetBSD e sono rimasto colpito dalla semplicità e chiarezza della documentazione. Userò sicuramente NetBSD in futuro per altri progetti!
+

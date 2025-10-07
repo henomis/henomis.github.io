@@ -1,21 +1,34 @@
-# Italy's Progress and Challenges in Achieving Digital Transformation
+# I progressi e le sfide dell'Italia nel raggiungimento della trasformazione digitale
 
-Italy has been making significant strides towards achieving the [Digital Decade](https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age/europes-digital-decade-digital-targets-2030_en) targets and embracing digital transformation. While progress has been made in certain areas, there are still challenges that need to be addressed. In this blog post, we will explore Italy's advancements in digital infrastructure, the digitalization of businesses, and the need for further efforts in updating advanced digital technologies and digitalizing public services.
+{{< admonition type=info open=true >}}
+Questo post è stato originariamente scritto in inglese e tradotto in italiano tramite AI. Se noti errori di traduzione o passaggi poco chiari, segnalamelo pure.
 
-### Digital Infrastructure
-Italy has shown progress in digital infrastructure, with a significant boost in investment through its Recovery and Resilience Plan (RRP). However, when it comes to fixed very high-capacity network (VHCN), Italy still lags behind the EU average, with only 54% of households having access compared to 73% in the EU. Despite a 10 percentage point increase between 2021 and 2022, there is still room for improvement in this area.
+🇬🇧 [Leggi il post originale in inglese](/en/italys-progress-and-challenges-in-achieving-digital-transformation/)
+{{< /admonition >}}
 
-### Digitalization of Businesses
-Italian SMEs have demonstrated a commendable level of digital intensity, in line with the EU average. Around 70% of Italian SMEs have embraced digitalization, which is on par with the EU average of 69% in 2022. Notably, Italy outperforms the EU average in electronic invoicing, with 95% adoption in 2020. Additionally, there has been an 8 percentage point growth in SME turnover from e-commerce, reaching 36% in 2020. These figures indicate a positive trend in the digitalization of businesses in Italy.
+L’Italia ha compiuto progressi significativi verso il raggiungimento degli obiettivi della [Decade Digitale](https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age/europes-digital-decade-digital-targets-2030_en) e l’adozione della trasformazione digitale. Sebbene siano stati fatti passi avanti in alcune aree, restano ancora sfide da affrontare. In questo post esploreremo i progressi dell’Italia nelle infrastrutture digitali, nella digitalizzazione delle imprese e la necessità di ulteriori sforzi nell’aggiornamento delle tecnologie digitali avanzate e nella digitalizzazione dei servizi pubblici.
 
-### Advanced Digital Technologies
-While Italy has made significant progress in cloud computing, with 52% of enterprises using it in 2021 (well above the EU average of 34%), there is still work to be done in other advanced digital technologies. In 2020, only 9% of enterprises used big data, and in 2021, only 6% utilized AI. To stay competitive, Italy should focus on updating its advanced digital technologies and encourage greater adoption of big data and AI. Measures taken in the semiconductors technologies and quantum computing sectors are commendable and should continue to strengthen Italy's position as a market player in these areas.
+### Infrastruttura Digitale
 
-### Digital Measures Already Achieved
-Italy has already implemented several digital measures to support its digital transformation. These include the reform of ICT procurement, the adoption of a National Plan for New Skills, and the streamlining and acceleration of ICT procurement. Additionally, Italy has embraced the 'Cloud First and Interoperability' reform and has called for expressions of interest to select projects under the 'Important Projects of Common European Interest.' These initiatives showcase Italy's commitment to digitalization.
+L’Italia ha mostrato progressi nelle infrastrutture digitali, con un notevole incremento degli investimenti attraverso il Piano Nazionale di Ripresa e Resilienza (PNRR). Tuttavia, per quanto riguarda le reti fisse a capacità molto elevata (VHCN), l’Italia è ancora indietro rispetto alla media UE, con solo il 54% delle famiglie con accesso rispetto al 73% nell’UE. Nonostante un aumento di 10 punti percentuali tra il 2021 e il 2022, c’è ancora margine di miglioramento in quest’area.
 
-### Challenges in Digitalizing Public Services
-While progress has been made in various digital areas, Italy needs to step up its efforts in digitalizing public services. There is a need for faster implementation of existing and planned measures to ensure that public services are efficiently and effectively digitized. By doing so, Italy can enhance citizen experience, improve government operations, and contribute to the overall digital transformation of the country.
+### Digitalizzazione delle Imprese
 
-### Conclusion
-Italy has made commendable progress in various aspects of digital transformation, including digital infrastructure and the digitalization of businesses. However, there are still challenges to overcome, particularly in updating advanced digital technologies and digitalizing public services. By addressing these challenges, Italy can further propel its digital transformation journey, ensuring a more connected and digitally empowered future for its citizens and businesses.
+Le PMI italiane hanno dimostrato un livello di intensità digitale apprezzabile, in linea con la media UE. Circa il 70% delle PMI italiane ha adottato la digitalizzazione, in linea con la media UE del 69% nel 2022. In particolare, l’Italia supera la media UE nella fatturazione elettronica, con un’adozione del 95% nel 2020. Inoltre, c’è stata una crescita di 8 punti percentuali nel fatturato delle PMI derivante dall’e-commerce, raggiungendo il 36% nel 2020. Questi dati indicano una tendenza positiva nella digitalizzazione delle imprese in Italia.
+
+### Tecnologie Digitali Avanzate
+
+Sebbene l’Italia abbia compiuto progressi significativi nel cloud computing, con il 52% delle imprese che lo utilizzavano nel 2021 (ben al di sopra della media UE del 34%), resta ancora del lavoro da fare in altre tecnologie digitali avanzate. Nel 2020, solo il 9% delle imprese utilizzava big data, e nel 2021 solo il 6% impiegava l’IA. Per rimanere competitiva, l’Italia dovrebbe concentrarsi sull’aggiornamento delle proprie tecnologie digitali avanzate e incoraggiare una maggiore adozione di big data e IA. Le misure adottate nei settori delle tecnologie dei semiconduttori e del calcolo quantistico sono degne di nota e dovrebbero continuare a rafforzare la posizione dell’Italia come attore di mercato in queste aree.
+
+### Misure Digitali Già Attuate
+
+L’Italia ha già implementato diverse misure digitali a sostegno della sua trasformazione digitale. Tra queste figurano la riforma degli appalti ICT, l’adozione di un Piano Nazionale per le Nuove Competenze e la semplificazione e accelerazione delle procedure di approvvigionamento ICT. Inoltre, l’Italia ha adottato la riforma “Cloud First e Interoperabilità” e ha avviato manifestazioni di interesse per selezionare progetti nell’ambito dei “Progetti Importanti di Interesse Comune Europeo”. Queste iniziative dimostrano l’impegno dell’Italia verso la digitalizzazione.
+
+### Sfide nella Digitalizzazione dei Servizi Pubblici
+
+Sebbene siano stati fatti progressi in vari ambiti digitali, l’Italia deve rafforzare i propri sforzi nella digitalizzazione dei servizi pubblici. È necessaria un’implementazione più rapida delle misure esistenti e di quelle pianificate per garantire che i servizi pubblici siano digitalizzati in modo efficiente ed efficace. In questo modo, l’Italia potrà migliorare l’esperienza dei cittadini, ottimizzare le operazioni della pubblica amministrazione e contribuire alla trasformazione digitale complessiva del Paese.
+
+### Conclusione
+
+L’Italia ha compiuto progressi significativi in vari aspetti della trasformazione digitale, comprese le infrastrutture digitali e la digitalizzazione delle imprese. Tuttavia, restano ancora sfide da affrontare, in particolare nell’aggiornamento delle tecnologie digitali avanzate e nella digitalizzazione dei servizi pubblici. Affrontando queste sfide, l’Italia potrà accelerare ulteriormente il proprio percorso di trasformazione digitale, garantendo un futuro più connesso e digitalmente avanzato per cittadini e imprese.
+

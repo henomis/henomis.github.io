@@ -1,71 +1,80 @@
 # Running NATS on a FreeBSD Jail
 
+{{< admonition type=info open=true >}}
+Questo post è stato originariamente scritto in inglese e tradotto in italiano tramite AI. Se noti errori di traduzione o passaggi poco chiari, segnalamelo pure.
 
-Last few months I played with FreeBSD and my Rock64 embedded boards [[1](https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/)] [[2](https://simonevellei.com/blog/posts/netbsd-on-a-rock64-board/)]. I really enjoyed the experience and I wanted to go to the next level and experiment with FreeBSD jails. I was surprised how easy (and logical) it was to create and manage an isolated environment. I also noticed that the low level commands have been wrapped into a more user friendly interfaces (like `bastille`) making the whole experience more enjoyable. To have a real example of a microservice running on a jail, I decided to try with [NATS](https://nats.io).
+🇬🇧 [Leggi il post originale in inglese](/en/running-nats-on-a-freebsd-jail/)
+{{< /admonition >}}
 
-## What is NATS?
-[NATS](https://nats.io) is an open-source messaging system that is designed for cloud-native applications, IoT messaging, and microservices architectures. It provides a lightweight, high-performance, and secure communication mechanism that supports both publish-subscribe and request-reply patterns. NATS is known for its simplicity, ease of use, and ability to scale horizontally, making it an ideal choice for distributed systems.
+Negli ultimi mesi ho giocato con FreeBSD e le mie schede embedded Rock64 [[1](https://simonevellei.com/blog/posts/freebsd-on-a-rock64-board/)] [[2](https://simonevellei.com/blog/posts/netbsd-on-a-rock64-board/)]. Mi sono davvero divertito con l’esperienza e ho voluto passare al livello successivo sperimentando con le *FreeBSD jails*. Sono rimasto sorpreso da quanto fosse facile (e logico) creare e gestire un ambiente isolato. Ho anche notato che i comandi di basso livello sono stati incapsulati in interfacce più user-friendly (come `bastille`), rendendo l’esperienza complessiva molto più piacevole. Per avere un vero esempio di un microservizio in esecuzione in una jail, ho deciso di provare con [NATS](https://nats.io).
 
-One of the key features of NATS is its ability to handle high-throughput and low-latency messaging. It achieves this through a combination of efficient protocol design, in-memory data structures, and optimized network communication. NATS also supports clustering, which allows multiple NATS servers to work together to provide fault tolerance and load balancing.
+## Cos’è NATS?
 
-In addition to its core messaging capabilities, NATS has a rich ecosystem of clients and libraries for various programming languages, making it easy to integrate with different applications and services. It also offers advanced features such as streaming, persistence, and security, which can be leveraged to build robust and reliable messaging solutions.
+[NATS](https://nats.io) è un sistema di messaggistica open-source progettato per applicazioni *cloud-native*, messaggistica IoT e architetture a microservizi. Fornisce un meccanismo di comunicazione leggero, ad alte prestazioni e sicuro, che supporta sia i modelli *publish-subscribe* che *request-reply*. NATS è noto per la sua semplicità, facilità d’uso e capacità di scalare orizzontalmente, rendendolo una scelta ideale per sistemi distribuiti.
 
-## What is a FreeBSD jail?
-FreeBSD jails are a powerful and flexible feature of the FreeBSD operating system that allow you to create isolated, secure environments within a single FreeBSD instance. Introduced in FreeBSD 4.0, jails provide a lightweight alternative to full virtualization, enabling you to run multiple applications or services in separate, confined spaces without the overhead of a full virtual machine.
+Una delle caratteristiche principali di NATS è la capacità di gestire messaggi ad alto throughput e bassa latenza. Questo è possibile grazie a una combinazione di un protocollo efficiente, strutture dati in memoria e comunicazione di rete ottimizzata. NATS supporta anche il *clustering*, che consente a più server NATS di lavorare insieme per fornire tolleranza ai guasti e bilanciamento del carico.
 
-A FreeBSD jail operates as a chroot environment with additional security and resource management features. Each jail has its own filesystem, network interfaces, and process space, ensuring that processes running inside a jail cannot interfere with those in other jails or the host system. This isolation makes jails an excellent choice for securely hosting multiple applications on a single server, testing software in a controlled environment, or managing multi-tenant environments.
+Oltre alle sue funzionalità di messaggistica di base, NATS dispone di un ricco ecosistema di client e librerie per vari linguaggi di programmazione, rendendo facile l’integrazione con diverse applicazioni e servizi. Offre anche funzionalità avanzate come *streaming*, persistenza e sicurezza, che possono essere sfruttate per costruire soluzioni di messaggistica robuste e affidabili.
 
-Jails are highly configurable, allowing you to fine-tune the level of isolation and resource allocation for each jail. You can assign specific IP addresses, limit CPU and memory usage, and control access to system resources. This flexibility, combined with the lightweight nature of jails, makes them a popular choice for both development and production environments.
+## Cos’è una FreeBSD jail?
 
-## What is Bastille?
-[Bastille](https://bastillebsd.org/) is a command-line utility for managing FreeBSD jails. It simplifies the process of creating, configuring, and maintaining jails, which are lightweight, isolated environments similar to containers. Bastille provides an easy-to-use interface for jail management, allowing users to quickly deploy and manage applications in a secure and efficient manner.
+Le *FreeBSD jails* sono una caratteristica potente e flessibile del sistema operativo FreeBSD che consente di creare ambienti isolati e sicuri all’interno di una singola istanza FreeBSD. Introdotte in FreeBSD 4.0, le jails offrono un’alternativa leggera alla virtualizzazione completa, permettendo di eseguire più applicazioni o servizi in spazi separati e confinati senza il sovraccarico di una macchina virtuale completa.
 
-With Bastille, you can create new jails, start and stop them, and manage their configurations with simple commands. It also supports templates, which can be used to automate the deployment of pre-configured environments. This makes it an excellent tool for both development and production use cases, where consistency and repeatability are important.
+Una jail FreeBSD funziona come un ambiente *chroot* con funzionalità aggiuntive di sicurezza e gestione delle risorse. Ogni jail ha il proprio filesystem, le proprie interfacce di rete e lo spazio dei processi, garantendo che i processi in esecuzione all’interno di una jail non possano interferire con quelli di altre jails o del sistema host. Questo isolamento rende le jails una scelta eccellente per ospitare in modo sicuro più applicazioni su un singolo server, testare software in un ambiente controllato o gestire ambienti multi-tenant.
 
-Bastille also integrates with ZFS, a robust file system that provides advanced features such as snapshots and cloning. This integration allows for efficient storage management and easy rollback of changes, further enhancing the flexibility and reliability of your jail environments.
+Le jails sono altamente configurabili, consentendo di regolare il livello di isolamento e allocazione delle risorse per ciascuna jail. È possibile assegnare indirizzi IP specifici, limitare l’uso della CPU e della memoria e controllare l’accesso alle risorse di sistema. Questa flessibilità, combinata con la natura leggera delle jails, le rende una scelta popolare sia per ambienti di sviluppo che di produzione.
 
-### Implementing a Bastille template for NATS
-Bastille templates are pre-configured environments that can be used to quickly deploy new jails. They contain a base FreeBSD installation along with any additional packages or configurations that you want to include. Templates are a powerful feature of Bastille that can help you streamline your workflow and ensure consistency across your environments.
+## Cos’è Bastille?
 
-The idea is to be architecture agnostic, so the template can be used in any FreeBSD system. NATS will be compiled from source, so the template will contain the necessary packages to build it.
+[Bastille](https://bastillebsd.org/) è un’utilità da linea di comando per la gestione delle *FreeBSD jails*. Semplifica il processo di creazione, configurazione e manutenzione delle jails, che sono ambienti leggeri e isolati simili ai container. Bastille fornisce un’interfaccia facile da usare per la gestione delle jails, permettendo agli utenti di distribuire e gestire rapidamente applicazioni in modo sicuro ed efficiente.
+
+Con Bastille puoi creare nuove jails, avviarle e arrestarle, e gestirne la configurazione con comandi semplici. Supporta anche i *template*, che possono essere utilizzati per automatizzare la distribuzione di ambienti preconfigurati. Questo lo rende uno strumento eccellente sia per lo sviluppo che per la produzione, dove coerenza e ripetibilità sono importanti.
+
+Bastille si integra anche con ZFS, un file system robusto che offre funzionalità avanzate come snapshot e clonazione. Questa integrazione consente una gestione efficiente dello storage e un facile rollback delle modifiche, migliorando ulteriormente la flessibilità e l’affidabilità degli ambienti jail.
+
+### Implementare un template Bastille per NATS
+
+I *template* Bastille sono ambienti preconfigurati che possono essere utilizzati per distribuire rapidamente nuove jails. Contengono un’installazione base di FreeBSD insieme a eventuali pacchetti o configurazioni aggiuntive. I template sono una funzionalità potente di Bastille che può aiutare a semplificare il flusso di lavoro e garantire coerenza tra gli ambienti.
+
+L’idea è quella di essere indipendenti dall’architettura, così il template può essere utilizzato in qualsiasi sistema FreeBSD. NATS verrà compilato dai sorgenti, quindi il template conterrà i pacchetti necessari per costruirlo.
 
 ```shell
-# install required packages
+# installa i pacchetti richiesti
 PKG git
 PKG go
 ```
 
-Then we can create specific user and group for NATS:
+Poi possiamo creare un utente e un gruppo specifici per NATS:
 
 ```shell
-# create default group
+# crea il gruppo predefinito
 CMD pw groupadd "${NATS_GROUP}"
-# create default user
+# crea l’utente predefinito
 CMD pw useradd -n "${NATS_USER}" -g "${NATS_GROUP}" -s /usr/sbin/nologin -w no
 ```
 
-We'll accept group and user names as environment variables, so we can customize them when creating the jail from the template.
+Accetteremo i nomi di gruppo e utente come variabili d’ambiente, così potremo personalizzarli quando creeremo la jail dal template.
 
-Now it's time to clone the NATS repository and compile it:
+Ora è il momento di clonare il repository di NATS e compilarlo:
 
 ```shell
-# download and install nats server
+# scarica e installa il server nats
 CMD "${GO}" install "github.com/nats-io/nats-server/v2@${NATS_VERSION}"
 CMD "${INSTALL}" -o "${NATS_USER}" -g "${NATS_GROUP}" "${GOPATH}/bin/nats-server" /usr/local/bin/nats-server
 ```
 
-We'll use `go install` to download and compile the NATS server, and then we'll install it in the `/usr/local/bin` directory. We'll also set the owner and group of the binary to the user and group we created earlier.
+Utilizzeremo `go install` per scaricare e compilare il server NATS, quindi lo installeremo nella directory `/usr/local/bin`. Imposteremo anche proprietario e gruppo del binario all’utente e al gruppo creati in precedenza.
 
-As soon as we have the NATS server installed, we can create a configuration file and an init script for it:
+Una volta installato il server NATS, possiamo creare un file di configurazione e uno script di avvio per esso:
 
 ```shell
 CP usr /
 CMD chmod a+x /usr/local/etc/rc.d/nats
 ```
 
-The `usr` directory contains the configuration file and the init script for the NATS server. We'll copy them to the root directory of the jail and make the init script executable.
+La directory `usr` contiene il file di configurazione e lo script di avvio per il server NATS. Li copieremo nella directory root della jail e renderemo eseguibile lo script di avvio.
 
-Finally, we'll set the NATS server to start automatically when the jail boots:
+Infine, imposteremo il server NATS per avviarsi automaticamente all’avvio della jail:
 
 ```shell
 SYSRC nats_enable=YES
@@ -74,67 +83,70 @@ SYSRC nats_group="${NATS_GROUP}"
 SERVICE nats start
 ```
 
-> Don't worry too much about the template; you'll find a link to the repository with the complete code at the end of the article.
+> Non preoccuparti troppo del template; troverai un link al repository con il codice completo alla fine dell’articolo.
 
-## Creating a NATS jail
-In order to let Bastille create a jail from a template we need to bootstrap it first:
+## Creare una jail NATS
+
+Per consentire a Bastille di creare una jail da un template, dobbiamo prima eseguire il bootstrap:
 
 ```shell
 bastille bootstrap https://github.com/henomis/nats-jail-template
 ```
 
-This command will download the template from the repository, you'll find it into the directory `/usr/local/bastille/templates/`
+Questo comando scaricherà il template dal repository; lo troverai nella directory `/usr/local/bastille/templates/`.
 
-Now we can create the jail:
+Ora possiamo creare la jail:
 
 ```shell
 bastille create nats-jail 14.2-RELEASE 10.0.0.1
 ```
 
-This command will create a new jail named `nats-jail`. The jail will be based on FreeBSD 14.2-RELEASE and will have the IP address `10.0.0.1`. It's time to apply the template:
+Questo comando creerà una nuova jail chiamata `nats-jail`. La jail sarà basata su FreeBSD 14.2-RELEASE e avrà l’indirizzo IP `10.0.0.1`. È ora di applicare il template:
 
 ```shell
 bastille template nats-jail henomis/nats-jail-template
 ```
 
-This command will apply the template to the jail, installing all the necessary packages and configurations. Once the template is applied, you'll have a fully functional NATS server running in the jail.
+Questo comando applicherà il template alla jail, installando tutti i pacchetti e le configurazioni necessari. Una volta applicato il template, avrai un server NATS pienamente funzionante in esecuzione nella jail.
 
-## Testing the NATS jail
-To test the NATS jail, you can connect to it using the NATS CLI tool. But, as we already had fun with jails, we can create a new jails and run the NATS CLI tool in it. We will set up a publisher and a subscriber in two different jails, and we'll use the NATS server to send messages between them.
+## Testare la jail NATS
 
+Per testare la jail NATS, puoi connetterti ad essa usando lo strumento CLI di NATS. Ma, dato che ci siamo già divertiti con le jails, possiamo crearne una nuova ed eseguire il tool NATS CLI al suo interno. Imposteremo un *publisher* e un *subscriber* in due jails diverse, e useremo il server NATS per inviare messaggi tra di loro.
 
-Let's create a new jail for the publisher:
+Creiamo una nuova jail per il publisher:
+
 ```shell
 bastille create pub-jail 14.2-RELEASE 10.0.0.2
 ```
 
-Then we'll install the necessary packages and the NATS CLI tool:
+Poi installeremo i pacchetti necessari e lo strumento CLI di NATS:
 
 ```shell
 bastille pkg pub-jail install -y git go
 bastille cmd pub-jail go install github.com/nats-io/natscli/nats@latest
 ```
 
-Thanks to `bastille clone` we can create a new jail from an existing one, so we can clone the publisher jail and create a subscriber jail:
+Grazie a `bastille clone` possiamo creare una nuova jail da una esistente, quindi possiamo clonare la jail del publisher e creare una jail per il subscriber:
 
 ```shell
 bastille clone pub-jail sub-jail 10.0.0.3
 bastille start sub-jail
-``` 
+```
 
-We are very close to the end, we just need to start the subscriber and the publisher in two different jails:
+Siamo quasi alla fine, dobbiamo solo avviare il subscriber e il publisher in due jails diverse:
 
 ```shell
 bastille cmd sub-jail /root/go/bin/nats --server 10.0.0.1 sub my.topic
 ```
 
-Using a different terminal:
+Usando un altro terminale:
 
 ```shell
 bastille cmd pub-jail /root/go/bin/nats --server 10.0.0.1 pub my.topic "message {{.Count}} - {{.TimeStamp}}" --count 5
 ```
 
-You should see the messages sent by the publisher in the subscriber terminal.
+Dovresti vedere i messaggi inviati dal publisher nel terminale del subscriber.
+
 ```shell
 [#1] Received on "my.topic"
 message 1 - 2025-01-01T16:20:16+01:00
@@ -156,9 +168,11 @@ message 4 - 2025-01-01T16:20:16+01:00
 message 5 - 2025-01-01T16:20:16+01:00
 ```
 
-And... that's it! You have a NATS server running in a FreeBSD jail, and you are able to send messages between different jails using the NATS CLI tool. You can experiment with different configurations, add more jails, and explore the capabilities of NATS and FreeBSD jails further.
+E… questo è tutto! Hai un server NATS in esecuzione in una jail FreeBSD, e puoi inviare messaggi tra diverse jails usando lo strumento CLI di NATS. Puoi sperimentare con configurazioni diverse, aggiungere altre jails ed esplorare ulteriormente le potenzialità di NATS e delle FreeBSD jails.
 
-## Conclusion
-In this article, we have seen how to create a FreeBSD jail with Bastille and run a NATS server inside it. We have also seen how to create two additional jails and use the NATS CLI tool to send messages between them. This example demonstrates the power and flexibility of FreeBSD jails and how they can be used to create isolated, secure environments for running applications and services.
+## Conclusione
 
-You will find the complete code in the [https://github.com/henomis/nats-jail-template](https://github.com/henomis/nats-jail-template) repository. Feel free to fork it and experiment with it on your own FreeBSD system. I hope this article has inspired you to explore the world of FreeBSD jails and experiment with different applications and services. Happy hacking!
+In questo articolo abbiamo visto come creare una jail FreeBSD con Bastille ed eseguire al suo interno un server NATS. Abbiamo anche visto come creare due jails aggiuntive e usare lo strumento CLI di NATS per inviare messaggi tra di esse. Questo esempio dimostra la potenza e la flessibilità delle FreeBSD jails e come possano essere utilizzate per creare ambienti isolati e sicuri per l’esecuzione di applicazioni e servizi.
+
+Troverai il codice completo nel repository [https://github.com/henomis/nats-jail-template](https://github.com/henomis/nats-jail-template). Sentiti libero di fare un fork e sperimentare sul tuo sistema FreeBSD. Spero che questo articolo ti abbia ispirato a esplorare il mondo delle FreeBSD jails e a sperimentare con diverse applicazioni e servizi. Buon hacking!
+
