@@ -82,7 +82,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   images = ["/images/portrait.jpg"]
 
 # Author config
-  [params.author]·
+  [params.author]
     name = "Simone Vellei"
     email = "henomis@gmail.com"
     link = ""
