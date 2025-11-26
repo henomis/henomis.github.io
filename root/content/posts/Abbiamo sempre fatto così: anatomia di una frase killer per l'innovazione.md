@@ -16,12 +16,14 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/azienda001.png"
-cover:
-    image: "/images/azienda001.png" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: false # only hide on current single page
+images:
+  - "/images/azienda001.png"
+# cover:
+#     image: "/images/azienda001.png" # image path/url
+#     alt: "<alt text>" # alt text
+#     caption: "<text>" # display caption under cover
+#     relative: false # when using page bundles set this to true
+#     hidden: false # only hide on current single page
 ---
 
 Esiste una frase che, pronunciata con sufficiente convinzione, può fermare sul nascere qualsiasi tentativo di innovazione. Non è volgare, non è aggressiva, anzi suona persino rassicurante. Eppure, "abbiamo sempre fatto così" rappresenta uno dei più insidiosi ostacoli alla crescita di un'organizzazione.
