@@ -16,6 +16,7 @@ ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
 featuredImage: "/images/goagent001.png"
+images: ["/images/goagent001.png"]
 cover:
     image: "/images/goagent001.png" # image path/url
     alt: "<alt text>" # alt text
