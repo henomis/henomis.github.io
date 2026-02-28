@@ -1,0 +1,580 @@
+<!doctype html><html lang=it><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>How to build an AI agent from scratch in Go - Simone Vellei - Blog</title><meta name=Description content="This is my cool site"><meta property="og:url" content="https://simonevellei.com/how-to-build-an-ai-agent-from-scratch-in-go/">
+<meta property="og:site_name" content="Simone Vellei - Blog"><meta property="og:title" content="How to build an AI agent from scratch in Go"><meta property="og:description" content="Hi, I’m Simone Vellei — you might remember me from such Go-and-AI adventures as “Leveraging Go and Redis for Efficient Retrieval Augmented Generation” and “Empowering Go: unveiling the synergy of AI and Q&amp;A pipelines”
+I’m the creator of LinGoose, an open-source framework built to make developing AI-powered applications in Go clean, modular, and production-friendly. I built it because I love Go’s simplicity and performance, and I wanted the same elegance when working with large language models."><meta property="og:locale" content="it"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-28T13:00:55+01:00"><meta property="article:modified_time" content="2026-02-28T13:00:55+01:00"><meta property="article:tag" content="Go"><meta property="article:tag" content="Ai"><meta property="article:tag" content="Agents"><meta property="article:tag" content="Openai"><meta property="article:tag" content="Ollama"><meta property="og:image" content="https://simonevellei.com/images/portrait.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://simonevellei.com/images/portrait.jpg"><meta name=twitter:title content="How to build an AI agent from scratch in Go"><meta name=twitter:description content="Hi, I’m Simone Vellei — you might remember me from such Go-and-AI adventures as “Leveraging Go and Redis for Efficient Retrieval Augmented Generation” and “Empowering Go: unveiling the synergy of AI and Q&amp;A pipelines”
+I’m the creator of LinGoose, an open-source framework built to make developing AI-powered applications in Go clean, modular, and production-friendly. I built it because I love Go’s simplicity and performance, and I wanted the same elegance when working with large language models."><meta name=application-name content="Simone Vellei"><meta name=apple-mobile-web-app-title content="Simone Vellei"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simonevellei.com/how-to-build-an-ai-agent-from-scratch-in-go/><link rel=prev href=https://simonevellei.com/cinque-riforme-urgenti-per-uno-stato-laico-e-antifascista/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"How to build an AI agent from scratch in Go","inLanguage":"it","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simonevellei.com\/how-to-build-an-ai-agent-from-scratch-in-go\/"},"genre":"posts","keywords":"go, ai, agents, openai, ollama","wordcount":2320,"url":"https:\/\/simonevellei.com\/how-to-build-an-ai-agent-from-scratch-in-go\/","datePublished":"2026-02-28T13:00:55+01:00","dateModified":"2026-02-28T13:00:55+01:00","license":"© 2025 Simone Vellei. All rights reserved.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Simone Vellei"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Articoli </a><a class=menu-item href=/tags/>Tag </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Cerca il titolo o il contenuto dell'articolo ..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Cerca><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Chiaro><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Cambiare il tema"><i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="menu-item language" title="Scegliere la lingua"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select id=language-select-desktop onchange="location=this.value"><option value=/how-to-build-an-ai-agent-from-scratch-in-go/ selected>Italiano</option></select></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Cerca il titolo o il contenuto dell'articolo ..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Cerca><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Chiaro><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Annulla</a></div><a class=menu-item href=/posts/ title>Articoli</a><a class=menu-item href=/tags/ title>Tag</a><a href=javascript:void(0); class="menu-item theme-switch" title="Cambiare il tema">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class=menu-item title="Scegliere la lingua"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select onchange="location=this.value"><option value=/how-to-build-an-ai-agent-from-scratch-in-go/ selected>Italiano</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contenuti</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to build an AI agent from scratch in Go</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Simone Vellei</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2026-02-28>2026-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;2320 parole&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;11 minuti&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/images/goagent001.png data-srcset="/images/goagent001.png, /images/goagent001.png 1.5x, /images/goagent001.png 2x" data-sizes=auto alt=/images/goagent001.png title=/images/goagent001.png></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contenuti</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#the-mental-model>The mental model</a></li><li><a href=#the-4-core-components-of-a-minimal-agent>The 4 core components of a minimal agent</a><ul><li><a href=#the-model>The model</a></li><li><a href=#tools>Tools</a></li><li><a href=#memory>Memory</a></li><li><a href=#the-loop>The loop</a></li></ul></li><li><a href=#why-iteration-matters>Why iteration matters</a></li><li><a href=#the-minimal-architecture>The minimal architecture</a></li><li><a href=#why-were-building-it-from-scratch>Why we’re building it from scratch</a></li></ul><ul><li><a href=#imports-and-entry-point>Imports and entry point</a></li><li><a href=#bootstrapping-the-client>Bootstrapping the client</a><ul><li><a href=#whats-happening>What’s happening?</a></li></ul></li><li><a href=#model-selection>Model selection</a></li><li><a href=#memory-initialization>Memory initialization</a></li><li><a href=#registering-tools>Registering tools</a></li><li><a href=#cli-loop>CLI loop</a></li><li><a href=#the-agent-loop>The agent loop</a></li><li><a href=#if-the-model-calls-a-tool>If the model calls a tool</a></li><li><a href=#if-the-model-does-not-call-a-tool>If the model does not call a tool</a></li><li><a href=#tool-definitions>Tool definitions</a></li><li><a href=#tool-execution-logic>Tool execution logic</a></li><li><a href=#full-code>Full code</a></li></ul><ul><li><a href=#what-weve-built>What we’ve built</a></li></ul></nav></div></div><div class=content id=content><p>Hi, I’m Simone Vellei — you might remember me from such Go-and-AI adventures as “<a href=https://simonevellei.com/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/ target=_blank rel="noopener noreffer">Leveraging Go and Redis for Efficient Retrieval Augmented Generation</a>” and “<a href=https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/ target=_blank rel="noopener noreffer">Empowering Go: unveiling the synergy of AI and Q&amp;A pipelines</a>”</p><p>I’m the creator of <a href=https://github.com/henomis/lingoose target=_blank rel="noopener noreffer">LinGoose</a>, an open-source framework built to make developing AI-powered applications in Go clean, modular, and production-friendly. I built it because I love Go’s simplicity and performance, and I wanted the same elegance when working with large language models.</p><p>Over the last few years, AI APIs from OpenAI have made it remarkably easy to add powerful reasoning capabilities to applications. At the same time, tools like Ollama allow us to run cutting-edge models locally using an OpenAI-compatible interface.</p><p>That combination opens up something exciting:</p><ul><li>Write your agent once</li><li>Run it in the cloud or locally</li><li>Switch endpoints without rewriting your logic</li></ul><p>In this tutorial, we won’t rely on heavy abstractions or magic frameworks. Instead, we’ll build a simple but real AI agent from scratch in Go. By the end, you’ll understand:</p><ul><li>What an “agent” actually is (beyond the buzzword)</li><li>How to implement an agent loop</li><li>How to add tool calling</li><li>How to handle multi-step reasoning</li><li>How to switch between OpenAI and Ollama with a single configuration change</li></ul><p>If you’ve ever wanted to deeply understand how agents work under the hood — not just call a library and hope for the best — you’re in the right place.</p><p>Let’s build one.</p><h1 id=what-is-an-agent-really>What is an agent (really)?</h1><p>Before we write a single line of Go, we need to clarify something important:</p><p>An <strong>LLM is not an agent</strong>.</p><p>A large language model is just a function: <code>f(prompt) → completion</code></p><p>You send text in.
+You get text out.
+That’s it.</p><p>An <strong>agent</strong>, on the other hand, is a <em>system built around</em> a model.</p><h2 id=the-mental-model>The mental model</h2><p>If you strip away the hype, an agent is just this loop:</p><ol><li>Receive input</li><li>Ask the model what to do next</li><li>If the model wants to use a tool → execute it</li><li>Feed the result back to the model</li><li>Repeat until done</li></ol><p>That’s it.</p><p>No magic.
+No consciousness.
+Just structured iteration.</p><h2 id=the-4-core-components-of-a-minimal-agent>The 4 core components of a minimal agent</h2><p>Let’s break it down.</p><h3 id=the-model>The model</h3><p>This is the reasoning engine.</p><p>We’ll be using the OpenAI-compatible API so our code can work with:</p><ul><li>OpenAI models in the cloud</li><li>Ollama models running locally</li></ul><p>From the model’s perspective, it doesn’t “execute” anything. It simply decides:</p><ul><li>Should I respond directly?</li><li>Or should I call a tool?</li></ul><h3 id=tools>Tools</h3><p>Tools are just functions your program can execute.</p><p>For example:</p><ul><li><code>web_search(query string)</code></li><li><code>get_weather(city string)</code></li><li><code>run_sql(query string)</code></li><li><code>calculate(expression string)</code></li></ul><p>The model doesn’t execute these directly.
+It emits structured JSON saying:</p><blockquote><p>“Please call <code>web_search</code> with this argument.”</p></blockquote><p>Your Go program parses that, executes the function, and returns the result to the model.</p><p>This is how language models gain <strong>real-world capability</strong>.</p><h3 id=memory>Memory</h3><p>Agents need context.</p><p>At minimum, that’s just a slice of messages:</p><ul><li>System prompt</li><li>User messages</li><li>Assistant messages</li><li>Tool results</li></ul><p>Every iteration sends the full conversation back to the model.</p><p>No memory = no continuity.</p><p>In this tutorial, we’ll use in-memory conversation history. Later you can swap that for a database, Redis, or a vector store.</p><h3 id=the-loop>The loop</h3><p>This is the part most people skip — but it’s the most important.</p><p>A basic agent loop looks like:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=k>for</span> <span class=ow>not</span> <span class=n>finished</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>call</span> <span class=n>model</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=k>tool</span> <span class=n>requested</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>execute</span> <span class=k>tool</span>
+</span></span><span class=line><span class=cl>        <span class=n>append</span> <span class=k>tool</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>break</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>That loop is what turns a one-shot completion into a multi-step reasoning system.</p><h2 id=why-iteration-matters>Why iteration matters</h2><p>If you only allow a single tool call, you don’t have much of an agent. You have a fancy RPC router.</p><p>Real agents often need to:</p><ul><li>Refine a query</li><li>Perform multiple searches</li><li>Compare results</li><li>Summarize findings</li><li>Validate their own output</li></ul><p>That requires <strong>multiple passes through the loop</strong>.</p><p>And that’s exactly what we’ll implement.</p><h2 id=the-minimal-architecture>The minimal architecture</h2><p>Here’s the high-level flow we’re going to build:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>User</span> <span class=ne>Input</span>
+</span></span><span class=line><span class=cl>    <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=n>Append</span> <span class=n>to</span> <span class=n>Messages</span>
+</span></span><span class=line><span class=cl>    <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=n>Call</span> <span class=n>ChatCompletion</span> <span class=n>API</span>
+</span></span><span class=line><span class=cl>    <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=n>Model</span> <span class=n>decides</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=err>├─</span> <span class=n>Return</span> <span class=n>final</span> <span class=n>answer</span> <span class=err>→</span> <span class=n>DONE</span>
+</span></span><span class=line><span class=cl>    <span class=err>└─</span> <span class=n>Request</span> <span class=k>tool</span> <span class=n>call</span>
+</span></span><span class=line><span class=cl>            <span class=err>↓</span>
+</span></span><span class=line><span class=cl>        <span class=n>Execute</span> <span class=k>tool</span> <span class=ow>in</span> <span class=n>Go</span>
+</span></span><span class=line><span class=cl>            <span class=err>↓</span>
+</span></span><span class=line><span class=cl>        <span class=n>Append</span> <span class=k>tool</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>            <span class=err>↓</span>
+</span></span><span class=line><span class=cl>        <span class=n>Loop</span> <span class=n>again</span>
+</span></span></code></pre></td></tr></table></div></div><p>Simple. Explicit. Powerful.</p><h2 id=why-were-building-it-from-scratch>Why we’re building it from scratch</h2><p>Yes, frameworks exist.
+Yes, higher-level abstractions exist.</p><p>But when you build the loop yourself:</p><ul><li>You understand exactly what’s happening.</li><li>You can debug it.</li><li>You can extend it.</li><li>You’re not locked into someone else’s opinionated architecture.</li></ul><p>As the author of <a href=https://github.com/henomis/lingoose target=_blank rel="noopener noreffer">LinGoose</a>, I care deeply about abstractions — but I also believe you should understand the foundation before using one.</p><p>And the foundation of every agent is this loop.</p><h1 id=lets-build-the-agent>Let’s build the agent</h1><p>In the previous section, we defined an agent as:</p><ul><li>A <strong>model</strong></li><li>A set of <strong>tools</strong></li><li>Some <strong>memory</strong></li><li>A <strong>loop</strong></li></ul><p>Now we’ll implement exactly that.</p><p>This time, we’ll break the code into meaningful chunks — but every chunk will be shown exactly as it appears in the final file.</p><p>At the end, you’ll be able to copy a full working <code>main.go</code>.</p><p>We are using <a href=https://github.com/sashabaranov/go-openai target=_blank rel="noopener noreffer">go-openai</a> that supports both OpenAI and Ollama out of the box.</p><h2 id=imports-and-entry-point>Imports and entry point</h2><p>We start with our package and imports.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;bufio&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;os&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;strings&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;time&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>openai</span> <span class=s>&#34;github.com/sashabaranov/go-openai&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Nothing special here — just standard Go and the OpenAI SDK.</p><h2 id=bootstrapping-the-client>Bootstrapping the client</h2><p>Now we begin <code>main()</code> and configure the API client.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>apiKey</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;OPENAI_API_KEY&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>baseURL</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;OPENAI_BASE_URL&#34;</span><span class=p>)</span> <span class=c1>// e.g. http://localhost:11434/v1 (Ollama)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>config</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>DefaultConfig</span><span class=p>(</span><span class=nx>apiKey</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>baseURL</span> <span class=o>!=</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>config</span><span class=p>.</span><span class=nx>BaseURL</span> <span class=p>=</span> <span class=nx>baseURL</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>NewClientWithConfig</span><span class=p>(</span><span class=nx>config</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=whats-happening>What’s happening?</h3><ul><li>We read the API key.</li><li>We optionally override the base URL.</li><li>If <code>OPENAI_BASE_URL</code> is set, we can talk to Ollama.</li><li>Otherwise, we talk to OpenAI’s cloud API.</li></ul><p>This is our <strong>model layer</strong> we defined earlier.</p><p>Same code. Different backend.</p><h2 id=model-selection>Model selection</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>	<span class=nx>model</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;MODEL&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>model</span> <span class=o>==</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>// OpenAI: gpt-4o-mini</span>
+</span></span><span class=line><span class=cl>		<span class=c1>// Ollama: llama3</span>
+</span></span><span class=line><span class=cl>		<span class=nx>model</span> <span class=p>=</span> <span class=s>&#34;gpt-4o-mini&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>We keep the model configurable.</p><h2 id=memory-initialization>Memory initialization</h2><p>Now we define our message history — the agent’s memory.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>	<span class=nx>messages</span> <span class=o>:=</span> <span class=p>[]</span><span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionMessage</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Role</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatMessageRoleSystem</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Content</span><span class=p>:</span> <span class=s>`You are an assistant that can only help the user by using the available tools provided to you.`</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>This slice will grow over time:</p><ul><li>User messages</li><li>Assistant responses</li><li>Tool results</li></ul><p>This is the <strong>memory component</strong> of our agent.</p><h2 id=registering-tools>Registering tools</h2><p>Next, we declare which tools the model is allowed to call.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>	<span class=nx>tools</span> <span class=o>:=</span> <span class=nf>buildTools</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>We’ll define <code>buildTools()</code> later.</p><h2 id=cli-loop>CLI loop</h2><p>Now we create a simple REPL so we can interact continuously.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>	<span class=nx>reader</span> <span class=o>:=</span> <span class=nx>bufio</span><span class=p>.</span><span class=nf>NewReader</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdin</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Simple Go Agent (type &#39;exit&#39; to quit)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;\n&gt; &#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>input</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>reader</span><span class=p>.</span><span class=nf>ReadString</span><span class=p>(</span><span class=sc>&#39;\n&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>input</span> <span class=p>=</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=nx>input</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nx>input</span> <span class=o>==</span> <span class=s>&#34;exit&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>When the user types something, we append it to memory:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>		<span class=nx>messages</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>messages</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionMessage</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Role</span><span class=p>:</span>    <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatMessageRoleUser</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Content</span><span class=p>:</span> <span class=nx>input</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=the-agent-loop>The agent loop</h2><p>Now comes the core logic — the loop that turns a model into an agent.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>		<span class=k>for</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>resp</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>CreateChatCompletion</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionRequest</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Model</span><span class=p>:</span>    <span class=nx>model</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Messages</span><span class=p>:</span> <span class=nx>messages</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Tools</span><span class=p>:</span>    <span class=nx>tools</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=p>})</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=nx>msg</span> <span class=o>:=</span> <span class=nx>resp</span><span class=p>.</span><span class=nx>Choices</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>Message</span>
+</span></span><span class=line><span class=cl>			<span class=nx>messages</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>messages</span><span class=p>,</span> <span class=nx>msg</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>We send:</p><ul><li>Full memory</li><li>Tool definitions</li></ul><p>The model decides:</p><ul><li>Respond normally</li><li>Or call a tool</li></ul><h2 id=if-the-model-calls-a-tool>If the model calls a tool</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>			<span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=nx>msg</span><span class=p>.</span><span class=nx>ToolCalls</span><span class=p>)</span> <span class=p>&gt;</span> <span class=mi>0</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>toolCall</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>msg</span><span class=p>.</span><span class=nx>ToolCalls</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>					<span class=nx>result</span> <span class=o>:=</span> <span class=nf>handleToolCall</span><span class=p>(</span><span class=nx>toolCall</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>					<span class=nx>messages</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>messages</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionMessage</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>						<span class=nx>Role</span><span class=p>:</span>       <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatMessageRoleTool</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>						<span class=nx>Content</span><span class=p>:</span>    <span class=nx>result</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>						<span class=nx>ToolCallID</span><span class=p>:</span> <span class=nx>toolCall</span><span class=p>.</span><span class=nx>ID</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>					<span class=p>})</span>
+</span></span><span class=line><span class=cl>				<span class=p>}</span>
+</span></span><span class=line><span class=cl>				<span class=k>continue</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Important:</p><ul><li>We execute every tool call.</li><li>We append tool results to memory.</li><li>We <code>continue</code> the loop.</li></ul><p>That means we go back to the model with updated context.</p><p>This is the <strong>iteration mechanism</strong> we discussed previously.</p><h2 id=if-the-model-does-not-call-a-tool>If the model does not call a tool</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>			<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;\nAssistant:&#34;</span><span class=p>,</span> <span class=nx>msg</span><span class=p>.</span><span class=nx>Content</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=k>break</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>If there are no tool calls:</p><ul><li>We print the final answer.</li><li>We break the inner loop.</li><li>The outer loop continues waiting for new user input.</li></ul><p>That completes <code>main()</code>.</p><h2 id=tool-definitions>Tool definitions</h2><p>Now we define the tools exposed to the model.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>buildTools</span><span class=p>()</span> <span class=p>[]</span><span class=nx>openai</span><span class=p>.</span><span class=nx>Tool</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=p>[]</span><span class=nx>openai</span><span class=p>.</span><span class=nx>Tool</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Type</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ToolTypeFunction</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Function</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>openai</span><span class=p>.</span><span class=nx>FunctionDefinition</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Name</span><span class=p>:</span>        <span class=s>&#34;get_time&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Description</span><span class=p>:</span> <span class=s>&#34;Returns the current server time&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Parameters</span><span class=p>:</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>any</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>					<span class=s>&#34;type&#34;</span><span class=p>:</span>       <span class=s>&#34;object&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>					<span class=s>&#34;properties&#34;</span><span class=p>:</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>any</span><span class=p>{},</span>
+</span></span><span class=line><span class=cl>				<span class=p>},</span>
+</span></span><span class=line><span class=cl>			<span class=p>},</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>We expose one function:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>get_time()
+</span></span></code></pre></td></tr></table></div></div><p>The model can choose to call it.</p><h2 id=tool-execution-logic>Tool execution logic</h2><p>Finally, we implement the real Go function that handles tool calls.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>handleToolCall</span><span class=p>(</span><span class=nx>tc</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ToolCall</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>switch</span> <span class=nx>tc</span><span class=p>.</span><span class=nx>Function</span><span class=p>.</span><span class=nx>Name</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=s>&#34;get_time&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>			<span class=s>&#34;Current server time: %s&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>UTC</span><span class=p>().</span><span class=nf>Format</span><span class=p>(</span><span class=nx>time</span><span class=p>.</span><span class=nx>RFC3339</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>		<span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>default</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=s>&#34;unknown tool&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>The model doesn’t execute anything.</p><p>It only emits structured intent.</p><p>Your Go code performs the actual work.</p><h2 id=full-code>Full code</h2><p>Here’s the complete <code>main.go</code> with all the pieces together.</p><details><summary>Click to expand</summary><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;bufio&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;context&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;fmt&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;log&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;os&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;strings&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=s>&#34;time&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>openai</span> <span class=s>&#34;github.com/sashabaranov/go-openai&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>apiKey</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;OPENAI_API_KEY&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>baseURL</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;OPENAI_BASE_URL&#34;</span><span class=p>)</span> <span class=c1>// e.g. http://localhost:11434/v1 (Ollama)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>config</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>DefaultConfig</span><span class=p>(</span><span class=nx>apiKey</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>baseURL</span> <span class=o>!=</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>config</span><span class=p>.</span><span class=nx>BaseURL</span> <span class=p>=</span> <span class=nx>baseURL</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>client</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>NewClientWithConfig</span><span class=p>(</span><span class=nx>config</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>model</span> <span class=o>:=</span> <span class=nx>os</span><span class=p>.</span><span class=nf>Getenv</span><span class=p>(</span><span class=s>&#34;MODEL&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nx>model</span> <span class=o>==</span> <span class=s>&#34;&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=c1>// OpenAI: gpt-4o-mini</span>
+</span></span><span class=line><span class=cl>		<span class=c1>// Ollama: llama3</span>
+</span></span><span class=line><span class=cl>		<span class=nx>model</span> <span class=p>=</span> <span class=s>&#34;gpt-4o-mini&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>messages</span> <span class=o>:=</span> <span class=p>[]</span><span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionMessage</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Role</span><span class=p>:</span>    <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatMessageRoleSystem</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Content</span><span class=p>:</span> <span class=s>`You are an assistant that can only help the user by using the available tools provided to you.`</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>tools</span> <span class=o>:=</span> <span class=nf>buildTools</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>reader</span> <span class=o>:=</span> <span class=nx>bufio</span><span class=p>.</span><span class=nf>NewReader</span><span class=p>(</span><span class=nx>os</span><span class=p>.</span><span class=nx>Stdin</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Simple Go Agent (type &#39;exit&#39; to quit)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>fmt</span><span class=p>.</span><span class=nf>Print</span><span class=p>(</span><span class=s>&#34;\n&gt; &#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>input</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>reader</span><span class=p>.</span><span class=nf>ReadString</span><span class=p>(</span><span class=sc>&#39;\n&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>input</span> <span class=p>=</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=nx>input</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nx>input</span> <span class=o>==</span> <span class=s>&#34;exit&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=nx>messages</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>messages</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionMessage</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Role</span><span class=p>:</span>    <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatMessageRoleUser</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Content</span><span class=p>:</span> <span class=nx>input</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>resp</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>client</span><span class=p>.</span><span class=nf>CreateChatCompletion</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionRequest</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Model</span><span class=p>:</span>    <span class=nx>model</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Messages</span><span class=p>:</span> <span class=nx>messages</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Tools</span><span class=p>:</span>    <span class=nx>tools</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=p>})</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>log</span><span class=p>.</span><span class=nf>Fatal</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=nx>msg</span> <span class=o>:=</span> <span class=nx>resp</span><span class=p>.</span><span class=nx>Choices</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>Message</span>
+</span></span><span class=line><span class=cl>			<span class=nx>messages</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>messages</span><span class=p>,</span> <span class=nx>msg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=c1>// If model calls a tool, execute it</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=nx>msg</span><span class=p>.</span><span class=nx>ToolCalls</span><span class=p>)</span> <span class=p>&gt;</span> <span class=mi>0</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>toolCall</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>msg</span><span class=p>.</span><span class=nx>ToolCalls</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>					<span class=nx>result</span> <span class=o>:=</span> <span class=nf>handleToolCall</span><span class=p>(</span><span class=nx>toolCall</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>					<span class=nx>messages</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>messages</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatCompletionMessage</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>						<span class=nx>Role</span><span class=p>:</span>       <span class=nx>openai</span><span class=p>.</span><span class=nx>ChatMessageRoleTool</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>						<span class=nx>Content</span><span class=p>:</span>    <span class=nx>result</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>						<span class=nx>ToolCallID</span><span class=p>:</span> <span class=nx>toolCall</span><span class=p>.</span><span class=nx>ID</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>					<span class=p>})</span>
+</span></span><span class=line><span class=cl>				<span class=p>}</span>
+</span></span><span class=line><span class=cl>				<span class=k>continue</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>			<span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;\nAssistant:&#34;</span><span class=p>,</span> <span class=nx>msg</span><span class=p>.</span><span class=nx>Content</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=k>break</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>buildTools</span><span class=p>()</span> <span class=p>[]</span><span class=nx>openai</span><span class=p>.</span><span class=nx>Tool</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=p>[]</span><span class=nx>openai</span><span class=p>.</span><span class=nx>Tool</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Type</span><span class=p>:</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ToolTypeFunction</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=nx>Function</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>openai</span><span class=p>.</span><span class=nx>FunctionDefinition</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Name</span><span class=p>:</span>        <span class=s>&#34;get_time&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Description</span><span class=p>:</span> <span class=s>&#34;Returns the current server time&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=nx>Parameters</span><span class=p>:</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>any</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>					<span class=s>&#34;type&#34;</span><span class=p>:</span>       <span class=s>&#34;object&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>					<span class=s>&#34;properties&#34;</span><span class=p>:</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>any</span><span class=p>{},</span>
+</span></span><span class=line><span class=cl>				<span class=p>},</span>
+</span></span><span class=line><span class=cl>			<span class=p>},</span>
+</span></span><span class=line><span class=cl>		<span class=p>},</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>handleToolCall</span><span class=p>(</span><span class=nx>tc</span> <span class=nx>openai</span><span class=p>.</span><span class=nx>ToolCall</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>switch</span> <span class=nx>tc</span><span class=p>.</span><span class=nx>Function</span><span class=p>.</span><span class=nx>Name</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>case</span> <span class=s>&#34;get_time&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;Current server time: %s&#34;</span><span class=p>,</span> <span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>UTC</span><span class=p>().</span><span class=nf>Format</span><span class=p>(</span><span class=nx>time</span><span class=p>.</span><span class=nx>RFC3339</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>default</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=s>&#34;unknown tool&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></details><h1 id=seeing-the-agent-in-action>Seeing the Agent in Action</h1><p>Now that we have the agent running, let’s take a look at an actual execution round. This helps connect the theory and code from the previous chapters to a tangible experience.</p><p>When we start the program, we see a simple CLI prompt using ollama and the <code>ministral-3:3b</code> model with tools enabled:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ <span class=nv>OPENAI_BASE_URL</span><span class=o>=</span>http://localhost:11434/v1 <span class=nv>MODEL</span><span class=o>=</span>ministral-3:3b go run main.go 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Simple Go Agent <span class=o>(</span><span class=nb>type</span> <span class=s1>&#39;exit&#39;</span> to quit<span class=o>)</span>
+</span></span><span class=line><span class=cl>&gt; 
+</span></span></code></pre></td></tr></table></div></div><p>Here’s an example interaction:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>&gt; what can you <span class=k>do</span>?
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Assistant: Since I’m an assistant that operates within specific constraints, here’s what I can <span class=k>do</span>:
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1. **Provide General Assistance and Information**
+</span></span><span class=line><span class=cl>   Answering questions about a wide variety of topics, including current events within reason, explaining concepts, or providing recommendations.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>2. **Gather Current Time**
+</span></span><span class=line><span class=cl>   Inform you of the current server <span class=nb>time</span> using the <span class=sb>`</span>get_time<span class=sb>`</span> <span class=k>function</span>.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>**Limitations:**
+</span></span><span class=line><span class=cl>- I can’t browse the internet or access real-time, external tools beyond what’s allowed.
+</span></span><span class=line><span class=cl>- I cannot execute code, perform calculations beyond basic math, or access personal/private information without permission.
+</span></span><span class=line><span class=cl>- I don’t have the ability to browse the web or retrieve live data in real-time due to system constraints.
+</span></span></code></pre></td></tr></table></div></div><p>Here, the agent correctly:</p><ul><li>Uses its <strong>memory</strong> to track the user request.</li><li>Explains its <strong>capabilities and limitations</strong>, reflecting the system prompt we defined.</li><li>Highlights the <strong>available tool</strong>, <code>get_time()</code>, which it can call.</li></ul><p>Next, we ask it to execute the tool:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>&gt; what is the current server time?
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Assistant: The current server <span class=nb>time</span> is **February 28, 2026, at 12:50 PM**. How <span class=k>else</span> can I assist you today?
+</span></span></code></pre></td></tr></table></div></div><p>Notice how:</p><ol><li>The model emits a structured intent to call the tool (<code>get_time</code>).</li><li>Our Go program executes the function.</li><li>The result is appended back to memory and displayed to the user.</li></ol><p>This round illustrates the <strong>core agent loop</strong> in action:</p><ul><li>Receive input → Decide → Call tool if needed → Append result → Respond.</li></ul><p>It’s exactly what we outlined: memory, tools, model, and loop. All working together to produce a multi-step, interactive AI assistant.</p><h2 id=what-weve-built>What we’ve built</h2><p>Let’s map it back to theory:</p><table><thead><tr><th>Component</th><th>Where It Lives</th></tr></thead><tbody><tr><td>Model</td><td><code>CreateChatCompletion</code></td></tr><tr><td>Tools</td><td><code>buildTools()</code></td></tr><tr><td>Memory</td><td><code>messages</code> slice</td></tr><tr><td>Loop</td><td>Inner <code>for {}</code></td></tr></tbody></table><p>That’s an agent.</p><p>Simple.
+Explicit.
+Extendable.</p><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fw" aria-hidden=true></i>What's next?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden=true></i></div><div class=details-content><div class=admonition-content>In the next article, we’ll make it more powerful by allowing multiple reasoning and tool iterations before the model reaches a final answer.</div></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Aggiornato il 2026-02-28</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/how-to-build-an-ai-agent-from-scratch-in-go/index.md target=_blank>Leggi Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Condividi su Facebook" data-sharer=facebook data-url=https://simonevellei.com/how-to-build-an-ai-agent-from-scratch-in-go/ data-hashtag=go><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Condividi su Linkedin" data-sharer=linkedin data-url=https://simonevellei.com/how-to-build-an-ai-agent-from-scratch-in-go/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Condividi su WhatsApp" data-sharer=whatsapp data-url=https://simonevellei.com/how-to-build-an-ai-agent-from-scratch-in-go/ data-title="How to build an AI agent from scratch in Go" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/go/>Go</a>,&nbsp;<a href=/tags/ai/>Ai</a>,&nbsp;<a href=/tags/agents/>Agents</a>,&nbsp;<a href=/tags/openai/>Openai</a>,&nbsp;<a href=/tags/ollama/>Ollama</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Indietro</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/cinque-riforme-urgenti-per-uno-stato-laico-e-antifascista/ class=prev rel=prev title="Cinque riforme urgenti per uno stato laico e antifascista"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Cinque riforme urgenti per uno stato laico e antifascista</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Realizzato da <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Tema - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2019 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>Simone Vellei</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Torna all'inizio"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="Vedi commenti"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.it.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copia negli appunti",maxShownLines:50},comment:{},cookieconsent:{content:{allow:"Allow cookies",close:"&#x274c;",deny:"Decline",dismiss:"Got it!",href:"https://www.cookiesandyou.com",link:"Learn more",message:"This website uses cookies to improve your experience.",policy:"Cookie Policy",target:"_blank"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless",type:"opt-out"},lightgallery:!0,math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"it",maxResultLength:10,noResultsFound:"Nessun risultato trovato",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
