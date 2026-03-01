@@ -25,7 +25,7 @@ If you’ve ever wanted to deeply understand how agents work under the hood — 
 
 Let’s build one.
 
-# What is an agent (really)?
+## What is an agent (really)?
 
 Before we write a single line of Go, we need to clarify something important:
 
@@ -40,7 +40,7 @@ That’s it.
 An **agent**, on the other hand, is a *system built around* a model.
 
 
-## The mental model
+### The mental model
 
 If you strip away the hype, an agent is just this loop:
 
@@ -57,11 +57,11 @@ No consciousness.
 Just structured iteration.
 
 
-## The 4 core components of a minimal agent
+### The 4 core components of a minimal agent
 
 Let’s break it down.
 
-### The model
+#### The model
 
 This is the reasoning engine.
 
@@ -76,7 +76,7 @@ From the model’s perspective, it doesn’t “execute” anything. It simply d
 * Or should I call a tool?
 
 
-### Tools
+#### Tools
 
 Tools are just functions your program can execute.
 
@@ -97,7 +97,7 @@ Your Go program parses that, executes the function, and returns the result to th
 This is how language models gain **real-world capability**.
 
 
-### Memory
+#### Memory
 
 Agents need context.
 
@@ -115,7 +115,7 @@ No memory = no continuity.
 In this tutorial, we’ll use in-memory conversation history. Later you can swap that for a database, Redis, or a vector store.
 
 
-### The loop
+#### The loop
 
 This is the part most people skip — but it’s the most important.
 
@@ -135,7 +135,7 @@ for not finished {
 That loop is what turns a one-shot completion into a multi-step reasoning system.
 
 
-## Why iteration matters
+### Why iteration matters
 
 If you only allow a single tool call, you don’t have much of an agent. You have a fancy RPC router.
 
@@ -151,7 +151,7 @@ That requires **multiple passes through the loop**.
 
 And that’s exactly what we’ll implement.
 
-## The minimal architecture
+### The minimal architecture
 
 Here’s the high-level flow we’re going to build:
 
@@ -176,7 +176,7 @@ Model decides:
 Simple. Explicit. Powerful.
 
 
-## Why we’re building it from scratch
+### Why we’re building it from scratch
 
 Yes, frameworks exist.
 Yes, higher-level abstractions exist.
@@ -193,7 +193,7 @@ As the author of [LinGoose](https://github.com/henomis/lingoose), I care deeply 
 And the foundation of every agent is this loop.
 
 
-# Let’s build the agent
+## Let’s build the agent
 
 In the previous section, we defined an agent as:
 
@@ -210,7 +210,7 @@ At the end, you’ll be able to copy a full working `main.go`.
 
 We are using [go-openai](https://github.com/sashabaranov/go-openai) that supports both OpenAI and Ollama out of the box.
 
-## Imports and entry point
+### Imports and entry point
 
 We start with our package and imports.
 
@@ -232,7 +232,7 @@ import (
 
 Nothing special here — just standard Go and the OpenAI SDK.
 
-## Bootstrapping the client
+### Bootstrapping the client
 
 Now we begin `main()` and configure the API client.
 
@@ -252,7 +252,7 @@ func main() {
 	client := openai.NewClientWithConfig(config)
 ```
 
-### What’s happening?
+#### What’s happening?
 
 * We read the API key.
 * We optionally override the base URL.
@@ -263,7 +263,7 @@ This is our **model layer** we defined earlier.
 
 Same code. Different backend.
 
-## Model selection
+### Model selection
 
 ```go
 	model := os.Getenv("MODEL")
@@ -276,7 +276,7 @@ Same code. Different backend.
 
 We keep the model configurable.
 
-## Memory initialization
+### Memory initialization
 
 Now we define our message history — the agent’s memory.
 
@@ -298,7 +298,7 @@ This slice will grow over time:
 This is the **memory component** of our agent.
 
 
-## Registering tools
+### Registering tools
 
 Next, we declare which tools the model is allowed to call.
 
@@ -309,7 +309,7 @@ Next, we declare which tools the model is allowed to call.
 We’ll define `buildTools()` later.
 
 
-## CLI loop
+### CLI loop
 
 Now we create a simple REPL so we can interact continuously.
 
@@ -337,7 +337,7 @@ When the user types something, we append it to memory:
 ```
 
 
-## The agent loop
+### The agent loop
 
 Now comes the core logic — the loop that turns a model into an agent.
 
@@ -366,7 +366,7 @@ The model decides:
 * Respond normally
 * Or call a tool
 
-## If the model calls a tool
+### If the model calls a tool
 
 ```go
 			if len(msg.ToolCalls) > 0 {
@@ -393,7 +393,7 @@ That means we go back to the model with updated context.
 
 This is the **iteration mechanism** we discussed previously.
 
-## If the model does not call a tool
+### If the model does not call a tool
 
 ```go
 			fmt.Println("\nAssistant:", msg.Content)
@@ -411,7 +411,7 @@ If there are no tool calls:
 
 That completes `main()`.
 
-## Tool definitions
+### Tool definitions
 
 Now we define the tools exposed to the model.
 
@@ -442,7 +442,7 @@ get_time()
 The model can choose to call it.
 
 
-## Tool execution logic
+### Tool execution logic
 
 Finally, we implement the real Go function that handles tool calls.
 
@@ -597,7 +597,7 @@ func handleToolCall(tc openai.ToolCall) string {
 ```
 {{< /details >}}
 
-# Seeing the Agent in Action
+## Seeing the agent in action
 
 Now that we have the agent running, let’s take a look at an actual execution round. This helps connect the theory and code from the previous chapters to a tangible experience.
 
@@ -655,7 +655,7 @@ This round illustrates the **core agent loop** in action:
 
 It’s exactly what we outlined: memory, tools, model, and loop. All working together to produce a multi-step, interactive AI assistant.
 
-## What we’ve built
+### What we’ve built
 
 Let’s map it back to theory:
 
@@ -673,5 +673,5 @@ Explicit.
 Extendable.
 
 {{< admonition type=note title="What's next?" open=true >}}
-In the next article, we’ll make it more powerful by allowing multiple reasoning and tool iterations before the model reaches a final answer.
+In the [next article](https://simonevellei.com/en/building-a-production-ready-stateful-multi-tool-agent-in-go/), we’ll make it more powerful by allowing multiple reasoning and tool iterations before the model reaches a final answer.
 {{< /admonition >}}
