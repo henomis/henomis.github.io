@@ -25,7 +25,7 @@ cover:
     hidden: false # only hide on current single page
 ---
 
-Hi, I’m Simone Vellei — you might remember me from such Go-and-AI adventures as “[Leveraging Go and Redis for Efficient Retrieval Augmented Generation](https://simonevellei.com/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/)” and “[Empowering Go: unveiling the synergy of AI and Q&A pipelines](https://simonevellei.com/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/)”
+Hi, I’m Simone Vellei — you might remember me from such Go-and-AI adventures as “[Leveraging Go and Redis for Efficient Retrieval Augmented Generation](https://simonevellei.com/en/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/)” and “[Empowering Go: unveiling the synergy of AI and Q&A pipelines](https://simonevellei.com/en/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/)”
 
 I’m the creator of [LinGoose](https://github.com/henomis/lingoose), an open-source framework built to make developing AI-powered applications in Go clean, modular, and production-friendly. I built it because I love Go’s simplicity and performance, and I wanted the same elegance when working with large language models.
 
