@@ -25,7 +25,7 @@ cover:
     hidden: false # only hide on current single page
 ---
 
-Hi, I’m Simone Vellei — you might remember me from such Go-and-AI adventures as “[Leveraging Go and Redis for Efficient Retrieval Augmented Generation](https://simonevellei.com/en/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/)” and “[Empowering Go: unveiling the synergy of AI and Q&A pipelines](https://simonevellei.com/en/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/)”
+Hi, I’m Simone Vellei, you might remember me from such Go-and-AI adventures as “[Leveraging Go and Redis for Efficient Retrieval Augmented Generation](https://simonevellei.com/en/leveraging-go-and-redis-for-efficient-retrieval-augmented-generation/)” and “[Empowering Go: unveiling the synergy of AI and Q&A pipelines](https://simonevellei.com/en/empowering-go-unveiling-the-synergy-of-ai-and-qa-pipelines/)”
 
 I’m the creator of [LinGoose](https://github.com/henomis/lingoose), an open-source framework built to make developing AI-powered applications in Go clean, modular, and production-friendly. I built it because I love Go’s simplicity and performance, and I wanted the same elegance when working with large language models.
 
@@ -45,7 +45,7 @@ In this tutorial, we won’t rely on heavy abstractions or magic frameworks. Ins
 - How to handle multi-step reasoning
 - How to switch between OpenAI and Ollama with a single configuration change
 
-If you’ve ever wanted to deeply understand how agents work under the hood — not just call a library and hope for the best — you’re in the right place.
+If you’ve ever wanted to deeply understand how agents work under the hood, not just call a library and hope for the best, you’re in the right place.
 
 Let’s build one.
 
@@ -141,7 +141,7 @@ In this tutorial, we’ll use in-memory conversation history. Later you can swap
 
 #### The loop
 
-This is the part most people skip — but it’s the most important.
+This is the part most people skip, but it’s the most important.
 
 A basic agent loop looks like:
 
@@ -212,7 +212,7 @@ But when you build the loop yourself:
 * You can extend it.
 * You’re not locked into someone else’s opinionated architecture.
 
-As the author of [LinGoose](https://github.com/henomis/lingoose), I care deeply about abstractions — but I also believe you should understand the foundation before using one.
+As the author of [LinGoose](https://github.com/henomis/lingoose), I care deeply about abstractions, but I also believe you should understand the foundation before using one.
 
 And the foundation of every agent is this loop.
 
@@ -228,7 +228,7 @@ In the previous section, we defined an agent as:
 
 Now we’ll implement exactly that.
 
-This time, we’ll break the code into meaningful chunks — but every chunk will be shown exactly as it appears in the final file.
+This time, we’ll break the code into meaningful chunks, but every chunk will be shown exactly as it appears in the final file.
 
 At the end, you’ll be able to copy a full working `main.go`.
 
@@ -254,7 +254,7 @@ import (
 )
 ```
 
-Nothing special here — just standard Go and the OpenAI SDK.
+Nothing special here, just standard Go and the OpenAI SDK.
 
 ### Bootstrapping the client
 
@@ -302,7 +302,7 @@ We keep the model configurable.
 
 ### Memory initialization
 
-Now we define our message history — the agent’s memory.
+Now we define our message history, the agent’s memory.
 
 ```go
 	messages := []openai.ChatCompletionMessage{
@@ -363,7 +363,7 @@ When the user types something, we append it to memory:
 
 ### The agent loop
 
-Now comes the core logic — the loop that turns a model into an agent.
+Now comes the core logic, the loop that turns a model into an agent.
 
 ```go
 		for {
