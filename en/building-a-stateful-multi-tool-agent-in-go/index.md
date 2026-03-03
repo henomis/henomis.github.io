@@ -28,7 +28,7 @@ Compared to the previous article, this `main.go` adds:
 * 🌍 A live HTTP tool (random quote API)
 * 🧰 A multi-tool orchestration layer
 
-Let’s break it down in structured chunks — and as before, if you copy all chunks in order, you’ll get the full working file.
+Let’s break it down in structured chunks, and as before, if you copy all chunks in order, you’ll get the full working file.
 
 ## Persistent memory: Sessions that survive restarts
 
