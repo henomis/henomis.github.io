@@ -697,5 +697,5 @@ Explicit.
 Extendable.
 
 {{< admonition type=note title="What's next?" open=true >}}
-In the [next article](https://simonevellei.com/en/building-a-production-ready-stateful-multi-tool-agent-in-go/), we’ll make it more powerful by allowing multiple reasoning and tool iterations before the model reaches a final answer.
+In the [next article](https://simonevellei.com/en/building-a-stateful-multi-tool-agent-in-go/), we’ll make it more powerful by allowing multiple reasoning and tool iterations before the model reaches a final answer.
 {{< /admonition >}}
