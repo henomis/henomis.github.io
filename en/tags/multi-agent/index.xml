@@ -1,0 +1,13 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Multi-Agent - Tag - Simone Vellei - Blog</title><link>https://simonevellei.com/en/tags/multi-agent/</link><description>Multi-Agent - Tag - Simone Vellei - Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>henomis@gmail.com (Simone Vellei)</managingEditor><webMaster>henomis@gmail.com (Simone Vellei)</webMaster><copyright>© 2025 Simone Vellei. All rights reserved.</copyright><lastBuildDate>Sun, 01 Mar 2026 17:30:15 +0100</lastBuildDate><atom:link href="https://simonevellei.com/en/tags/multi-agent/" rel="self" type="application/rss+xml"/><item><title>Designing multi-agent architectures in Go</title><link>https://simonevellei.com/en/designing-multi-agent-architectures-in-go/</link><pubDate>Sun, 01 Mar 2026 17:30:15 +0100</pubDate><author>Simone Vellei</author><guid>https://simonevellei.com/en/designing-multi-agent-architectures-in-go/</guid><description><![CDATA[<div class="featured-image">
+                <img src="/images/goagent003.png" referrerpolicy="no-referrer">
+            </div><p>In the <a href="https://simonevellei.com/en/building-a-stateful-multi-tool-agent-in-go/" target="_blank" rel="noopener noreffer ">previous article</a>, we built a capable agent with multiple tools with real capabilities (Python, HTTP, time). It worked.</p>
+<p>But there&rsquo;s a problem with that design.</p>
+<p>As you add more tools, the agent needs to:</p>
+<ul>
+<li>Track all tool definitions</li>
+<li>Reason about which tool to use</li>
+<li>Handle all execution contexts</li>
+<li>Maintain one giant conversation history</li>
+</ul>
+<p>This doesn&rsquo;t scale well.</p>
+<p>In this article, we&rsquo;re going to refactor it into something much more powerful:</p>]]></description></item></channel></rss>
