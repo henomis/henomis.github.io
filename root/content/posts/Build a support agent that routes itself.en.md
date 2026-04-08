@@ -1,7 +1,7 @@
 ---
 date: '2026-04-08T17:01:39+02:00'
 title: 'Build a support agent that routes itself'
-tags: []
+tags: ["Go", "AI", "Agents", "Support", "Phero"]
 showToc: true
 TocOpen: false
 draft: false
