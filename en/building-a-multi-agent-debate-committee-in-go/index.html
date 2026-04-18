@@ -1,0 +1,302 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Building a multi agent debate committee in Go - Simone Vellei - Blog</title><meta name=Description content="This is my cool site"><meta property="og:url" content="https://simonevellei.com/en/building-a-multi-agent-debate-committee-in-go/">
+<meta property="og:site_name" content="Simone Vellei - Blog"><meta property="og:title" content="Building a multi agent debate committee in Go"><meta property="og:description" content="A single LLM call gives you one perspective. Ask the same question twice with different system prompts and you’ll get meaningfully different answers, different assumptions, different blind spots, different strengths. This isn’t a bug. It’s the foundation of a useful multi-agent pattern.
+The idea is old. Juries deliberate. Academic peer review works because reviewers disagree. Design reviews surface risks that the original author missed. The mechanism is always the same: independent reasoning followed by structured synthesis. LLMs are well-suited to both steps."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-18T16:10:15+02:00"><meta property="article:modified_time" content="2026-04-18T16:10:15+02:00"><meta property="article:tag" content="Ai"><meta property="article:tag" content="Go"><meta property="article:tag" content="Phero"><meta property="article:tag" content="Agents"><meta property="og:image" content="https://simonevellei.com/images/phero005.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://simonevellei.com/images/phero005.png"><meta name=twitter:title content="Building a multi agent debate committee in Go"><meta name=twitter:description content="A single LLM call gives you one perspective. Ask the same question twice with different system prompts and you’ll get meaningfully different answers, different assumptions, different blind spots, different strengths. This isn’t a bug. It’s the foundation of a useful multi-agent pattern.
+The idea is old. Juries deliberate. Academic peer review works because reviewers disagree. Design reviews surface risks that the original author missed. The mechanism is always the same: independent reasoning followed by structured synthesis. LLMs are well-suited to both steps."><meta name=application-name content="Simone Vellei"><meta name=apple-mobile-web-app-title content="Simone Vellei"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simonevellei.com/en/building-a-multi-agent-debate-committee-in-go/><link rel=prev href=https://simonevellei.com/en/building-a-conversational-agent-in-go/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Building a multi agent debate committee in Go","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simonevellei.com\/en\/building-a-multi-agent-debate-committee-in-go\/"},"genre":"posts","keywords":"ai, go, phero, agents","wordcount":2114,"url":"https:\/\/simonevellei.com\/en\/building-a-multi-agent-debate-committee-in-go\/","datePublished":"2026-04-18T16:10:15+02:00","dateModified":"2026-04-18T16:10:15+02:00","license":"© 2025 Simone Vellei. All rights reserved.","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Simone Vellei"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/en/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/en/posts/>Posts </a><a class=menu-item href=/en/tags/>Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="menu-item language" title="Select Language"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select id=language-select-desktop onchange="location=this.value"><option value=/en/building-a-multi-agent-debate-committee-in-go/ selected>English</option></select></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/en/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/en/posts/ title>Posts</a><a class=menu-item href=/en/tags/ title>Tags</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class=menu-item title="Select Language"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select onchange="location=this.value"><option value=/en/building-a-multi-agent-debate-committee-in-go/ selected>English</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Building a multi agent debate committee in Go</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/en/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Simone Vellei</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2026-04-18>2026-04-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;2114 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;10 minutes&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/images/phero005.png data-srcset="/images/phero005.png, /images/phero005.png 1.5x, /images/phero005.png 2x" data-sizes=auto alt=/images/phero005.png title=/images/phero005.png></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#what-were-building>What we&rsquo;re building</a></li><li><a href=#why-multiple-agents>Why multiple agents?</a></li><li><a href=#the-architecture>The architecture</a></li><li><a href=#setting-up-the-llm>Setting up the LLM</a></li><li><a href=#building-the-committee>Building the committee</a><ul><li><a href=#the-advocate>The advocate</a></li><li><a href=#the-skeptic>The skeptic</a></li><li><a href=#the-minimalist>The minimalist</a></li></ul></li><li><a href=#the-judge>The judge</a></li><li><a href=#orchestrating-the-debate>Orchestrating the debate</a></li><li><a href=#deliberate-isolation-no-shared-memory>Deliberate isolation: no shared memory</a></li><li><a href=#running-the-example>Running the example</a></li><li><a href=#cost-and-latency>Cost and latency</a></li><li><a href=#variations>Variations</a></li><li><a href=#what-to-try-next>What to try next</a></li><li><a href=#wrapping-up>Wrapping up</a></li></ul></nav></div></div><div class=content id=content><p>A single LLM call gives you one perspective. Ask the same question twice with different system prompts and you&rsquo;ll get meaningfully different answers, different assumptions, different blind spots, different strengths. This isn&rsquo;t a bug. It&rsquo;s the foundation of a useful multi-agent pattern.</p><p>The idea is old. Juries deliberate. Academic peer review works because reviewers disagree. Design reviews surface risks that the original author missed. The mechanism is always the same: independent reasoning followed by structured synthesis. LLMs are well-suited to both steps.</p><p>In this post I&rsquo;ll walk through building a debate committee in Go using <a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">Phero</a>. Three agents argue independently, a judge synthesizes, and the whole thing runs in ~180 lines with no shared state between committee members.</p><h2 id=what-were-building>What we&rsquo;re building</h2><p>A CLI that takes a question and runs it through a structured debate:</p><ol><li>Three committee members (Advocate, Skeptic, Minimalist) each produce an independent argument</li><li>A Judge agent reads all arguments and produces a single synthesized answer</li></ol><p>Here&rsquo;s what a run looks like:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>multi-agent architecture example: debate committee + judge
+</span></span><span class=line><span class=cl>- llm: model=gpt-4o
+</span></span><span class=line><span class=cl>- question: How would you design a multi-agent workflow for safe repo triage?
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>=== Advocate ===
+</span></span><span class=line><span class=cl>I&#39;d propose a three-stage pipeline: a Triage agent classifies incoming
+</span></span><span class=line><span class=cl>issues by severity and component, a Diagnostic agent reproduces and
+</span></span><span class=line><span class=cl>isolates the root cause, and a Fix agent proposes patches...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>=== Skeptic ===
+</span></span><span class=line><span class=cl>The biggest risk in multi-agent repo triage is cascading failures from
+</span></span><span class=line><span class=cl>incorrect classification. If the Triage agent mislabels a critical bug
+</span></span><span class=line><span class=cl>as low-priority, every downstream agent inherits that mistake...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>=== Minimalist ===
+</span></span><span class=line><span class=cl>You don&#39;t need three agents for this. A single agent with a structured
+</span></span><span class=line><span class=cl>prompt can classify, diagnose, and propose a fix in one pass. Add a
+</span></span><span class=line><span class=cl>second agent only for review...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>=== judge (final) ===
+</span></span><span class=line><span class=cl>Start with a two-agent design: one for triage and diagnosis, one for
+</span></span><span class=line><span class=cl>review. The classification step should include confidence scores, and
+</span></span><span class=line><span class=cl>any item below 80% confidence should be escalated to a human...
+</span></span></code></pre></td></tr></table></div></div><p>Each member sees only the question. The judge sees all arguments. The final answer is better than any single agent would produce alone.</p><h2 id=why-multiple-agents>Why multiple agents?</h2><p>The obvious question: why not just ask one model to &ldquo;consider multiple perspectives&rdquo;? You can, and sometimes it works. But there are structural reasons to prefer actual separation.</p><p><strong>Prompt focus.</strong> A system prompt that says &ldquo;be an advocate for the strongest approach&rdquo; produces different reasoning than one that says &ldquo;find the failure modes.&rdquo; When you ask a single model to do both, it hedges. When you give each role its own agent, each one commits to its perspective.</p><p><strong>Independence.</strong> Committee members don&rsquo;t see each other&rsquo;s arguments. This prevents anchoring, a well-known bias where the first answer dominates subsequent reasoning. The Skeptic isn&rsquo;t reacting to the Advocate; it&rsquo;s reasoning from scratch.</p><p><strong>Composability.</strong> You can add or remove committee members without changing the judge. Swap the Minimalist for a Security Auditor. Add a Cost Analyst. The orchestration code doesn&rsquo;t change.</p><p><strong>Debuggability.</strong> When the final answer is wrong, you can trace it back. Was the Advocate&rsquo;s proposal flawed? Did the Skeptic miss a real risk? Did the Judge weigh arguments poorly? With a single agent, you just get a wrong answer with no decomposition.</p><h2 id=the-architecture>The architecture</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Question
+</span></span><span class=line><span class=cl>  │
+</span></span><span class=line><span class=cl>  ├──→ Advocate.Run(question)  ──→ argument₁
+</span></span><span class=line><span class=cl>  ├──→ Skeptic.Run(question)   ──→ argument₂
+</span></span><span class=line><span class=cl>  ├──→ Minimalist.Run(question) ──→ argument₃
+</span></span><span class=line><span class=cl>  │
+</span></span><span class=line><span class=cl>  └──→ Judge.Run(goal + question + [argument₁, argument₂, argument₃])
+</span></span><span class=line><span class=cl>         │
+</span></span><span class=line><span class=cl>         └──→ Final synthesized answer
+</span></span></code></pre></td></tr></table></div></div><p>This is a fan-out/fan-in pattern. The committee step fans out the question to N independent agents. The judge step fans in the results. There&rsquo;s no iteration, no tool calling, no shared memory. Each agent makes exactly one LLM call.</p><h2 id=setting-up-the-llm>Setting up the LLM</h2><p>All agents share the same LLM client. The debate pattern works with any provider that implements <code>llm.LLM</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>import</span> <span class=s>&#34;github.com/henomis/phero/llm/openai&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>client</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>apiKey</span><span class=p>,</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>WithModel</span><span class=p>(</span><span class=s>&#34;gpt-4o&#34;</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p>Or with a local model via Ollama:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>client</span> <span class=o>:=</span> <span class=nx>openai</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=s>&#34;&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>openai</span><span class=p>.</span><span class=nf>WithModel</span><span class=p>(</span><span class=s>&#34;llama3&#34;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nx>openai</span><span class=p>.</span><span class=nf>WithBaseURL</span><span class=p>(</span><span class=nx>openai</span><span class=p>.</span><span class=nx>OllamaBaseURL</span><span class=p>),</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Using the same client for all agents keeps things simple. In production you might use a cheaper model for committee members and a stronger one for the judge, since the synthesis step benefits more from reasoning quality.</p><h2 id=building-the-committee>Building the committee</h2><p>Each committee member is a standard <code>agent.Agent</code> with a different system prompt. The prompt defines the role and constrains the behavior:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>debateRules</span> <span class=o>:=</span> <span class=s>`Rules:
+</span></span></span><span class=line><span class=cl><span class=s>- Stay focused on the question.
+</span></span></span><span class=line><span class=cl><span class=s>- Prefer concrete steps / designs over generic advice.
+</span></span></span><span class=line><span class=cl><span class=s>- Keep your response under 200 lines.
+</span></span></span><span class=line><span class=cl><span class=s>- Do not claim you executed anything; you are reasoning only.`</span>
+</span></span></code></pre></td></tr></table></div></div><p>The shared rules are appended to each member&rsquo;s role-specific prompt. This ensures consistent format while allowing divergent reasoning.</p><h3 id=the-advocate>The advocate</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>advocate</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>client</span><span class=p>,</span> <span class=s>&#34;Advocate&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>`You are the Advocate in a debate committee.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Your job: propose the strongest, most practical approach that would
+</span></span></span><span class=line><span class=cl><span class=s>work in most repos.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>`</span> <span class=o>+</span> <span class=nx>debateRules</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The Advocate&rsquo;s job is to build the best case for a solution. It&rsquo;s optimistic, concrete, and action-oriented.</p><h3 id=the-skeptic>The skeptic</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>skeptic</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>client</span><span class=p>,</span> <span class=s>&#34;Skeptic&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>`You are the Skeptic in a debate committee.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Your job: identify risks, hidden assumptions, and failure modes in
+</span></span></span><span class=line><span class=cl><span class=s>typical approaches. Offer concrete mitigations.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>`</span> <span class=o>+</span> <span class=nx>debateRules</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The Skeptic isn&rsquo;t contrarian for its own sake. It identifies what can go wrong and proposes mitigations. This is the agent that catches the assumptions others take for granted.</p><h3 id=the-minimalist>The minimalist</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>minimalist</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>client</span><span class=p>,</span> <span class=s>&#34;Minimalist&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>`You are the Minimalist in a debate committee.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Your job: propose the simplest architecture that still meets the goal.
+</span></span></span><span class=line><span class=cl><span class=s>Prefer fewer agents, fewer moving parts, and safe deterministic steps.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>`</span> <span class=o>+</span> <span class=nx>debateRules</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The Minimalist pushes back against over-engineering. It asks &ldquo;do you actually need three agents for this?&rdquo; and often the answer is no.</p><p>These three roles create a productive tension: ambition vs. caution vs. simplicity. The combination surfaces trade-offs that no single perspective would identify.</p><h2 id=the-judge>The judge</h2><p>The Judge is also an <code>agent.Agent</code>, but with a fundamentally different job. Instead of answering the original question, it evaluates arguments:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>judge</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>client</span><span class=p>,</span> <span class=s>&#34;Judge&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>`You are the Judge in a debate-committee multi-agent system.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>You receive a goal, a question, and multiple committee arguments.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Tasks:
+</span></span></span><span class=line><span class=cl><span class=s>- Identify points of agreement and conflict.
+</span></span></span><span class=line><span class=cl><span class=s>- Call out any weak or unsupported claims.
+</span></span></span><span class=line><span class=cl><span class=s>- Produce a single best final answer that merges the strongest parts.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Constraints:
+</span></span></span><span class=line><span class=cl><span class=s>- Keep it concise and actionable.
+</span></span></span><span class=line><span class=cl><span class=s>- Do not mention internal roles (&#34;Advocate&#34;, etc.) in the final answer.
+</span></span></span><span class=line><span class=cl><span class=s>- Do not invent tool outputs or execution results.`</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Two things to note about the Judge&rsquo;s prompt. First, it explicitly tells the model not to mention internal roles. The final answer should read as a standalone recommendation, not a summary of a debate. Second, it asks the Judge to call out weak claims. This prevents the Judge from being a simple average of the three inputs.</p><h2 id=orchestrating-the-debate>Orchestrating the debate</h2><p>The orchestration is plain Go. No framework abstractions, no DAG definitions, no YAML. Fan out to the committee, collect results, render them for the judge, get the final answer:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// Fan out: each member answers independently</span>
+</span></span><span class=line><span class=cl><span class=nx>debate</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=nx>DebateResult</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=nx>committee</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>member</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>committee</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>out</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>member</span><span class=p>.</span><span class=nx>Agent</span><span class=p>.</span><span class=nf>Run</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>llm</span><span class=p>.</span><span class=nf>Text</span><span class=p>(</span><span class=nx>question</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>debate</span> <span class=p>=</span> <span class=nb>append</span><span class=p>(</span><span class=nx>debate</span><span class=p>,</span> <span class=nx>DebateResult</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>Member</span><span class=p>:</span> <span class=nx>member</span><span class=p>.</span><span class=nx>Name</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>Output</span><span class=p>:</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=nx>out</span><span class=p>.</span><span class=nf>TextContent</span><span class=p>()),</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Fan in: judge reads all arguments</span>
+</span></span><span class=line><span class=cl><span class=nx>judgeInput</span> <span class=o>:=</span> <span class=nf>renderJudgeInput</span><span class=p>(</span><span class=nx>goal</span><span class=p>,</span> <span class=nx>question</span><span class=p>,</span> <span class=nx>debate</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>final</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>judge</span><span class=p>.</span><span class=nf>Run</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>llm</span><span class=p>.</span><span class=nf>Text</span><span class=p>(</span><span class=nx>judgeInput</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p>The <code>renderJudgeInput</code> function formats the arguments into a structured text block:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>renderJudgeInput</span><span class=p>(</span><span class=nx>goal</span><span class=p>,</span> <span class=nx>question</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>debate</span> <span class=p>[]</span><span class=nx>DebateResult</span><span class=p>)</span> <span class=kt>string</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>b</span> <span class=o>:=</span> <span class=o>&amp;</span><span class=nx>strings</span><span class=p>.</span><span class=nx>Builder</span><span class=p>{}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=s>&#34;goal: %s\n&#34;</span><span class=p>,</span> <span class=nx>goal</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=s>&#34;question: %s\n\n&#34;</span><span class=p>,</span> <span class=nx>question</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=s>&#34;committee_arguments:\n&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>r</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>debate</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=s>&#34;- member_%d: %s\n&#34;</span><span class=p>,</span> <span class=nx>i</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span> <span class=nx>r</span><span class=p>.</span><span class=nx>Member</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=s>&#34;  argument: |\n&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>ln</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>Split</span><span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nx>Output</span><span class=p>,</span> <span class=s>&#34;\n&#34;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>fmt</span><span class=p>.</span><span class=nf>Fprintf</span><span class=p>(</span><span class=nx>b</span><span class=p>,</span> <span class=s>&#34;    %s\n&#34;</span><span class=p>,</span> <span class=nx>ln</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>b</span><span class=p>.</span><span class=nf>String</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>This produces YAML-like structured input that&rsquo;s easy for the LLM to parse. The numbered member labels (<code>member_1</code>, <code>member_2</code>) give the Judge a way to reference specific arguments without leaking role names.</p><h2 id=deliberate-isolation-no-shared-memory>Deliberate isolation: no shared memory</h2><p>Notice that committee members have no memory and don&rsquo;t see each other&rsquo;s output. This is intentional.</p><p>Shared context between agents creates coupling. If the Skeptic reads the Advocate&rsquo;s answer first, it anchors on that answer and critiques it specifically rather than reasoning independently about the question. The resulting &ldquo;debate&rdquo; is really just a review, which is a different (and less useful) pattern.</p><p>By keeping members isolated, you get genuinely diverse outputs. The diversity is what makes the Judge&rsquo;s synthesis valuable. If all three agents said the same thing, you wouldn&rsquo;t need a committee.</p><h2 id=running-the-example>Running the example</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># With OpenAI</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_API_KEY</span><span class=o>=</span>sk-...
+</span></span><span class=line><span class=cl>go run ./examples/debate-committee/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># With a custom question</span>
+</span></span><span class=line><span class=cl>go run ./examples/debate-committee/ <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -question <span class=s2>&#34;What&#39;s the best strategy for migrating a monolith to microservices?&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># With Ollama</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_BASE_URL</span><span class=o>=</span>http://localhost:11434/v1
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_MODEL</span><span class=o>=</span>llama3
+</span></span><span class=line><span class=cl>go run ./examples/debate-committee/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># With a custom goal and timeout</span>
+</span></span><span class=line><span class=cl>go run ./examples/debate-committee/ <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -question <span class=s2>&#34;How should we handle secrets in CI/CD?&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -goal <span class=s2>&#34;Produce a pragmatic answer suitable for a small team&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -timeout 3m
+</span></span></code></pre></td></tr></table></div></div><p>The default question is about multi-agent design for test diagnosis, which makes it a meta-example: agents debating how to build agents.</p><h2 id=cost-and-latency>Cost and latency</h2><p>This pattern makes 4 LLM calls per run: one per committee member plus one for the judge. The calls are sequential in this example, but the committee calls are independent and could easily be parallelized with goroutines:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=nx>wg</span> <span class=nx>sync</span><span class=p>.</span><span class=nx>WaitGroup</span>
+</span></span><span class=line><span class=cl><span class=nx>results</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=nx>DebateResult</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=nx>committee</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>member</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>committee</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>wg</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>go</span> <span class=kd>func</span><span class=p>(</span><span class=nx>i</span> <span class=kt>int</span><span class=p>,</span> <span class=nx>m</span> <span class=nx>Debater</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>defer</span> <span class=nx>wg</span><span class=p>.</span><span class=nf>Done</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=nx>out</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>m</span><span class=p>.</span><span class=nx>Agent</span><span class=p>.</span><span class=nf>Run</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>llm</span><span class=p>.</span><span class=nf>Text</span><span class=p>(</span><span class=nx>question</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span> <span class=cm>/* handle */</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>results</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=p>=</span> <span class=nx>DebateResult</span><span class=p>{</span><span class=nx>Member</span><span class=p>:</span> <span class=nx>m</span><span class=p>.</span><span class=nx>Name</span><span class=p>,</span> <span class=nx>Output</span><span class=p>:</span> <span class=nx>out</span><span class=p>.</span><span class=nf>TextContent</span><span class=p>()}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}(</span><span class=nx>i</span><span class=p>,</span> <span class=nx>member</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>wg</span><span class=p>.</span><span class=nf>Wait</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>With parallel execution, wall-clock time is roughly <code>max(member latencies) + judge latency</code> instead of <code>sum(all latencies)</code>. For three members on GPT-4o, that&rsquo;s typically ~3s instead of ~6s.</p><p>Token cost scales linearly with the number of committee members, but the judge&rsquo;s input also grows. With three members producing ~200 lines each, the judge&rsquo;s input can be 2-3x a single member&rsquo;s output. Keep this in mind when adding members.</p><h2 id=variations>Variations</h2><p>The debate committee pattern is flexible. Here are a few useful variations:</p><p><strong>Multi-round debate.</strong> Instead of one round, let members respond to each other. Feed the first round&rsquo;s arguments back to each member and ask them to revise. This converges toward consensus but costs more LLM calls.</p><p><strong>Voting instead of a judge.</strong> Have each member vote on the best argument (including their own). If two or more agree, use that answer. Only invoke the judge when there&rsquo;s no majority. This saves one LLM call in the common case.</p><p><strong>Specialized committees.</strong> Match the roles to the domain. For code review: Correctness Expert, Performance Expert, Security Auditor. For product decisions: User Advocate, Engineering Lead, Business Analyst.</p><p><strong>Tool-equipped members.</strong> Give committee members tools. The Advocate could search documentation, the Skeptic could run static analysis, the Minimalist could check dependency counts. Each member&rsquo;s tools reflect its role.</p><h2 id=what-to-try-next>What to try next</h2><ul><li><strong>Add tracing</strong> with <code>trace/text</code> to see the full message flow between agents</li><li><strong>Parallelize</strong> the committee calls with goroutines for lower latency</li><li><strong>Add tools</strong> to committee members for grounded reasoning</li><li><strong>Try different models</strong> for different roles (fast/cheap for members, strong for the judge)</li><li><strong>Combine with other patterns</strong>: use a debate committee as a single step in a larger orchestrator-workers pipeline</li></ul><h2 id=wrapping-up>Wrapping up</h2><p>The debate committee is one of the simplest multi-agent patterns, and one of the most effective. No shared state, no complex coordination, no iteration. Just independent reasoning followed by structured synthesis.</p><p>The key insight is that LLM outputs are highly sensitive to system prompts. By giving the same question to agents with different perspectives, you get genuine diversity of thought. The judge turns that diversity into a better answer than any single agent would produce.</p><p>Building it in Go with Phero takes ~180 lines. The orchestration is explicit, the agents are standard, and the pattern is easy to extend.</p><p>The full source is at <a href=https://github.com/henomis/phero/tree/main/examples/debate-committee target=_blank rel="noopener noreffer"><code>examples/debate-committee/</code></a>.</p><p><em><a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">Phero</a> is an open-source Go framework for building multi-agent AI systems. Star the repo if you find it useful.</em></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2026-04-18</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/en/building-a-multi-agent-debate-committee-in-go/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://simonevellei.com/en/building-a-multi-agent-debate-committee-in-go/ data-hashtag=ai><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://simonevellei.com/en/building-a-multi-agent-debate-committee-in-go/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://simonevellei.com/en/building-a-multi-agent-debate-committee-in-go/ data-title="Building a multi agent debate committee in Go" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/en/tags/ai/>Ai</a>,&nbsp;<a href=/en/tags/go/>Go</a>,&nbsp;<a href=/en/tags/phero/>Phero</a>,&nbsp;<a href=/en/tags/agents/>Agents</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/en/>Home</a></span></section></div><div class=post-nav><a href=/en/building-a-conversational-agent-in-go/ class=prev rel=prev title="Building a conversational agent in Go"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Building a conversational agent in Go</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2019 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/en/ target=_blank>Simone Vellei</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.it.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},cookieconsent:{content:{allow:"Allow cookies",close:"&#x274c;",deny:"Decline",dismiss:"Got it!",href:"https://www.cookiesandyou.com",link:"Learn more",message:"This website uses cookies to improve your experience.",policy:"Cookie Policy",target:"_blank"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless",type:"opt-out"},lightgallery:!0,math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/en/index.json",lunrLanguageCode:"en",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
