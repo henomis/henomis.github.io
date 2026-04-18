@@ -77,7 +77,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # website title for Open Graph and Twitter Cards
   title = "Simone Vellei"
   # website description for RSS, SEO, Open Graph and Twitter Cards
-  description = "This is my cool site"
+  # (Used as fallback when a page doesn't provide its own description.)
+  description = "Blog di Simone Vellei su Go, backend, AI agents, produttività e lavoro da remoto."
   # website images for Open Graph and Twitter Cards
   images = ["/images/portrait.jpg"]
 
@@ -85,7 +86,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.author]
     name = "Simone Vellei"
     email = "henomis@gmail.com"
-    link = ""
+    link = "https://simonevellei.com/"
 
   # Header config
   [params.header]
@@ -490,8 +491,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       images = []
       # Publisher info
       [params.page.seo.publisher]
-        name = ""
-        logoUrl = ""
+          name = "Simone Vellei"
+          logoUrl = "/images/portrait.jpg"
 
   # LoveIt NEW | 0.2.5 TypeIt config
   [params.typeit]
@@ -515,9 +516,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # LoveIt NEW | 0.2.10 Site SEO config
   [params.seo]
     # image URL
-    image = ""
+    image = "/images/portrait.jpg"
     # thumbnail URL
-    thumbnailUrl = ""
+    thumbnailUrl = "/images/portrait.jpg"
 
   # LoveIt NEW | 0.2.0 Analytics config
   [params.analytics]
