@@ -1,0 +1,320 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>The supervisor-blackboard pattern: coordinating multi-agent AI workflows - Simone Vellei - Blog</title><meta name=Description content="Blog di Simone Vellei su Go, backend, AI agents, produttività e lavoro da remoto."><meta property="og:url" content="https://simonevellei.com/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/">
+<meta property="og:site_name" content="Simone Vellei - Blog"><meta property="og:title" content="The supervisor-blackboard pattern: coordinating multi-agent AI workflows"><meta property="og:description" content="Most multi-agent examples keep agents isolated. Each one gets a prompt, produces output, and hands it to the next step. That works when the data flows in one direction. But some workflows need agents to build on each other’s work incrementally, reading and writing to a shared context. This is the blackboard pattern.
+The idea comes from AI research in the 1970s. Multiple knowledge sources (agents) read from and write to a shared data structure (the blackboard). A control component (the supervisor) decides which agent to activate next. Each agent contributes partial results that other agents can use. The blackboard accumulates context over time."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-04-30T07:00:00+02:00"><meta property="article:modified_time" content="2026-04-30T07:00:00+02:00"><meta property="article:tag" content="Ai"><meta property="article:tag" content="Go"><meta property="article:tag" content="Phero"><meta property="article:tag" content="Agents"><meta property="og:image" content="https://simonevellei.com/images/phero007.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://simonevellei.com/images/phero007.png"><meta name=twitter:title content="The supervisor-blackboard pattern: coordinating multi-agent AI workflows"><meta name=twitter:description content="Most multi-agent examples keep agents isolated. Each one gets a prompt, produces output, and hands it to the next step. That works when the data flows in one direction. But some workflows need agents to build on each other’s work incrementally, reading and writing to a shared context. This is the blackboard pattern.
+The idea comes from AI research in the 1970s. Multiple knowledge sources (agents) read from and write to a shared data structure (the blackboard). A control component (the supervisor) decides which agent to activate next. Each agent contributes partial results that other agents can use. The blackboard accumulates context over time."><meta name=application-name content="Simone Vellei"><meta name=apple-mobile-web-app-title content="Simone Vellei"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simonevellei.com/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/><link rel=prev href=https://simonevellei.com/en/the-evaluator-optimizer-pattern-in-go-iterate-until-good-enough/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"The supervisor-blackboard pattern: coordinating multi-agent AI workflows","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simonevellei.com\/en\/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows\/"},"image":["https:\/\/simonevellei.com\/images\/portrait.jpg"],"genre":"posts","keywords":"ai, go, phero, agents","wordcount":2681,"url":"https:\/\/simonevellei.com\/en\/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows\/","datePublished":"2026-04-30T07:00:00+02:00","dateModified":"2026-04-30T07:00:00+02:00","license":"© 2025 Simone Vellei. All rights reserved.","publisher":{"@type":"Organization","name":"Simone Vellei","logo":"https:\/\/simonevellei.com\/images\/portrait.jpg"},"author":{"@type":"Person","name":"Simone Vellei"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/en/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/en/posts/>Posts </a><a class=menu-item href=/en/tags/>Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="menu-item language" title="Select Language"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select id=language-select-desktop onchange="location=this.value"><option value=/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/ selected>English</option></select></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/en/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/en/posts/ title>Posts</a><a class=menu-item href=/en/tags/ title>Tags</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class=menu-item title="Select Language"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select onchange="location=this.value"><option value=/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/ selected>English</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">The supervisor-blackboard pattern: coordinating multi-agent AI workflows</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://simonevellei.com/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Simone Vellei</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2026-04-30>2026-04-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;2681 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;13 minutes&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/images/phero007.png data-srcset="/images/phero007.png, /images/phero007.png 1.5x, /images/phero007.png 2x" data-sizes=auto alt=/images/phero007.png title=/images/phero007.png></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#what-were-building>What we&rsquo;re building</a></li><li><a href=#why-a-supervisor-with-a-blackboard>Why a supervisor with a blackboard?</a></li><li><a href=#the-architecture>The architecture</a></li><li><a href=#setting-up-the-shared-memory>Setting up the shared memory</a></li><li><a href=#the-researcher-a-tool-equipped-specialist>The researcher: a tool-equipped specialist</a></li><li><a href=#the-restricted-go-tool>The restricted Go tool</a></li><li><a href=#the-drafter-context-from-the-blackboard>The drafter: context from the blackboard</a></li><li><a href=#the-critic-verification-against-evidence>The critic: verification against evidence</a></li><li><a href=#exposing-agents-as-tools>Exposing agents as tools</a></li><li><a href=#the-supervisor-routing-and-coordination>The supervisor: routing and coordination</a></li><li><a href=#the-blackboard-in-practice>The blackboard in practice</a></li><li><a href=#running-the-example>Running the example</a></li><li><a href=#cost-and-latency>Cost and latency</a></li><li><a href=#when-to-use-this-pattern>When to use this pattern</a></li><li><a href=#variations>Variations</a></li><li><a href=#wrapping-up>Wrapping up</a></li></ul></nav></div></div><div class=content id=content><p>Most multi-agent examples keep agents isolated. Each one gets a prompt, produces output, and hands it to the next step. That works when the data flows in one direction. But some workflows need agents to build on each other&rsquo;s work incrementally, reading and writing to a shared context. This is the blackboard pattern.</p><p>The idea comes from AI research in the 1970s. Multiple knowledge sources (agents) read from and write to a shared data structure (the blackboard). A control component (the supervisor) decides which agent to activate next. Each agent contributes partial results that other agents can use. The blackboard accumulates context over time.</p><p>In this post I&rsquo;ll walk through building a supervisor-blackboard system in Go using <a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">Phero</a>. A supervisor coordinates three specialists through tool calls. All agents share a single memory instance. The supervisor drives the workflow, and each specialist sees what the others have written.</p><h2 id=what-were-building>What we&rsquo;re building</h2><p>A CLI that performs a multi-step repo health-check:</p><ol><li>A <strong>Researcher</strong> agent runs safe Go commands (<code>go list</code>, <code>go test</code>) and writes findings to the blackboard</li><li>A <strong>Drafter</strong> agent reads the findings from the blackboard and writes a report</li><li>A <strong>Critic</strong> agent reads both the findings and the draft, then produces a corrected version</li><li>A <strong>Supervisor</strong> agent coordinates the entire flow by calling specialists as tools</li></ol><p>Here&rsquo;s what a run looks like:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>multi</span><span class=o>-</span><span class=n>agent</span> <span class=n>architecture</span> <span class=n>example</span><span class=p>:</span> <span class=n>supervisor</span> <span class=o>+</span> <span class=n>specialists</span> <span class=o>+</span> <span class=n>blackboard</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>llm</span><span class=p>:</span> <span class=n>model</span><span class=o>=</span><span class=n>gpt</span><span class=o>-</span><span class=mi>4</span><span class=n>o</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>goal</span><span class=p>:</span> <span class=n>Do</span> <span class=n>a</span> <span class=n>quick</span> <span class=n>health</span><span class=o>-</span><span class=n>check</span> <span class=n>of</span> <span class=n>this</span> <span class=n>repo</span><span class=p>:</span> <span class=n>list</span> <span class=n>Go</span> <span class=n>packages</span> <span class=ow>and</span> <span class=n>run</span> <span class=n>Go</span> <span class=n>tests</span><span class=p>,</span> <span class=n>then</span> <span class=n>summarize</span><span class=o>.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=n>Supervisor</span> <span class=n>calls</span> <span class=n>research_repo</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=p>[</span><span class=n>Researcher</span> <span class=n>calls</span> <span class=n>run_go</span> <span class=n>with</span> <span class=n>args</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;list&#34;</span><span class=p>,</span> <span class=s2>&#34;./...&#34;</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>  <span class=p>[</span><span class=n>Researcher</span> <span class=n>calls</span> <span class=n>run_go</span> <span class=n>with</span> <span class=n>args</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;test&#34;</span><span class=p>,</span> <span class=s2>&#34;./...&#34;</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>  <span class=n>Researcher</span> <span class=n>writes</span> <span class=n>findings</span> <span class=n>to</span> <span class=n>blackboard</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=n>Supervisor</span> <span class=n>calls</span> <span class=n>draft_report</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=n>Drafter</span> <span class=n>reads</span> <span class=n>blackboard</span><span class=p>,</span> <span class=n>writes</span> <span class=n>report</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=n>Supervisor</span> <span class=n>calls</span> <span class=n>critique_report</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=n>Critic</span> <span class=n>reads</span> <span class=n>blackboard</span><span class=p>,</span> <span class=n>produces</span> <span class=n>improved</span> <span class=n>report</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>===</span> <span class=n>Final</span> <span class=n>Report</span> <span class=o>===</span>
+</span></span><span class=line><span class=cl><span class=n>Commands</span> <span class=n>run</span><span class=p>:</span> <span class=n>go</span> <span class=n>list</span> <span class=o>./...</span> <span class=ow>and</span> <span class=n>go</span> <span class=n>test</span> <span class=o>./...</span>
+</span></span><span class=line><span class=cl><span class=n>Packages</span><span class=p>:</span> <span class=mi>42</span> <span class=n>packages</span> <span class=n>across</span> <span class=n>agent</span><span class=o>/</span><span class=p>,</span> <span class=n>llm</span><span class=o>/</span><span class=p>,</span> <span class=n>memory</span><span class=o>/</span><span class=p>,</span> <span class=k>tool</span><span class=o>/</span><span class=p>,</span> <span class=o>...</span>
+</span></span><span class=line><span class=cl><span class=n>Tests</span><span class=p>:</span> <span class=mi>38</span><span class=o>/</span><span class=mi>42</span> <span class=n>packages</span> <span class=k>pass</span><span class=o>.</span> <span class=mi>4</span> <span class=n>failures</span> <span class=ow>in</span> <span class=n>vectorstore</span><span class=o>/</span><span class=n>qdrant</span> <span class=p>(</span><span class=n>connection</span> <span class=n>refused</span><span class=p>)</span><span class=o>.</span>
+</span></span><span class=line><span class=cl><span class=n>Suggested</span> <span class=n>next</span> <span class=n>steps</span><span class=p>:</span> <span class=n>check</span> <span class=n>Qdrant</span> <span class=n>connectivity</span> <span class=ow>or</span> <span class=n>skip</span> <span class=n>integration</span> <span class=n>tests</span> <span class=n>with</span> <span class=o>-</span><span class=n>short</span> <span class=n>flag</span><span class=o>.</span>
+</span></span></code></pre></td></tr></table></div></div><p>The supervisor makes three tool calls. Each specialist reads the shared memory, contributes its work, and the memory accumulates. The final output is grounded in actual command output, not hallucination.</p><h2 id=why-a-supervisor-with-a-blackboard>Why a supervisor with a blackboard?</h2><p>The previous patterns in this series (debate committee, evaluator-optimizer) use isolated agents. Each agent sees only what&rsquo;s explicitly passed to it. The supervisor-blackboard pattern is different in two ways.</p><p><strong>Delegation, not orchestration in Go.</strong> In the evaluator-optimizer, Go code decides what to do next. Here, the supervisor agent decides. It has tools that represent other agents, and it chooses when to call them. This is useful when the workflow isn&rsquo;t strictly linear, when the supervisor might need to re-run research or skip the critic based on what it sees.</p><p><strong>Shared context without explicit passing.</strong> In a pipeline, you manually thread output from one step into the next. With a blackboard, you inject the same memory instance into all agents. Each agent reads what came before and writes its contribution. This eliminates the boilerplate of formatting and passing intermediate results.</p><p><strong>Separation of capability.</strong> The supervisor can&rsquo;t run commands. The researcher can&rsquo;t write reports. The critic can&rsquo;t gather data. Each agent has exactly the tools and instructions it needs. This is both a security property (the researcher&rsquo;s tool is sandboxed to <code>go list</code> and <code>go test</code>) and a prompt quality property (smaller, focused prompts produce better results than &ldquo;do everything&rdquo; prompts).</p><p><strong>Natural escalation.</strong> If the critic finds problems, the supervisor can re-run the drafter. If the researcher fails, the supervisor can report the error. The decision logic lives in the LLM, not in a hardcoded state machine. For exploratory workflows where you don&rsquo;t know the exact steps in advance, this is the right trade-off.</p><h2 id=the-architecture>The architecture</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl>              <span class=n>Supervisor</span> <span class=p>(</span><span class=n>has</span> <span class=n>tools</span><span class=p>:</span> <span class=n>research_repo</span><span class=p>,</span> <span class=n>draft_report</span><span class=p>,</span> <span class=n>critique_report</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                  <span class=err>│</span>
+</span></span><span class=line><span class=cl>    <span class=err>┌─────────────┼─────────────┐</span>
+</span></span><span class=line><span class=cl>    <span class=err>▼</span>             <span class=err>▼</span>             <span class=err>▼</span>
+</span></span><span class=line><span class=cl><span class=n>Researcher</span>     <span class=n>Drafter</span>       <span class=n>Critic</span>
+</span></span><span class=line><span class=cl> <span class=p>(</span><span class=n>run_go</span><span class=p>)</span>       <span class=p>(</span><span class=n>no</span> <span class=n>tools</span><span class=p>)</span>    <span class=p>(</span><span class=n>no</span> <span class=n>tools</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=err>│</span>             <span class=err>│</span>             <span class=err>│</span>
+</span></span><span class=line><span class=cl>    <span class=err>└─────────────┴─────────────┘</span>
+</span></span><span class=line><span class=cl>                  <span class=err>│</span>
+</span></span><span class=line><span class=cl>          <span class=n>Shared</span> <span class=n>Blackboard</span> <span class=n>Memory</span>
+</span></span></code></pre></td></tr></table></div></div><p>The supervisor calls specialists as tools via <code>Agent.AsTool(...)</code>. All four agents (supervisor included) share the same <code>memory.Memory</code> instance. When the researcher runs <code>go test</code> and summarizes the results, that summary goes into memory. When the drafter is called next, it sees the researcher&rsquo;s findings in its conversation history. The blackboard is the memory itself.</p><h2 id=setting-up-the-shared-memory>Setting up the shared memory</h2><p>The blackboard is a simple bounded memory with a 60-message capacity:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>import</span> <span class=nx>memory</span> <span class=s>&#34;github.com/henomis/phero/memory/simple&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>shared</span> <span class=o>:=</span> <span class=nx>memory</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=mi>60</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>This single instance is injected into every agent. It stores messages in insertion order with a ring buffer, so older messages drop out if the conversation grows too long. For a typical health-check (a few tool calls and short reports), 60 messages is plenty.</p><p>The key property: when the supervisor calls the researcher via a tool, the researcher&rsquo;s messages (including tool calls and results) are appended to the same memory that the drafter and critic will read from. No explicit data passing required.</p><h2 id=the-researcher-a-tool-equipped-specialist>The researcher: a tool-equipped specialist</h2><p>The researcher is the only agent with direct tool access. It can run safe Go commands:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>researcher</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>llmClient</span><span class=p>,</span> <span class=s>&#34;Researcher Agent&#34;</span><span class=p>,</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=s>`
+</span></span></span><span class=line><span class=cl><span class=s>You are a researcher agent in a multi-agent system.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>You have access to the tool run_go. Use it to collect concrete evidence.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Rules:
+</span></span></span><span class=line><span class=cl><span class=s>- Only run &#39;go list&#39; and &#39;go test&#39;.
+</span></span></span><span class=line><span class=cl><span class=s>- Prefer at most TWO tool calls total.
+</span></span></span><span class=line><span class=cl><span class=s>- For a repo health-check, run:
+</span></span></span><span class=line><span class=cl><span class=s>  1) go list ./...
+</span></span></span><span class=line><span class=cl><span class=s>  2) go test ./...
+</span></span></span><span class=line><span class=cl><span class=s>- After running commands, write a short findings note with:
+</span></span></span><span class=line><span class=cl><span class=s>  - packages: (any interesting info + package count if easy)
+</span></span></span><span class=line><span class=cl><span class=s>  - tests: (pass/fail + key failures)
+</span></span></span><span class=line><span class=cl><span class=s>  - raw: include the command outputs (truncate if huge)
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Be factual; do not speculate.`</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nx>researcher</span><span class=p>.</span><span class=nf>SetMemory</span><span class=p>(</span><span class=nx>shared</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>researcher</span><span class=p>.</span><span class=nf>AddTool</span><span class=p>(</span><span class=nx>goTool</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The prompt constrains the researcher to at most two commands. This is important. Without the constraint, an agent with a shell tool will happily run dozens of exploratory commands, burning tokens and time. Explicit limits keep the cost predictable.</p><h2 id=the-restricted-go-tool>The restricted Go tool</h2><p>The <code>run_go</code> tool is a Go function that only allows <code>go list</code> and <code>go test</code>. Any other subcommand is rejected:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=nf>runGo</span><span class=p>(</span><span class=nx>ctx</span> <span class=nx>context</span><span class=p>.</span><span class=nx>Context</span><span class=p>,</span> <span class=nx>in</span> <span class=o>*</span><span class=nx>GoRunInput</span><span class=p>)</span> <span class=p>(</span><span class=o>*</span><span class=nx>GoRunResult</span><span class=p>,</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>sub</span> <span class=o>:=</span> <span class=nx>in</span><span class=p>.</span><span class=nx>Args</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>sub</span> <span class=o>!=</span> <span class=s>&#34;test&#34;</span> <span class=o>&amp;&amp;</span> <span class=nx>sub</span> <span class=o>!=</span> <span class=s>&#34;list&#34;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=o>&amp;</span><span class=nx>GoRunResult</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>ExitCode</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>Error</span><span class=p>:</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>&#34;unsupported go subcommand: %s&#34;</span><span class=p>,</span> <span class=nx>sub</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span> <span class=kc>nil</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>cmd</span> <span class=o>:=</span> <span class=nx>exec</span><span class=p>.</span><span class=nf>CommandContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=s>&#34;go&#34;</span><span class=p>,</span> <span class=nx>in</span><span class=p>.</span><span class=nx>Args</span><span class=o>...</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>out</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>cmd</span><span class=p>.</span><span class=nf>CombinedOutput</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&amp;</span><span class=nx>GoRunResult</span><span class=p>{</span><span class=nx>ExitCode</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span> <span class=nx>Output</span><span class=p>:</span> <span class=nb>string</span><span class=p>(</span><span class=nx>out</span><span class=p>)},</span> <span class=kc>nil</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>This is a deliberate security boundary. The agent sees a tool called <code>run_go</code> and might try <code>go run malicious.go</code> or <code>go install something</code>. The allowlist rejects everything except safe, read-only operations. The tool also validates arguments for injection characters (newlines) and wraps exit codes into a structured result rather than returning raw errors.</p><h2 id=the-drafter-context-from-the-blackboard>The drafter: context from the blackboard</h2><p>The drafter has no tools. It reads the blackboard (which now contains the researcher&rsquo;s findings) and writes a report:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>drafter</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>llmClient</span><span class=p>,</span> <span class=s>&#34;Drafter Agent&#34;</span><span class=p>,</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=s>`
+</span></span></span><span class=line><span class=cl><span class=s>You are a technical writer agent.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Given the user&#39;s goal and the researcher&#39;s findings, write a concise report:
+</span></span></span><span class=line><span class=cl><span class=s>- What commands were run
+</span></span></span><span class=line><span class=cl><span class=s>- What the outputs show (grounded)
+</span></span></span><span class=line><span class=cl><span class=s>- Next suggested steps if something failed
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Do not invent details. If the findings are missing, ask to re-run research.`</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nx>drafter</span><span class=p>.</span><span class=nf>SetMemory</span><span class=p>(</span><span class=nx>shared</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Notice the last instruction: &ldquo;If the findings are missing, ask to re-run research.&rdquo; This handles the case where the supervisor calls the drafter before the researcher. Because the drafter reads from shared memory, it can detect when the prerequisite data isn&rsquo;t there. The supervisor sees the drafter&rsquo;s response (&ldquo;findings missing, please run research first&rdquo;) and can adjust.</p><h2 id=the-critic-verification-against-evidence>The critic: verification against evidence</h2><p>The critic also reads the shared memory, but its job is adversarial. It checks the draft against the raw findings:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>critic</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>llmClient</span><span class=p>,</span> <span class=s>&#34;Critic Agent&#34;</span><span class=p>,</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=s>`
+</span></span></span><span class=line><span class=cl><span class=s>You are a critic / verifier agent.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>You will be given a draft report and the research findings.
+</span></span></span><span class=line><span class=cl><span class=s>Return:
+</span></span></span><span class=line><span class=cl><span class=s>- any claims not supported by the findings
+</span></span></span><span class=line><span class=cl><span class=s>- missing key observations
+</span></span></span><span class=line><span class=cl><span class=s>- a corrected, improved version of the report (keep it short)
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Be direct and practical.`</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nx>critic</span><span class=p>.</span><span class=nf>SetMemory</span><span class=p>(</span><span class=nx>shared</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The critic produces the final output. It&rsquo;s the last quality gate before the supervisor returns. Because it reads the same blackboard that contains both the raw tool output and the drafter&rsquo;s report, it can cross-reference claims against evidence.</p><h2 id=exposing-agents-as-tools>Exposing agents as tools</h2><p>This is the core mechanism that makes the supervisor pattern work in Phero. Each specialist is wrapped as a tool using <code>Agent.AsTool(...)</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>researchTool</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>researcher</span><span class=p>.</span><span class=nf>AsTool</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;research_repo&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;Delegate to the Researcher Agent to run safe &#39;go list&#39;/&#39;go test&#39; and report findings.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>draftTool</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>drafter</span><span class=p>.</span><span class=nf>AsTool</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;draft_report&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;Delegate to the Drafter Agent to turn findings into a concise technical report.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>critiqueTool</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>critic</span><span class=p>.</span><span class=nf>AsTool</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;critique_report&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;Delegate to the Critic Agent to verify the draft against evidence and improve it.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>From the supervisor&rsquo;s perspective, these are just tools with names and descriptions. The supervisor doesn&rsquo;t know they&rsquo;re backed by LLM agents. It calls <code>research_repo</code> like it would call any other function. Under the hood, <code>AsTool</code> runs the full agent (prompt, memory, tool calls) and returns the text output as the tool result.</p><p>This is composable. You can nest it: an agent-as-tool can itself have agent-as-tool dependencies, creating hierarchies. But for most workflows, one level of delegation is sufficient.</p><h2 id=the-supervisor-routing-and-coordination>The supervisor: routing and coordination</h2><p>The supervisor ties everything together. It has all three specialist tools and a prompt that defines the workflow order:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>supervisor</span><span class=p>,</span> <span class=nx>_</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>llmClient</span><span class=p>,</span> <span class=s>&#34;Supervisor Agent&#34;</span><span class=p>,</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=s>`
+</span></span></span><span class=line><span class=cl><span class=s>You are a Supervisor/Router agent orchestrating specialists in a
+</span></span></span><span class=line><span class=cl><span class=s>blackboard-style multi-agent system.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>You have tools that represent other agents:
+</span></span></span><span class=line><span class=cl><span class=s>- research_repo: runs safe Go commands and returns findings
+</span></span></span><span class=line><span class=cl><span class=s>- draft_report: writes a report based on findings
+</span></span></span><span class=line><span class=cl><span class=s>- critique_report: verifies the report against findings
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Workflow (follow it):
+</span></span></span><span class=line><span class=cl><span class=s>1) Call research_repo once to gather evidence.
+</span></span></span><span class=line><span class=cl><span class=s>2) Call draft_report with the goal and the findings.
+</span></span></span><span class=line><span class=cl><span class=s>3) Call critique_report with the draft and the findings.
+</span></span></span><span class=line><span class=cl><span class=s>4) Output the final, corrected report.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Constraints:
+</span></span></span><span class=line><span class=cl><span class=s>- Do not run commands directly (only via research_repo).
+</span></span></span><span class=line><span class=cl><span class=s>- Keep the final report grounded in tool outputs.
+</span></span></span><span class=line><span class=cl><span class=s>- Keep it concise.`</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nx>supervisor</span><span class=p>.</span><span class=nf>SetMemory</span><span class=p>(</span><span class=nx>shared</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>supervisor</span><span class=p>.</span><span class=nf>AddTool</span><span class=p>(</span><span class=nx>researchTool</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>supervisor</span><span class=p>.</span><span class=nf>AddTool</span><span class=p>(</span><span class=nx>draftTool</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>supervisor</span><span class=p>.</span><span class=nf>AddTool</span><span class=p>(</span><span class=nx>critiqueTool</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The workflow is specified in the prompt, not in Go code. This means the supervisor can deviate if needed. If the researcher returns an error, the supervisor can skip drafting and report the failure directly. If the critic says the draft is perfect, the supervisor can output it without further revision. The prompt is a guideline, not a hardcoded state machine.</p><h2 id=the-blackboard-in-practice>The blackboard in practice</h2><p>Here&rsquo;s what the shared memory looks like after a full run (conceptually):</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[1] User: Do a quick health-check of this repo...
+</span></span><span class=line><span class=cl>[2] Supervisor: (calls research_repo)
+</span></span><span class=line><span class=cl>[3] Researcher: (calls run_go [&#34;list&#34;, &#34;./...&#34;])
+</span></span><span class=line><span class=cl>[4] Tool result: github.com/henomis/phero/agent\ngithub.com/henomis/phero/llm\n...
+</span></span><span class=line><span class=cl>[5] Researcher: (calls run_go [&#34;test&#34;, &#34;./...&#34;])
+</span></span><span class=line><span class=cl>[6] Tool result: ok github.com/henomis/phero/agent 1.2s\nFAIL github.com/...
+</span></span><span class=line><span class=cl>[7] Researcher: &#34;Findings: 42 packages, 4 test failures in...&#34;
+</span></span><span class=line><span class=cl>[8] Supervisor: (calls draft_report)
+</span></span><span class=line><span class=cl>[9] Drafter: &#34;Report: Commands run: go list, go test. Results show...&#34;
+</span></span><span class=line><span class=cl>[10] Supervisor: (calls critique_report)
+</span></span><span class=line><span class=cl>[11] Critic: &#34;The draft correctly states 42 packages. However, it misses...&#34;
+</span></span><span class=line><span class=cl>[12] Supervisor: (outputs final report)
+</span></span></code></pre></td></tr></table></div></div><p>Every agent reads from message 1 onward when it&rsquo;s invoked. The drafter at step [8] sees messages [1]-[7]. The critic at step [10] sees messages [1]-[9]. Context accumulates naturally. No explicit threading.</p><p>The trade-off: memory grows with each step. For a three-step workflow this is fine. For a 20-step workflow with long tool outputs, you&rsquo;d hit context limits. The ring buffer (capacity 60) provides a safety valve, but you should also consider summarization for longer workflows.</p><h2 id=running-the-example>Running the example</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># With OpenAI</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_API_KEY</span><span class=o>=</span>sk-...
+</span></span><span class=line><span class=cl>go run ./examples/supervisor-blackboard
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># With a custom goal</span>
+</span></span><span class=line><span class=cl>go run ./examples/supervisor-blackboard <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -goal <span class=s2>&#34;Run go tests and summarize what failed&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># With Ollama</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_BASE_URL</span><span class=o>=</span>http://localhost:11434/v1
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_MODEL</span><span class=o>=</span>gpt-oss:20b-cloud
+</span></span><span class=line><span class=cl>go run ./examples/supervisor-blackboard
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># With a longer timeout for slow models</span>
+</span></span><span class=line><span class=cl>go run ./examples/supervisor-blackboard -timeout 10m
+</span></span></code></pre></td></tr></table></div></div><p>The default goal is a repo health-check: list packages, run tests, summarize results.</p><h2 id=cost-and-latency>Cost and latency</h2><p>This pattern makes multiple LLM calls, but the exact number depends on the supervisor&rsquo;s decisions and each specialist&rsquo;s behavior. A typical run:</p><ul><li>Supervisor: 1 call to decide to invoke research_repo</li><li>Researcher: 1 call to plan + 2 tool calls + 1 call to summarize = 2 LLM calls</li><li>Supervisor: 1 call to invoke draft_report</li><li>Drafter: 1 LLM call</li><li>Supervisor: 1 call to invoke critique_report</li><li>Critic: 1 LLM call</li><li>Supervisor: 1 call to produce final output</li></ul><p>That&rsquo;s roughly 7-8 LLM calls total. More than the evaluator-optimizer (4 calls) or the debate committee (4 calls), but this pattern does more: it gathers real data, writes a report, and verifies it.</p><p>The calls are sequential because each step depends on the blackboard state from the previous step. Parallelization isn&rsquo;t possible here, which is the right trade-off for a workflow where each step builds on the last.</p><h2 id=when-to-use-this-pattern>When to use this pattern</h2><p>The supervisor-blackboard pattern shines when:</p><ul><li><strong>You need real-world interaction.</strong> One or more agents use tools (APIs, shells, databases). The supervisor coordinates which agent acts when.</li><li><strong>Workflow order is flexible.</strong> The supervisor can re-run steps, skip steps, or add steps based on intermediate results. A Go loop can&rsquo;t adapt.</li><li><strong>Specialists have different capabilities.</strong> Security boundaries matter. The researcher can run commands; the drafter and critic cannot. You wouldn&rsquo;t give a report-writing agent shell access.</li><li><strong>Context needs to accumulate.</strong> Each agent builds on what came before. Passing all intermediate results explicitly would be verbose and error-prone.</li></ul><p>When not to use it: if your workflow is strictly linear and deterministic, a simple Go loop (like the evaluator-optimizer) is simpler and cheaper. The supervisor adds LLM calls for routing decisions that a Go <code>for</code> loop makes for free.</p><h2 id=variations>Variations</h2><p><strong>Dynamic specialist selection.</strong> Instead of a fixed workflow in the prompt, give the supervisor a larger toolbox and let it decide which specialists to call based on the goal. &ldquo;Run security audit&rdquo; might call a different set of specialists than &ldquo;run performance benchmark.&rdquo;</p><p><strong>Multiple researchers.</strong> Add specialized researcher agents: one for Go, one for Docker, one for CI config. The supervisor routes to the appropriate researcher based on the goal. Each researcher has its own restricted tools.</p><p><strong>Iterative refinement.</strong> After the critic produces feedback, the supervisor can re-call the drafter with the criticism. This combines the blackboard pattern with the evaluator-optimizer loop. The supervisor decides when quality is sufficient.</p><p><strong>Persistent blackboard.</strong> Replace the in-memory ring buffer with a persistent store (file, database). This lets you resume workflows across process restarts or share the blackboard between distributed agents.</p><h2 id=wrapping-up>Wrapping up</h2><p>The supervisor-blackboard pattern gives you the most flexibility of any multi-agent architecture. The supervisor decides what to do, specialists have focused capabilities, and shared memory eliminates the plumbing of passing data between steps.</p><p>The key insight is that <code>Agent.AsTool(...)</code> collapses the distinction between tools and agents. From the supervisor&rsquo;s perspective, calling a specialist is no different from calling a function. This makes the architecture composable: you can nest supervisors, mix tool-equipped and pure-language agents, and add or remove specialists without changing the orchestration logic.</p><p>The trade-off is cost. Every routing decision is an LLM call. For workflows where the order is always the same, a Go loop is cheaper. But for exploratory, adaptive workflows where the next step depends on what you found in the previous one, the supervisor earns its keep.</p><p>The full source is at <a href=https://github.com/henomis/phero/tree/main/examples/supervisor-blackboard target=_blank rel="noopener noreffer"><code>examples/supervisor-blackboard/</code></a>.</p><p><em><a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">Phero</a> is an open-source Go framework for building multi-agent AI systems. Star the repo if you find it useful.</em></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2026-04-30</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://simonevellei.com/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/ data-hashtag=ai><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://simonevellei.com/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://simonevellei.com/en/the-supervisor-blackboard-pattern-coordinating-multi-agent-ai-workflows/ data-title="The supervisor-blackboard pattern: coordinating multi-agent AI workflows" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/en/tags/ai/>Ai</a>,&nbsp;<a href=/en/tags/go/>Go</a>,&nbsp;<a href=/en/tags/phero/>Phero</a>,&nbsp;<a href=/en/tags/agents/>Agents</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/en/>Home</a></span></section></div><div class=post-nav><a href=/en/the-evaluator-optimizer-pattern-in-go-iterate-until-good-enough/ class=prev rel=prev title="The evaluator-optimizer pattern in Go: iterate until good enough"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>The evaluator-optimizer pattern in Go: iterate until good enough</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2019 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://simonevellei.com/ target=_blank>Simone Vellei</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.it.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},cookieconsent:{content:{allow:"Allow cookies",close:"&#x274c;",deny:"Decline",dismiss:"Got it!",href:"https://www.cookiesandyou.com",link:"Learn more",message:"This website uses cookies to improve your experience.",policy:"Cookie Policy",target:"_blank"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless",type:"opt-out"},lightgallery:!0,math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/en/index.json",lunrLanguageCode:"en",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
