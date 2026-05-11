@@ -1,4 +1,4 @@
-# Phero joins the fabric: Go agents on the NATS Agent Protocol
+# Phero joins the crew: Go agents on the NATS Agent Protocol
 
 
 [Synadia published the NATS Agent Protocol](https://www.synadia.com/blog/heterogeneous-agents-one-fabric) last week and the core idea is blunt: AI agents are already deployed everywhere (IDE, CI, support queue, factory floor) and none of them were built to talk to each other. The model isn't the bottleneck anymore. Coordinating the fleet you've already deployed is.
