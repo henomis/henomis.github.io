@@ -1,6 +1,6 @@
 ---
 date: '2026-05-11T08:00:00+02:00'
-title: 'Phero joins the fabric: Go agents on the NATS Agent Protocol'
+title: 'Phero joins the crew: Go agents on the NATS Agent Protocol'
 tags: ["go", "ai", "phero", "nats", "agents", "multi-agent"]
 showToc: true
 TocOpen: false
