@@ -530,7 +530,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # LoveIt DELETED | 0.3.1 whether to anonymize IP
       anonymizeIP = true
       # LoveIt NEW | 0.3.1 whether to respect the browser’s “do not track” setting
-      respectDoNotTrack = false
+      respectDoNotTrack = true
     # Fathom Analytics
     [params.analytics.fathom]
       id = ""
