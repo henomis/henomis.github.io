@@ -526,7 +526,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     enable = true
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "G-JPRTWRZVX0"
       # LoveIt DELETED | 0.3.1 whether to anonymize IP
       anonymizeIP = true
       # LoveIt NEW | 0.3.1 whether to respect the browser’s “do not track” setting
