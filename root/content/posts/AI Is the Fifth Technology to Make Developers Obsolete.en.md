@@ -1,6 +1,6 @@
 ---
 date: '2026-05-24T20:01:47+02:00'
-title: 'AI Is the fifth technology to make developers obsolete'
+title: 'AI is the fifth technology to make developers obsolete'
 tags: ["ai", "developers", "software", "productivity"]
 showToc: true
 TocOpen: false
