@@ -1,4 +1,4 @@
-# AI Is the fifth technology to make developers obsolete
+# AI is the fifth technology to make developers obsolete
 
 
 Every decade, like clockwork, someone announces that developers are finished. The script never changes. A new technology promises to make the programmer redundant. Someone writes a triumphalist article. Decision-makers start dreaming about better margins.
