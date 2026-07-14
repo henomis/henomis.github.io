@@ -1,0 +1,282 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Simulating public opinion with Phero - Simone Vellei - Blog</title><meta name=Description content="Blog di Simone Vellei su Go, backend, AI agents, produttività e lavoro da remoto."><meta property="og:url" content="https://simonevellei.com/en/simulating-public-opinion-with-phero/">
+<meta property="og:site_name" content="Simone Vellei - Blog"><meta property="og:title" content="Simulating public opinion with Phero"><meta property="og:description" content="A single LLM answer has a neat, confident shape. Public opinion does not.
+When a policy changes, a product launches, or a company announces something unpopular, the interesting part is rarely the first reaction. It is what happens after people see each other reacting. Arguments harden. Coalitions form. A practical objection becomes the sentence everyone repeats. A weak point disappears because nobody picks it up.
+That is hard to study with one prompt."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-07-14T07:00:00+02:00"><meta property="article:modified_time" content="2026-07-14T07:00:00+02:00"><meta property="article:tag" content="Go"><meta property="article:tag" content="Ai"><meta property="article:tag" content="Phero"><meta property="article:tag" content="Agents"><meta property="article:tag" content="Simulation"><meta property="og:image" content="https://simonevellei.com/images/phero011.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://simonevellei.com/images/phero011.png"><meta name=twitter:title content="Simulating public opinion with Phero"><meta name=twitter:description content="A single LLM answer has a neat, confident shape. Public opinion does not.
+When a policy changes, a product launches, or a company announces something unpopular, the interesting part is rarely the first reaction. It is what happens after people see each other reacting. Arguments harden. Coalitions form. A practical objection becomes the sentence everyone repeats. A weak point disappears because nobody picks it up.
+That is hard to study with one prompt."><meta name=application-name content="Simone Vellei"><meta name=apple-mobile-web-app-title content="Simone Vellei"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://simonevellei.com/en/simulating-public-opinion-with-phero/><link rel=prev href=https://simonevellei.com/en/phero-1.0.0-the-chemical-language-of-ai-agents/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Simulating public opinion with Phero","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/simonevellei.com\/en\/simulating-public-opinion-with-phero\/"},"image":["https:\/\/simonevellei.com\/images\/portrait.jpg"],"genre":"posts","keywords":"go, ai, phero, agents, simulation","wordcount":1765,"url":"https:\/\/simonevellei.com\/en\/simulating-public-opinion-with-phero\/","datePublished":"2026-07-14T07:00:00+02:00","dateModified":"2026-07-14T07:00:00+02:00","license":"© 2025 Simone Vellei. All rights reserved.","publisher":{"@type":"Organization","name":"Simone Vellei","logo":"https:\/\/simonevellei.com\/images\/portrait.jpg"},"author":{"@type":"Person","name":"Simone Vellei"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/en/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/en/posts/>Posts </a><a class=menu-item href=/en/tags/>Tags </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="menu-item language" title="Select Language"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select id=language-select-desktop onchange="location=this.value"><option value=/simulating-public-opinion-with-phero/>Italiano</option><option value=/en/simulating-public-opinion-with-phero/ selected>English</option></select></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/en/ title="Simone Vellei - Blog"><span class=header-title-pre>👋</span>Simone Vellei</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/en/posts/ title>Posts</a><a class=menu-item href=/en/tags/ title>Tags</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class=menu-item title="Select Language"><i class="fa fa-globe fa-fw" aria-hidden=true></i>
+<select class=language-select onchange="location=this.value"><option value=/simulating-public-opinion-with-phero/>Italiano</option><option value=/en/simulating-public-opinion-with-phero/ selected>English</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Simulating public opinion with Phero</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://simonevellei.com/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Simone Vellei</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2026-07-14>2026-07-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;1765 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;9 minutes&nbsp;</div></div><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-src=/images/phero011.png data-srcset="/images/phero011.png, /images/phero011.png 1.5x, /images/phero011.png 2x" data-sizes=auto alt=/images/phero011.png title=/images/phero011.png></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#what-were-building>What we&rsquo;re building</a></li><li><a href=#the-architecture>The architecture</a></li><li><a href=#from-seed-text-to-world-facts>From seed text to world facts</a></li><li><a href=#generating-the-cast>Generating the cast</a></li><li><a href=#the-world-feed>The world feed</a></li><li><a href=#running-rounds-concurrently>Running rounds concurrently</a></li><li><a href=#turning-the-transcript-into-a-report>Turning the transcript into a report</a></li><li><a href=#cost-and-limits>Cost and limits</a></li><li><a href=#try-it>Try it</a></li></ul></nav></div></div><div class=content id=content><p>A single LLM answer has a neat, confident shape. Public opinion does not.</p><p>When a policy changes, a product launches, or a company announces something unpopular, the interesting part is rarely the first reaction. It is what happens after people see each other reacting. Arguments harden. Coalitions form. A practical objection becomes the sentence everyone repeats. A weak point disappears because nobody picks it up.</p><p>That is hard to study with one prompt.</p><p>The <a href=https://github.com/henomis/phero/tree/main/examples/social-simulation target=_blank rel="noopener noreffer">social simulation example</a> in Phero explores a different shape: give the system a seed scenario, build a cast of fictional people with conflicting views, let them post concurrently for a few rounds, then ask a report agent to analyze the transcript.</p><p>It is not prediction magic. It is a structured way to ask: <em>if different kinds of people reacted to this situation in public, what dynamics might emerge?</em></p><h2 id=what-were-building>What we&rsquo;re building</h2><p>The example is a CLI inspired by MiroFish, built entirely with <a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">Phero</a>. It takes a seed scenario and runs it through four phases:</p><ol><li>Extract neutral world facts from the seed text</li><li>Generate diverse fictional personas with conflicting stances</li><li>Run several simulation rounds, with all persona agents posting concurrently</li><li>Synthesize a structured report from the full transcript</li></ol><p>Optionally, it then opens an interactive Q&amp;A session with the report agent.</p><p>A run starts like this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>multi-agent architecture example: social simulation
+</span></span><span class=line><span class=cl>- llm: model=gpt-4o
+</span></span><span class=line><span class=cl>- agents: 8  rounds: 5  topk: 15
+</span></span><span class=line><span class=cl>- estimated LLM calls: ~43
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>phase 1/4: extracting world facts...
+</span></span><span class=line><span class=cl>world facts extracted.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>phase 2/4: generating 8 personas...
+</span></span><span class=line><span class=cl>8 personas generated:
+</span></span><span class=line><span class=cl>  - Maria Lopez (pragmatic, community-focused)
+</span></span><span class=line><span class=cl>  - James Okafor (skeptical, data-driven, direct)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>phase 3/4: running 5 simulation rounds...
+</span></span><span class=line><span class=cl>  round 1/5
+</span></span><span class=line><span class=cl>    [Maria Lopez] This policy is exactly what our city needs to...
+</span></span><span class=line><span class=cl>    [James Okafor] The timeline is completely unrealistic. Banning...
+</span></span></code></pre></td></tr></table></div></div><p>The default scenario is a controversial municipal ban on private gas vehicles in a city center. You can replace it with a news article, a policy brief, a product announcement, or a short paragraph typed directly into the command line.</p><h2 id=the-architecture>The architecture</h2><p>The architecture is a pipeline with a concurrent middle:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>seed text
+</span></span><span class=line><span class=cl>    |
+</span></span><span class=line><span class=cl>    v
+</span></span><span class=line><span class=cl>KnowledgeExtractor  -&gt; world facts
+</span></span><span class=line><span class=cl>                              |
+</span></span><span class=line><span class=cl>                              v
+</span></span><span class=line><span class=cl>                     PersonaOrchestrator -&gt; N persona agents
+</span></span><span class=line><span class=cl>                                                      |
+</span></span><span class=line><span class=cl>                                          +-----------+-----------+
+</span></span><span class=line><span class=cl>                                          |   simulation rounds   |
+</span></span><span class=line><span class=cl>                                          |  goroutine fan-out    |
+</span></span><span class=line><span class=cl>                                          |  shared WorldFeed     |
+</span></span><span class=line><span class=cl>                                          +-----------+-----------+
+</span></span><span class=line><span class=cl>                                                      |
+</span></span><span class=line><span class=cl>                                                      v
+</span></span><span class=line><span class=cl>                                               ReportAgent
+</span></span><span class=line><span class=cl>                                                      |
+</span></span><span class=line><span class=cl>                                               optional REPL
+</span></span></code></pre></td></tr></table></div></div><p>There are three different agent roles in the pipeline.</p><p>The <code>KnowledgeExtractor</code> turns arbitrary seed material into neutral world facts. The <code>PersonaOrchestrator</code> turns those facts into a cast. Each persona then becomes its own <code>agent.Agent</code>, with its own memory and system prompt. At the end, the <code>ReportAgent</code> reads the full transcript and produces the analysis.</p><p>The simulation itself is plain Go: goroutines, <code>sync.WaitGroup</code>, a mutex-protected feed, and a context timeout. Phero provides the agent abstraction, memory, LLM interface, and prompt/tool loop. The orchestration stays visible in application code.</p><h2 id=from-seed-text-to-world-facts>From seed text to world facts</h2><p>The first step is deliberately boring, and that is the point.</p><p>Before generating opinions, the example extracts a neutral summary of the situation:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>worldFacts</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nf>extractWorldFacts</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>llmClient</span><span class=p>,</span> <span class=nx>seedText</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>panic</span><span class=p>(</span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Errorf</span><span class=p>(</span><span class=s>&#34;world facts: %w&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>The extractor is a normal Phero agent:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>knowledgeAgent</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>agent</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nx>llmClient</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;KnowledgeExtractor&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>`You are a knowledge extraction specialist.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Read the provided source material and produce a concise, neutral
+</span></span></span><span class=line><span class=cl><span class=s>&#34;world facts&#34; summary covering the central situation, key entities,
+</span></span></span><span class=line><span class=cl><span class=s>main tensions, current state, and open questions.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Be factual and neutral. Do not take a stance.`</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>This keeps the rest of the system grounded. Every persona is generated from the same facts, not from a different interpretation of the original article. That reduces noise in a place where you want disagreement to come from the personas, not from accidental context drift.</p><p>It also gives you a useful debugging checkpoint. If the simulation later feels strange, inspect the world facts first. If the facts are wrong, everything downstream is reacting to the wrong world.</p><h2 id=generating-the-cast>Generating the cast</h2><p>The second phase creates fictional people who have reasons to disagree.</p><p>The persona schema is intentionally small:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>Persona</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Name</span>        <span class=kt>string</span> <span class=s>`json:&#34;name&#34;`</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Background</span>  <span class=kt>string</span> <span class=s>`json:&#34;background&#34;`</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Stance</span>      <span class=kt>string</span> <span class=s>`json:&#34;stance&#34;`</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Personality</span> <span class=kt>string</span> <span class=s>`json:&#34;personality&#34;`</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>The <code>PersonaOrchestrator</code> receives the world facts and a requested count. Its prompt asks for exactly that number of personas, with genuinely distinct stances:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>prompt</span> <span class=o>:=</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;World facts:\n%s\n\nGenerate exactly %d personas with diverse and conflicting stances.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>worldFacts</span><span class=p>,</span> <span class=nx>n</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The agent is told to return only JSON. The example then trims any surrounding text and unmarshals the result into Go structs. This is not glamorous, but it is a good example design: keep the LLM output boundary narrow, validate it, and fail loudly if the shape is wrong.</p><p>Each persona then becomes an agent with its own system prompt:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>systemPrompt</span> <span class=o>:=</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span><span class=s>`You are %s in a social simulation.
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Background: %s
+</span></span></span><span class=line><span class=cl><span class=s>Your stance: %s
+</span></span></span><span class=line><span class=cl><span class=s>Personality: %s
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>Stay fully in character. React authentically to what others say.
+</span></span></span><span class=line><span class=cl><span class=s>Do not break character or refer to yourself as an AI.
+</span></span></span><span class=line><span class=cl><span class=s>Keep your posts concise (3-5 sentences).`</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>p</span><span class=p>.</span><span class=nx>Name</span><span class=p>,</span> <span class=nx>p</span><span class=p>.</span><span class=nx>Background</span><span class=p>,</span> <span class=nx>p</span><span class=p>.</span><span class=nx>Stance</span><span class=p>,</span> <span class=nx>p</span><span class=p>.</span><span class=nx>Personality</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The persona memory is bounded:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>memCapacity</span> <span class=o>:=</span> <span class=nb>uint</span><span class=p>(</span><span class=nx>roundsHint</span><span class=o>*</span><span class=mi>2</span> <span class=o>+</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>a</span><span class=p>.</span><span class=nf>SetMemory</span><span class=p>(</span><span class=nx>simplemem</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=nx>memCapacity</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p>That matters because the persona should remember its own prior turns, but the simulation should still have predictable cost and context size.</p><h2 id=the-world-feed>The world feed</h2><p>The shared state in the example is not a social graph. It is a public transcript.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span> <span class=nx>FeedEntry</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Round</span>  <span class=kt>int</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Author</span> <span class=kt>string</span>
+</span></span><span class=line><span class=cl>    <span class=nx>Post</span>   <span class=kt>string</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>type</span> <span class=nx>WorldFeed</span> <span class=kd>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>mu</span>      <span class=nx>sync</span><span class=p>.</span><span class=nx>Mutex</span>
+</span></span><span class=line><span class=cl>    <span class=nx>entries</span> <span class=p>[]</span><span class=nx>FeedEntry</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Every post is appended to the feed. Before each round, agents receive the last <code>topk</code> entries:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>snapshot</span> <span class=o>:=</span> <span class=nx>s</span><span class=p>.</span><span class=nx>feed</span><span class=p>.</span><span class=nf>TopK</span><span class=p>(</span><span class=nx>s</span><span class=p>.</span><span class=nx>topk</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>This is much simpler than a real social network. There is no follower graph, no ranking algorithm, no quote-post mechanic, no private messages. Everyone sees the same recent public square.</p><p>That simplicity is a tradeoff. You lose realism, but you gain inspectability. The whole simulation is a transcript you can read from top to bottom, and the report agent can cite round numbers and agent names directly.</p><h2 id=running-rounds-concurrently>Running rounds concurrently</h2><p>The core of the example is <code>Simulation.RunRound</code>.</p><p>For each round, the simulation takes a snapshot of the feed before starting any persona agents:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>snapshot</span> <span class=o>:=</span> <span class=nx>s</span><span class=p>.</span><span class=nx>feed</span><span class=p>.</span><span class=nf>TopK</span><span class=p>(</span><span class=nx>s</span><span class=p>.</span><span class=nx>topk</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>results</span> <span class=o>:=</span> <span class=nb>make</span><span class=p>([]</span><span class=nx>roundResult</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=nx>s</span><span class=p>.</span><span class=nx>agents</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><p>Then it fans out to all agents using goroutines:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=k>for</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>pa</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>s</span><span class=p>.</span><span class=nx>agents</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>wg</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>go</span> <span class=kd>func</span><span class=p>(</span><span class=nx>idx</span> <span class=kt>int</span><span class=p>,</span> <span class=nx>pa</span> <span class=o>*</span><span class=nx>personaAgent</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>defer</span> <span class=nx>wg</span><span class=p>.</span><span class=nf>Done</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nx>prompt</span> <span class=o>:=</span> <span class=nf>buildRoundPrompt</span><span class=p>(</span><span class=nx>round</span><span class=p>,</span> <span class=nx>totalRounds</span><span class=p>,</span> <span class=nx>snapshot</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>out</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>pa</span><span class=p>.</span><span class=nx>agent</span><span class=p>.</span><span class=nf>Run</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>llm</span><span class=p>.</span><span class=nf>Text</span><span class=p>(</span><span class=nx>prompt</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>results</span><span class=p>[</span><span class=nx>idx</span><span class=p>]</span> <span class=p>=</span> <span class=nx>roundResult</span><span class=p>{</span><span class=nx>err</span><span class=p>:</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Errorf</span><span class=p>(</span><span class=s>&#34;agent %q: %w&#34;</span><span class=p>,</span> <span class=nx>pa</span><span class=p>.</span><span class=nx>name</span><span class=p>,</span> <span class=nx>err</span><span class=p>)}</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nx>results</span><span class=p>[</span><span class=nx>idx</span><span class=p>]</span> <span class=p>=</span> <span class=nx>roundResult</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>entry</span><span class=p>:</span> <span class=nx>FeedEntry</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>Round</span><span class=p>:</span>  <span class=nx>round</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>Author</span><span class=p>:</span> <span class=nx>pa</span><span class=p>.</span><span class=nx>name</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nx>Post</span><span class=p>:</span>   <span class=nx>strings</span><span class=p>.</span><span class=nf>TrimSpace</span><span class=p>(</span><span class=nx>out</span><span class=p>.</span><span class=nf>TextContent</span><span class=p>()),</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}(</span><span class=nx>i</span><span class=p>,</span> <span class=nx>pa</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>wg</span><span class=p>.</span><span class=nf>Wait</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>The snapshot detail is important. If agents read the feed while other agents are writing to it, the order of goroutine scheduling would change what each persona sees. Instead, every agent in a round sees the same pre-round state. The posts are collected afterward in deterministic agent order.</p><p>This gives the example a useful property: concurrency improves latency without turning the simulation into a race-dependent mess.</p><h2 id=turning-the-transcript-into-a-report>Turning the transcript into a report</h2><p>After the final round, the full feed becomes a transcript:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>transcript</span> <span class=o>:=</span> <span class=nx>sim</span><span class=p>.</span><span class=nf>Transcript</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>The example writes it to <code>transcript.txt</code>, then sends it to the report agent together with the world facts:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>reportPrompt</span> <span class=o>:=</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprintf</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;World facts:\n%s\n\nSimulation transcript:\n%s\n\nAnalyze this simulation and produce the report.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>worldFacts</span><span class=p>,</span> <span class=nx>transcript</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>The report agent has a fixed analytical structure:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>## Opinion Evolution
+</span></span><span class=line><span class=cl>## Coalitions &amp; Dynamics
+</span></span><span class=line><span class=cl>## Key Inflection Points
+</span></span><span class=line><span class=cl>## Final Outlook
+</span></span></code></pre></td></tr></table></div></div><p>This is where the transcript becomes useful. The report agent is not asked to summarize vibes. It is asked to cite agents, rounds, shifts, coalitions, and moments where the conversation changed direction.</p><p>The optional <code>--interact</code> flag opens a REPL with the same report agent. Because the agent has memory, follow-up questions can refer back to the report and transcript without manually pasting everything again.</p><h2 id=cost-and-limits>Cost and limits</h2><p>The example prints the rough cost before it starts:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>estimatedCalls</span> <span class=o>:=</span> <span class=nx>numAgents</span><span class=o>*</span><span class=nx>numRounds</span> <span class=o>+</span> <span class=mi>3</span>
+</span></span></code></pre></td></tr></table></div></div><p>The default settings are 8 agents and 5 rounds, so the run makes about 43 LLM calls: one for world facts, one for personas, 40 persona posts, and one report.</p><p>That means the knobs matter:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>go run . --agents <span class=m>4</span> --rounds <span class=m>3</span>
+</span></span><span class=line><span class=cl>go run . --agents <span class=m>12</span> --rounds <span class=m>8</span>
+</span></span></code></pre></td></tr></table></div></div><p>Start small. Once the prompt and scenario produce useful behavior, scale up.</p><p>The README is explicit about the tradeoffs compared with MiroFish. This Phero example does not implement GraphRAG, long-term cloud memory, a million agents, or a dual-platform social graph. It uses flat world facts, bounded in-process memory, goroutine fan-out, and a shared feed.</p><p>That is exactly why it is a good example. The moving parts fit in a few files, and the architectural idea is visible.</p><h2 id=try-it>Try it</h2><p>From the example directory:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> examples/social-simulation
+</span></span><span class=line><span class=cl>go run .
+</span></span></code></pre></td></tr></table></div></div><p>With a custom inline scenario:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>go run . --seed <span class=s2>&#34;A city announces a pilot program converting downtown parking spaces into bike lanes, trees, and outdoor seating.&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>From a file:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>go run . --seed ./article.txt --agents <span class=m>12</span> --rounds <span class=m>8</span>
+</span></span></code></pre></td></tr></table></div></div><p>With interactive Q&amp;A after the report:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>go run . --interact
+</span></span></code></pre></td></tr></table></div></div><p>The OpenAI-compatible client is configured through environment variables:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_API_KEY</span><span class=o>=</span><span class=s2>&#34;...&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_MODEL</span><span class=o>=</span><span class=s2>&#34;gpt-4o&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>OPENAI_BASE_URL</span><span class=o>=</span><span class=s2>&#34;https://api.openai.com/v1&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>If no key or base URL is set, the example defaults to a local Ollama-compatible endpoint.</p><p>The interesting thing about this example is not that it forecasts the future. It does something more modest and more useful: it gives you a repeatable way to explore how disagreement can move through a small artificial public.</p><p>For product launches, policy drafts, incident communication, community management, or plain curiosity, that is often enough to reveal the question you should have asked earlier.</p><p>If you want to try it, start with <a href=https://github.com/henomis/phero/tree/main/examples/social-simulation target=_blank rel="noopener noreffer">examples/social-simulation</a>.</p><p>If this sparked your curiosity, <strong><a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">give Phero a star on GitHub</a></strong>. It genuinely helps the project grow, and it takes three seconds.</p><p><em>Phero is open source under the Apache 2.0 license. Contributions, issues, and discussions are welcome.</em></p><p><em><a href=https://github.com/henomis/phero target=_blank rel="noopener noreffer">GitHub</a> · <a href=https://pkg.go.dev/github.com/henomis/phero target=_blank rel="noopener noreffer">pkg.go.dev</a> · <a href=https://github.com/henomis/phero/tree/main/examples target=_blank rel="noopener noreffer">Examples</a></em></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2026-07-14</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/en/simulating-public-opinion-with-phero/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://simonevellei.com/en/simulating-public-opinion-with-phero/ data-hashtag=go><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=https://simonevellei.com/en/simulating-public-opinion-with-phero/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=https://simonevellei.com/en/simulating-public-opinion-with-phero/ data-title="Simulating public opinion with Phero" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/en/tags/go/>Go</a>,&nbsp;<a href=/en/tags/ai/>Ai</a>,&nbsp;<a href=/en/tags/phero/>Phero</a>,&nbsp;<a href=/en/tags/agents/>Agents</a>,&nbsp;<a href=/en/tags/simulation/>Simulation</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/en/>Home</a></span></section></div><div class=post-nav><a href=/en/phero-1.0.0-the-chemical-language-of-ai-agents/ class=prev rel=prev title="Phero 1.0.0: the chemical language of AI agents"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Phero 1.0.0: the chemical language of AI agents</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2019 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://simonevellei.com/ target=_blank>Simone Vellei</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/lightgallery/css/lightgallery-bundle.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.it.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/zoom/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:-1},comment:{},cookieconsent:{content:{allow:"Allow cookies",close:"&#x274c;",deny:"Decline",dismiss:"Got it!",href:"https://www.cookiesandyou.com",link:"Learn more",message:"This website uses cookies to improve your experience.",policy:"Cookie Policy",target:"_blank"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless",type:"opt-out"},lightgallery:!0,math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/en/index.json",lunrLanguageCode:"en",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-JPRTWRZVX0"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-JPRTWRZVX0")</script></body></html>
