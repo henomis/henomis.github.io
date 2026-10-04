@@ -669,6 +669,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       name = "Tag"
       url = "/tags/"
       title = ""
+    [[languages.it.menu.main]]
+      weight = 3
+      identifier = "darkfactory"
+      pre = ""
+      post = ""
+      name = "Dark factory"
+      url = "/darkfactory/"
+      title = ""
     # [[languages.it.menu.main]]
     #   weight = 3
     #   identifier = "categories"
@@ -698,6 +706,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       post = ""
       name = "Tags"
       url = "/tags/"
+      title = ""
+    [[languages.en.menu.main]]
+      weight = 3
+      identifier = "darkfactory"
+      pre = ""
+      post = ""
+      name = "Dark factory"
+      url = "/darkfactory/"
       title = ""
     # [[languages.en.menu.main]]
     #   weight = 3
