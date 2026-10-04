@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My personal dark factory | Simone Vellei</title>
+<meta name="description" content="A senior backend engineer's personal dark factory: spec-driven, AI-first, craftsman-grounded. Built with it: phero, packtrail, stiggy.">
+<link rel="canonical" href="https://simonevellei.com/darkfactory/">
+<meta property="og:title" content="My personal dark factory | Simone Vellei">
+<meta property="og:description" content="Spec-driven, AI-first, craftsman-grounded. phero, packtrail and stiggy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://simonevellei.com/darkfactory/">
+<style>
+:root {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --text: #1c1d1f;
+  --muted: #5d6168;
+  --line: #e3e2dc;
+  --accent: #b4540a;
+  --accent-soft: #fbeedd;
+  --code-bg: #f1f0ea;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1113;
+    --surface: #171a1d;
+    --text: #e8e6e1;
+    --muted: #9aa0a8;
+    --line: #272b30;
+    --accent: #f0a04b;
+    --accent-soft: #2a2015;
+    --code-bg: #1d2024;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: var(--accent); }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 0; font-size: 15px; color: var(--muted);
+}
+nav a { color: var(--muted); }
+nav a:hover { color: var(--text); border-bottom-color: var(--text); }
+nav .links { display: flex; gap: 18px; }
+header.hero { padding: 56px 0 40px; }
+.eyebrow {
+  font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--accent);
+}
+h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.1; margin: 16px 0 20px; letter-spacing: -.02em; }
+.lede { font-size: clamp(18px, 2.4vw, 21px); color: var(--muted); max-width: 680px; margin: 0; }
+section { padding: 36px 0; border-top: 1px solid var(--line); }
+h2 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; letter-spacing: -.01em; }
+h3 { font-size: 19px; margin: 0 0 6px; }
+p { margin: 0 0 16px; }
+.prose { max-width: 700px; }
+.pull {
+  border-left: 3px solid var(--accent); background: var(--accent-soft);
+  padding: 14px 18px; border-radius: 0 var(--radius) var(--radius) 0; margin: 24px 0; max-width: 700px;
+}
+.pull p { margin: 0; }
+code { font: 14px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--code-bg); padding: 1px 6px; border-radius: 5px; }
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 20px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px;
+}
+.card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.about h2 { font-size: 22px; }
+.about .prose { font-size: 16.5px; }
+.about .grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+#stack > h2 { font-size: 34px; }
+.stack { display: grid; gap: 18px; margin-top: 22px; }
+.project {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px;
+}
+.project .layer { font: 600 12px/1 ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.project h3 { font-size: 24px; margin: 10px 0 4px; }
+.project .tag { color: var(--muted); margin: 0 0 14px; }
+.project ul { margin: 0 0 16px; padding-left: 20px; }
+.project li { margin-bottom: 6px; }
+.project .specs { font-size: 14.5px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 12px; margin: 0 0 14px; }
+.project .specs strong { color: var(--text); font-weight: 600; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-block; padding: 8px 16px; border: 1px solid var(--line); border-radius: 8px;
+  color: var(--text); font-size: 15px; background: var(--bg);
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.primary:hover { color: var(--bg); opacity: .9; }
+.layers { display: flex; flex-direction: column; align-items: stretch; margin: 26px 0 0; max-width: 560px; }
+.layer-box {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent);
+  border-radius: var(--radius); padding: 14px 18px; color: var(--text);
+}
+.layer-box:hover { border-color: var(--accent); }
+.layer-box .name { font: 700 18px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.layer-box .what { font-size: 14.5px; color: var(--muted); }
+.layers .link { position: relative; height: 30px; margin-left: 28px; border-left: 2px dashed var(--line); }
+.layers .link span {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  font: 12px/1 ui-monospace, monospace; letter-spacing: .06em; color: var(--muted);
+}
+footer { padding: 36px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  header.hero { padding-top: 32px; }
+  .project { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav>
+    <a href="/">Simone Vellei</a>
+    <div class="links">
+      <a href="/posts/">Posts</a>
+      <a href="https://github.com/henomis">GitHub</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Portfolio</div>
+    <h1>My personal dark factory</h1>
+    <p class="lede"><strong>Agents write the code. I own the spec and the gates.</strong> I'm a senior backend engineer and open source author. Below is what it has built so far: a stack of three open source Go projects, from agents to durable workflows to fleet orchestration.</p>
+  </header>
+
+  <section id="about" class="about">
+    <h2>About this factory</h2>
+    <div class="prose">
+      <p>A <a href="https://simonwillison.net/2026/Feb/7/software-factory">dark factory</a> is a pipeline where a spec goes in and tested software comes out, with agents doing the planning, writing, testing and review in between. Mine is not fully dark, on purpose: the lights stay on where judgment lives. What to build, which behaviors must never break, and what counts as done. Everything between those points is delegated, and delegated hard.</p>
+      <p>I still think of myself as a craftsman, and I have fully embraced AI-first. The two fit because the craft moves into the specs and the checks. It is also why <strong>AI-first is a way of working and AI-only is a way of failing slowly</strong> (more in <a href="/en/prototype-like-anyone-ship-like-an-engineer/">this post</a>).</p>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Spec-driven</h3><p>A <code>CLAUDE.md</code> per repo as standing orders, plus plans, event and protocol specs, and invariant tables.</p></div>
+      <div class="card"><h3>Gates, not vibes</h3><p>Black-box and chaos tests, race detector, linter, and architecture rules enforced by tests.</p></div>
+      <div class="card"><h3>Craft stays</h3><p>Design before code, named failure modes, and an append-only backlog for every doubt.</p></div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <h2>What the factory built</h2>
+    <div class="prose">
+      <p>Three open source Go projects, each with one job, layered so that each can be used alone. All three were built with the process above, and each repository carries the specs and gates that made that possible.</p>
+    </div>
+
+    <div class="layers" role="img" aria-label="Layer diagram: stiggy runs on packtrail, which runs on phero">
+      <a class="layer-box" href="#stiggy"><span class="name">stiggy</span><span class="what">Declare a fleet in YAML or Go. It compiles into flows.</span></a>
+      <div class="link"><span>compiles to</span></div>
+      <a class="layer-box" href="#packtrail"><span class="name">packtrail</span><span class="what">Durable, event-sourced workflows on NATS JetStream.</span></a>
+      <div class="link"><span>runs agents from</span></div>
+      <a class="layer-box" href="#phero"><span class="name">phero</span><span class="what">Agents, LLMs, tools, memory, RAG, MCP and A2A.</span></a>
+    </div>
+
+    <div class="stack">
+
+      <article class="project" id="phero">
+        <div class="layer">Layer 1 &middot; Agents</div>
+        <h3>phero</h3>
+        <p class="tag">The chemical language of AI agents.</p>
+        <p>A Go framework for multi-agent systems. Small composable packages instead of a monolith, with a provider-agnostic LLM layer for OpenAI-compatible endpoints and Anthropic.</p>
+        <ul>
+          <li>Agent orchestration with tool execution, chat loops and runtime handoffs</li>
+          <li>Function tools with automatic JSON Schema, skills from <code>SKILL.md</code> files, and MCP servers as tools</li>
+          <li>Memory, embeddings, RAG and vector stores (Qdrant, PostgreSQL/pgvector, Weaviate)</li>
+          <li>A2A and a NATS agent protocol, so agents can be discovered and called over pub/sub</li>
+          <li>LLM middleware (retry, rate limit, guardrails, semantic cache) and typed tracing with OpenTelemetry</li>
+        </ul>
+        <p class="specs"><strong>How it is specified:</strong> package-by-package conventions in <code>CLAUDE.md</code>, end-to-end tests against real services, and an append-only review backlog where each finding is closed with a regression test.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/henomis/phero">Repository</a>
+          <a class="btn" href="https://simonevellei.com/phero/">Website and docs</a>
+        </div>
+      </article>
+
+      <article class="project" id="packtrail">
+        <div class="layer">Layer 2 &middot; Durability</div>
+        <h3>packtrail</h3>
+        <p class="tag">A durable workflow engine built only on NATS JetStream.</p>
+        <p>Workflows as data, not as code. You declare a graph and the engine interprets it. Every execution is an ordered event log, and state, timers, jobs and the visibility index are all derived from it.</p>
+        <ul>
+          <li>Event-sourced, so time travel, forks, replays and audit come for free</li>
+          <li>Tasks, choices, fan-out and join, human-in-the-loop awaits, dynamic maps, subflows and failure routing</li>
+          <li>Workers in any language over a small versioned JSON protocol</li>
+          <li>Agnostic by design: no agents, LLMs or tokens in the core</li>
+          <li>No database and no coordinator: single-writer appends with expected-sequence checks, and everything else in NATS</li>
+        </ul>
+        <p class="specs"><strong>How it is specified:</strong> an event-log spec, a worker protocol spec, and an invariants table where every behavior points at the test that proves it. Acceptance and chaos suites run against an embedded NATS server, never mocks. Allowed dependencies are pinned by a test.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/henomis/packtrail">Repository</a>
+          <a class="btn" href="https://simonevellei.com/packtrail/">Website and docs</a>
+        </div>
+      </article>
+
+      <article class="project" id="stiggy">
+        <div class="layer">Layer 3 &middot; Orchestration</div>
+        <h3>stiggy</h3>
+        <p class="tag">Multi-agent architectures, deployed on NATS.</p>
+        <p>Glues phero's agents to packtrail's durable flows. You describe a fleet once, as a YAML file or in Go, and it compiles into flows whose steps run agents. It covers what LangGraph and CrewAI provide, on a substrate that survives crashes and scales out.</p>
+        <ul>
+          <li>Models, tools, knowledge and agents with CrewAI-style role, goal and backstory</li>
+          <li>Crews and patterns: supervisor, swarm, evaluator-optimizer, debate and plan-execute, expanded into plain flows</li>
+          <li>Validation that reports every problem with its line, and a compiler you can inspect</li>
+          <li>Execution control from the CLI: signal, resume, fork, rerun, cancel and watch progress</li>
+        </ul>
+        <p class="specs"><strong>How it is specified:</strong> a reference doc and a feature-by-feature coverage map against LangGraph and CrewAI, golden tests for the compiler, and a hard architecture rule: stiggy never touches NATS directly, and a type-based guard test enforces it.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/henomis/stiggy">Repository</a>
+          <a class="btn" href="https://simonevellei.com/stiggy/">Website and docs</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by <a href="/">Simone Vellei</a>. More writing on <a href="/posts/">the blog</a>, code on <a href="https://github.com/henomis">GitHub</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>
