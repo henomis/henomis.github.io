@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My personal dark factory | Simone Vellei</title>
-<meta name="description" content="A senior backend engineer's personal dark factory: spec-driven, AI-first, craftsman-grounded. Built with it: phero, packtrail, stiggy.">
+<meta name="description" content="A senior backend engineer's personal dark factory: spec-driven, AI-first, craftsman-grounded. Built with it: phero, packtrail, stiggy, and cicoria, the terminal workspace it runs from.">
 <link rel="canonical" href="https://simonevellei.com/darkfactory/">
 <meta property="og:title" content="My personal dark factory | Simone Vellei">
-<meta property="og:description" content="Spec-driven, AI-first, craftsman-grounded. phero, packtrail and stiggy.">
+<meta property="og:description" content="Spec-driven, AI-first, craftsman-grounded. phero, packtrail, stiggy and cicoria.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://simonevellei.com/darkfactory/">
 <style>
@@ -79,7 +79,7 @@ code { font: 14px ui-monospace, SFMono-Regular, Menlo, monospace; background: va
 .about h2 { font-size: 22px; }
 .about .prose { font-size: 16.5px; }
 .about .grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
-#stack > h2 { font-size: 34px; }
+.built > h2 { font-size: 34px; }
 .stack { display: grid; gap: 18px; margin-top: 22px; }
 .project {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px;
@@ -135,7 +135,7 @@ footer { padding: 36px 0 60px; border-top: 1px solid var(--line); color: var(--m
   <header class="hero">
     <div class="eyebrow">Portfolio</div>
     <h1>My personal dark factory</h1>
-    <p class="lede"><strong>Agents write the code. I own the spec and the gates.</strong> I'm a senior backend engineer and open source author. Below is what it has built so far: a stack of three open source Go projects, from agents to durable workflows to fleet orchestration.</p>
+    <p class="lede"><strong>Agents write the code. I own the spec and the gates.</strong> I'm a senior backend engineer and open source author. Below is what it has built so far, all open source Go: a stack of three projects, from agents to durable workflows to fleet orchestration, and the terminal workspace I run the factory from.</p>
   </header>
 
   <section id="about" class="about">
@@ -151,10 +151,10 @@ footer { padding: 36px 0 60px; border-top: 1px solid var(--line); color: var(--m
     </div>
   </section>
 
-  <section id="stack">
-    <h2>What the factory built</h2>
+  <section id="stack" class="built">
+    <h2>The stack the factory built</h2>
     <div class="prose">
-      <p>Three open source Go projects, each with one job, layered so that each can be used alone. All three were built with the process above, and each repository carries the specs and gates that made that possible.</p>
+      <p>Three open source Go projects, each with one job, layered so that each can be used alone. All three were built with the process above, and each repository carries the specs and gates that made that possible. The factory also built its own <a href="#workbench">workbench</a>.</p>
     </div>
 
     <div class="layers" role="img" aria-label="Layer diagram: stiggy runs on packtrail, which runs on phero">
@@ -220,6 +220,36 @@ footer { padding: 36px 0 60px; border-top: 1px solid var(--line); color: var(--m
         <div class="btns">
           <a class="btn primary" href="https://github.com/henomis/stiggy">Repository</a>
           <a class="btn" href="https://simonevellei.com/stiggy/">Website and docs</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="workbench" class="built">
+    <h2>The workbench it runs from</h2>
+    <div class="prose">
+      <p>Delegating hard means several agents working at once, and the scarce resource becomes my attention: which one is waiting for me, and what did the others change. This one is not a layer of the stack. It is the place where I sit to own the spec and the gates, and the factory built that too.</p>
+    </div>
+
+    <div class="stack">
+
+      <article class="project" id="cicoria">
+        <div class="layer">Workbench &middot; Supervision</div>
+        <h3>cicoria</h3>
+        <p class="tag">A terminal workspace for the AI-first engineer.</p>
+        <p>Run several coding agents side by side, see which one needs you, and review what they changed, without leaving the terminal. Each agent is its own command-line program in a real terminal pane, so nothing of its interface is lost.</p>
+        <ul>
+          <li>A status for every session (working, needs input, finished), one key to jump to the next that needs you, and a desktop notification when one starts waiting</li>
+          <li>Review of what a session changed, uncommitted or since the commit it started on, in full-screen diffs with search and hunk navigation</li>
+          <li>Notes on lines of code, sent to the agent as one message</li>
+          <li>A message queue that sends each message when the agent ends its turn</li>
+          <li>Full integration with Claude Code through hooks, and any other command-line agent with status guessed from terminal activity</li>
+        </ul>
+        <p class="specs"><strong>How it is specified:</strong> a <code>CLAUDE.md</code> with a one-way dependency architecture, and end-to-end tests that build the binary and drive it in a real pseudo-terminal against a scratch git project, with a script standing in for the agent and emitting real hook events. Every user-visible change is documented in four places, and every setting is treated as a compatibility promise.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/henomis/cicoria">Repository</a>
+          <a class="btn" href="https://simonevellei.com/cicoria/">Website and docs</a>
         </div>
       </article>
 
