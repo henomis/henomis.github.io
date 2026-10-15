@@ -15,11 +15,11 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/rock64-004.png"
+featuredImage: "/images/rock64-004.jpg"
 aliases: 
     - "/blog/posts/freebsd-on-a-rock64-board/"
 cover:
-    image: "/images/rock64-004.png" # image path/url
+    image: "/images/rock64-004.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
@@ -28,16 +28,16 @@ cover:
 This is a story about an embedded board and a BSD system. The title could have been "How to resurrect a forgotten board and fall in love with BSD operating systems, again".
 It all started 6 years ago when I bought 4 Pine Rock64 boards, with a well planned project in my mind. Each board was equipped with a Rockchip RK3328 quad-core ARM Cortex A53 64-Bit processor, 4GB of RAM, 32GB of eMMC storage, and a Gigabit Ethernet port.
 
-![image](/images/rock64-001.png)
+![image](/images/rock64-001.jpg)
 
  The project was to build a cluster of 4 boards to experiment with Kubernetes and Docker. I was very excited about the project, but unfortunately, I never had the time to go through it. The only thing I did was to build a rack to hold the 4 boards together, including a small 5-port switch and a power supply. The rack was placed in a corner of my office and forgotten after some preliminary tests.
 
-![image](/images/rock64-003.png)
+![image](/images/rock64-003.jpg)
 
 ## The resurrection
 Some days ago I was cleaning my office and I found the rack with the 4 boards. I decided to give it a try and see if I could make them work. I connected the power supply and the switch, and I powered on the boards. The boards were booting, I tried to connect to them using the serial console, but I couldn't remember the root password. I took that as a **sign**, let's start from scratch, again. I still had the original eMMC USB adapter to flash an OS image and more or less 20 years of IoT experience on my shoulders. Ready, set, go!
 
-![image](/images/rock64-002.png)
+![image](/images/rock64-002.jpg)
 
 ## Documentation
 First thing first, let's check the documentation. I went to the Pine64 website and I found the [Rock64 device](https://pine64.org/devices/rock64/) page and the [Rock64 wiki](https://wiki.pine64.org/wiki/Rock64). Time flies, and I remember a different website, but I'm happy to see the [Release](https://pine64.org/documentation/ROCK64/Software/Releases/) page with the latest supported OS images. There are many Linux distributions, Debian, the derived Armbian, and a plethora of Android versions. Hey, am I getting so old? Then my heart calmed down when I saw the FreeBSD, NetBSD, and OpenBSD support. 

@@ -15,11 +15,11 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/famiglia001.png"
+featuredImage: "/images/famiglia001.jpg"
 aliases: 
     - "/blog/posts/siamo-una-grande-famiglia/"
 cover:
-    image: "/images/famiglia001.png" # image path/url
+    image: "/images/famiglia001.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
@@ -32,7 +32,7 @@ E spesso, dietro chi la usa, si nasconde il peggior tipo di capo: il **micromana
 
 
 # La retorica della grande famiglia
-![Micromanager e retorica della grande famiglia](/images/famiglia002.png)
+![Micromanager e retorica della grande famiglia](/images/famiglia002.jpg)
 Mettiamo in chiaro che un’azienda è un’organizzazione professionale, che ha come unico scopo la **produzione di beni o servizi per il profitto**. Certamente non è un luogo di affetto incondizionato, ma un ambiente dove le relazioni sono basate su contratti, diritti e doveri reciproci. Perché allora questa retorica della "grande famiglia" è così diffusa?
 
 ## Mancanza di professionalità

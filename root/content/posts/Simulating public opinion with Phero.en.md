@@ -14,12 +14,12 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/phero011.png"
-images: ["/images/phero011.png"]
+featuredImage: "/images/phero011.jpg"
+images: ["/images/phero011.jpg"]
 code:
   maxShownLines: -1
 cover:
-    image: "/images/phero011.png"
+    image: "/images/phero011.jpg"
     alt: "Simulating public opinion with Phero"
     caption: ""
     relative: false

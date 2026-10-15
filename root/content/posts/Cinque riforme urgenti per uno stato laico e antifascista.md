@@ -15,9 +15,9 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/religione001.png"
+featuredImage: "/images/religione001.jpg"
 images:
-  - "/images/religione001.png"
+  - "/images/religione001.jpg"
 ---
 In un'epoca in cui le democrazie occidentali si confrontano con crescente pluralismo religioso e culturale, la questione della laicità dello Stato torna al centro del dibattito pubblico. Il rapporto tra istituzioni pubbliche e confessioni religiose, modellato in Italia da accordi che risalgono al regime fascista, necessita di una profonda revisione per garantire pari dignità a tutti i cittadini, credenti e non credenti.
 

@@ -15,9 +15,9 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/ai001.png"
+featuredImage: "/images/ai001.jpg"
 images:
-  - "/images/ai001.png"
+  - "/images/ai001.jpg"
 ---
 
 L'Europa sta commettendo un errore strategico di portata storica. Mentre Stati Uniti e Cina investono centinaia di miliardi nell'intelligenza artificiale e trasformano radicalmente le loro economie, noi ci stiamo ingessando in una ragnatela burocratica che rischia di condannarci all'irrilevanza tecnologica.

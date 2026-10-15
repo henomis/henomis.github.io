@@ -15,11 +15,11 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/rock64-004.png"
+featuredImage: "/images/rock64-004.jpg"
 aliases: 
     - "/blog/posts/freebsd-on-a-rock64-board/"
 cover:
-    image: "/images/rock64-004.png" # image path/url
+    image: "/images/rock64-004.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
@@ -37,17 +37,17 @@ Questo post è stato originariamente scritto in inglese e tradotto in italiano t
 Questa è la storia di una scheda embedded e di un sistema BSD. Il titolo avrebbe potuto essere "Come resuscitare una scheda dimenticata e innamorarsi di nuovo dei sistemi operativi BSD".
 Tutto è iniziato 6 anni fa quando ho comprato 4 schede Pine Rock64, con un progetto ben pianificato in mente. Ogni scheda era equipaggiata con un processore Rockchip RK3328 quad-core ARM Cortex A53 a 64 bit, 4 GB di RAM, 32 GB di memoria eMMC e una porta Ethernet Gigabit.
 
-![image](/images/rock64-001.png)
+![image](/images/rock64-001.jpg)
 
 Il progetto era costruire un cluster di 4 schede per sperimentare con Kubernetes e Docker. Ero molto entusiasta del progetto, ma purtroppo non ho mai avuto il tempo di portarlo avanti. L’unica cosa che ho fatto è stata costruire un rack per tenere insieme le 4 schede, incluso un piccolo switch a 5 porte e un alimentatore. Il rack è stato messo in un angolo del mio ufficio e dimenticato dopo alcuni test preliminari.
 
-![image](/images/rock64-003.png)
+![image](/images/rock64-003.jpg)
 
 ## La resurrezione
 
 Qualche giorno fa stavo pulendo il mio ufficio e ho trovato il rack con le 4 schede. Ho deciso di fare un tentativo e vedere se potevo farle funzionare. Ho collegato l’alimentatore e lo switch, e ho acceso le schede. Le schede si avviavano, ho provato a connettermi tramite la console seriale, ma non ricordavo la password di root. Ho preso questo come un **segno**, ricominciamo da zero. Avevo ancora l’adattatore USB per eMMC originale per flashare un’immagine OS e più o meno 20 anni di esperienza IoT sulle spalle. Pronti, via!
 
-![image](/images/rock64-002.png)
+![image](/images/rock64-002.jpg)
 
 ## Documentazione
 

@@ -14,10 +14,10 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/phero009.png"
-images: ["/images/phero009.png"]
+featuredImage: "/images/phero009.jpg"
+images: ["/images/phero009.jpg"]
 cover:
-    image: "/images/phero009.png"
+    image: "/images/phero009.jpg"
     alt: "Phero NATS Agent Protocol"
     caption: ""
     relative: false

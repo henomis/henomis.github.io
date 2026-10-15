@@ -15,11 +15,11 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/referendum000.png"
+featuredImage: "/images/referendum000.jpg"
 aliases: 
     - "/blog/posts/referendum-2025/"
 cover:
-    image: "/images/referendum000.png" # image path/url
+    image: "/images/referendum000.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true

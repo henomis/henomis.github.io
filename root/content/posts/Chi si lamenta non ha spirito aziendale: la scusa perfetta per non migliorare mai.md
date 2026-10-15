@@ -15,9 +15,9 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/azienda002.png"
+featuredImage: "/images/azienda002.jpg"
 images:
-  - "/images/azienda002.png"
+  - "/images/azienda002.jpg"
 ---
 
 È lunedì mattina, durante il meeting tecnico, Marco fa notare che l'attrezzatura di laboratorio necessaria per i test di validazione continua a dare risultati inconsistenti, rallentando la sperimentazione di settimane. Serve una calibrazione o forse una sostituzione. Il responsabile del dipartimento annuisce distrattamente e passa al punto successivo dell'agenda. Alla pausa caffè, un collega più anziano si avvicina a Marco: "Guarda che qui non si apprezzano quelli che vedono sempre problemi. Chi si lamenta troppo non ha spirito aziendale."

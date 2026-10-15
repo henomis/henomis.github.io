@@ -15,11 +15,11 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/pollenium04.png"
+featuredImage: "/images/pollenium04.jpg"
 aliases: 
     - "/blog/posts/nats-as-broker-for-my-home-server/"
 cover:
-    image: "/images/pollenium04.png" # image path/url
+    image: "/images/pollenium04.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true

@@ -15,10 +15,10 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/phero004.png"
-images: ["/images/phero004.png"]
+featuredImage: "/images/phero004.jpg"
+images: ["/images/phero004.jpg"]
 cover:
-    image: "/images/phero004.png" # image path/url
+    image: "/images/phero004.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true

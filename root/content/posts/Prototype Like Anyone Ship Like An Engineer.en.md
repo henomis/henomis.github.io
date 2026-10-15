@@ -14,12 +14,12 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/ai004.png"
-images: ["/images/ai004.png"]
+featuredImage: "/images/ai004.jpg"
+images: ["/images/ai004.jpg"]
 code:
   maxShownLines: -1
 cover:
-    image: "/images/ai004.png" # image path/url
+    image: "/images/ai004.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true

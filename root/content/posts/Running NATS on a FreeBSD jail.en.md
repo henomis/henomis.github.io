@@ -15,11 +15,11 @@ searchHidden: true
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
-featuredImage: "/images/nats001.png"
+featuredImage: "/images/nats001.jpg"
 aliases: 
     - "/blog/posts/running-nats-on-a-freebsd-jail/"
 cover:
-    image: "/images/nats001.png" # image path/url
+    image: "/images/nats001.jpg" # image path/url
     alt: "<alt text>" # alt text
     caption: "<text>" # display caption under cover
     relative: false # when using page bundles set this to true
