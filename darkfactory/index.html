@@ -209,14 +209,14 @@ footer { padding: 36px 0 60px; border-top: 1px solid var(--line); color: var(--m
         <div class="layer">Layer 3 &middot; Orchestration</div>
         <h3>stiggy</h3>
         <p class="tag">Multi-agent architectures, deployed on NATS.</p>
-        <p>Glues phero's agents to packtrail's durable flows. You describe a fleet once, as a YAML file or in Go, and it compiles into flows whose steps run agents. It covers what LangGraph and CrewAI provide, on a substrate that survives crashes and scales out.</p>
+        <p>Glues phero's agents to packtrail's durable flows. You describe a fleet once, as a YAML file or in Go, and it compiles into flows whose steps run agents. Crews, supervisors, swarms and human review run on a substrate that survives crashes and scales out.</p>
         <ul>
-          <li>Models, tools, knowledge and agents with CrewAI-style role, goal and backstory</li>
+          <li>Models, tools, knowledge and agents with a role, goal and backstory</li>
           <li>Crews and patterns: supervisor, swarm, evaluator-optimizer, debate and plan-execute, expanded into plain flows</li>
           <li>Validation that reports every problem with its line, and a compiler you can inspect</li>
           <li>Execution control from the CLI: signal, resume, fork, rerun, cancel and watch progress</li>
         </ul>
-        <p class="specs"><strong>How it is specified:</strong> a reference doc and a feature-by-feature coverage map against LangGraph and CrewAI, golden tests for the compiler, and a hard architecture rule: stiggy never touches NATS directly, and a type-based guard test enforces it.</p>
+        <p class="specs"><strong>How it is specified:</strong> a reference doc, golden tests for the compiler, live end-to-end scenarios against a real model, and a hard architecture rule: stiggy never touches NATS directly, and a type-based guard test enforces it.</p>
         <div class="btns">
           <a class="btn primary" href="https://github.com/henomis/stiggy">Repository</a>
           <a class="btn" href="https://simonevellei.com/stiggy/">Website and docs</a>
